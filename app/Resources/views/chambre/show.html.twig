@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Chambre</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idchambre</th>
+                <td>{{ chambre.idChambre }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ chambre.type }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ chambre.prix }}</td>
+            </tr>
+            <tr>
+                <th>Clientchfk</th>
+                <td>{{ chambre.clientChFk }}</td>
+            </tr>
+            <tr>
+                <th>Hotelchfk</th>
+                <td>{{ chambre.hotelChFk }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('chambre_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
