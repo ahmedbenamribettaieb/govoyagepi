@@ -64,42 +64,30 @@ class Voyagepersonalise
     private $nbrParticipant;
 
     /**
-     * @var \Users
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="hotel_fk", referencedColumnName="id_user")
-     * })
+     * @ORM\Column(name="hotel_fk", type="integer", nullable=true)
      */
     private $hotelFk;
 
     /**
-     * @var \Users
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client_vp_fk", referencedColumnName="id_user")
-     * })
+     * @ORM\Column(name="client_vp_fk", type="integer", nullable=true)
      */
     private $clientVpFk;
 
     /**
-     * @var \Evenement
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Evenement")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="event1_fk", referencedColumnName="id_evenement")
-     * })
+     * @ORM\Column(name="event1_fk", type="integer", nullable=true)
      */
     private $event1Fk;
 
     /**
-     * @var \Users
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_guide_fk", referencedColumnName="id_user")
-     * })
+     * @ORM\Column(name="id_guide_fk", type="integer", nullable=true)
      */
     private $idGuideFk;
 

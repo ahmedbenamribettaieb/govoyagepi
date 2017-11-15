@@ -13,13 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Voiture
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="regNo", type="string", length=25, nullable=false)
+     * @ORM\Column(name="id_voiture", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $regno;
+    private $idVoiture;
 
     /**
      * @var string
@@ -57,24 +57,32 @@ class Voiture
     private $status;
 
     /**
-     * @var \Users
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="alv_vo_fk", referencedColumnName="id_user")
-     * })
+     * @ORM\Column(name="client_vo_fk", type="integer", nullable=true)
+     */
+    private $clientVoFk;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="alv_vo_fk", type="integer", nullable=true)
      */
     private $alvVoFk;
 
     /**
-     * @var \Users
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client_vo_fk", referencedColumnName="id_user")
-     * })
+     * @ORM\Column(name="regNo", type="string", length=25, nullable=true)
      */
-    private $clientVoFk;
+    private $regno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img_voiture", type="string", length=255, nullable=true)
+     */
+    private $imgVoiture;
 
 
 }
