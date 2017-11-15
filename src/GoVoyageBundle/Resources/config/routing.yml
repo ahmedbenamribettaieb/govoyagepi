@@ -1,0 +1,7 @@
+go_voyage_chambre:
+    resource: "@GoVoyageBundle/Resources/config/routing/chambre.yml"
+    prefix:   /chambre
+
+go_voyage_homepage:
+    path:     /
+    defaults: { _controller: GoVoyageBundle:Default:index }
