@@ -15,11 +15,19 @@ class Voiture
     /**
      * @var string
      *
-     * @ORM\Column(name="regNo", type="string", length=25, nullable=false)
+     * @ORM\Column(name="id_voiture", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    private $id_voiture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="regNo", type="string", length=25, nullable=true)
+     */
     private $regno;
+
 
     /**
      * @var string
@@ -27,6 +35,13 @@ class Voiture
      * @ORM\Column(name="model", type="string", length=30, nullable=false)
      */
     private $model;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img_voiture", type="string", length=255, nullable=true)
+     */
+    private $img_voiture;
 
     /**
      * @var integer

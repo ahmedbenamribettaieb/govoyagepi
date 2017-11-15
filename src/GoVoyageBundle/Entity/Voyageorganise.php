@@ -56,6 +56,7 @@ class Voyageorganise
      */
     private $description;
 
+
     /**
      * @var float
      *
@@ -83,6 +84,8 @@ class Voyageorganise
      * @ORM\Column(name="nbrePlacesRes", type="integer", nullable=true)
      */
     private $nbreplacesres;
+
+
 
 
 }
