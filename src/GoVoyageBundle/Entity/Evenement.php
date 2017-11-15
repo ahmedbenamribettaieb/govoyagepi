@@ -43,5 +43,86 @@ class Evenement
     private $emplacement;
 
 
-}
 
+    /**
+     * Get idEvenement
+     *
+     * @return integer
+     */
+    public function getIdEvenement()
+    {
+        return $this->idEvenement;
+    }
+
+    /**
+     * Set activite
+     *
+     * @param string $activite
+     *
+     * @return Evenement
+     */
+    public function setActivite($activite)
+    {
+        $this->activite = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Get activite
+     *
+     * @return string
+     */
+    public function getActivite()
+    {
+        return $this->activite;
+    }
+
+    /**
+     * Set dateActivite
+     *
+     * @param \DateTime $dateActivite
+     *
+     * @return Evenement
+     */
+    public function setDateActivite($dateActivite)
+    {
+        $this->dateActivite = $dateActivite;
+
+        return $this;
+    }
+
+    /**
+     * Get dateActivite
+     *
+     * @return \DateTime
+     */
+    public function getDateActivite()
+    {
+        return $this->dateActivite;
+    }
+
+    /**
+     * Set emplacement
+     *
+     * @param string $emplacement
+     *
+     * @return Evenement
+     */
+    public function setEmplacement($emplacement)
+    {
+        $this->emplacement = $emplacement;
+
+        return $this;
+    }
+
+    /**
+     * Get emplacement
+     *
+     * @return string
+     */
+    public function getEmplacement()
+    {
+        return $this->emplacement;
+    }
+}

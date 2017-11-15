@@ -92,5 +92,254 @@ class Voyagepersonalise
     private $idGuideFk;
 
 
-}
 
+    /**
+     * Get idVp
+     *
+     * @return integer
+     */
+    public function getIdVp()
+    {
+        return $this->idVp;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Voyagepersonalise
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set villeDepart
+     *
+     * @param string $villeDepart
+     *
+     * @return Voyagepersonalise
+     */
+    public function setVilleDepart($villeDepart)
+    {
+        $this->villeDepart = $villeDepart;
+
+        return $this;
+    }
+
+    /**
+     * Get villeDepart
+     *
+     * @return string
+     */
+    public function getVilleDepart()
+    {
+        return $this->villeDepart;
+    }
+
+    /**
+     * Set villeArrive
+     *
+     * @param string $villeArrive
+     *
+     * @return Voyagepersonalise
+     */
+    public function setVilleArrive($villeArrive)
+    {
+        $this->villeArrive = $villeArrive;
+
+        return $this;
+    }
+
+    /**
+     * Get villeArrive
+     *
+     * @return string
+     */
+    public function getVilleArrive()
+    {
+        return $this->villeArrive;
+    }
+
+    /**
+     * Set dateDepart
+     *
+     * @param \DateTime $dateDepart
+     *
+     * @return Voyagepersonalise
+     */
+    public function setDateDepart($dateDepart)
+    {
+        $this->dateDepart = $dateDepart;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDepart
+     *
+     * @return \DateTime
+     */
+    public function getDateDepart()
+    {
+        return $this->dateDepart;
+    }
+
+    /**
+     * Set dateArrive
+     *
+     * @param \DateTime $dateArrive
+     *
+     * @return Voyagepersonalise
+     */
+    public function setDateArrive($dateArrive)
+    {
+        $this->dateArrive = $dateArrive;
+
+        return $this;
+    }
+
+    /**
+     * Get dateArrive
+     *
+     * @return \DateTime
+     */
+    public function getDateArrive()
+    {
+        return $this->dateArrive;
+    }
+
+    /**
+     * Set nbrParticipant
+     *
+     * @param integer $nbrParticipant
+     *
+     * @return Voyagepersonalise
+     */
+    public function setNbrParticipant($nbrParticipant)
+    {
+        $this->nbrParticipant = $nbrParticipant;
+
+        return $this;
+    }
+
+    /**
+     * Get nbrParticipant
+     *
+     * @return integer
+     */
+    public function getNbrParticipant()
+    {
+        return $this->nbrParticipant;
+    }
+
+    /**
+     * Set hotelFk
+     *
+     * @param integer $hotelFk
+     *
+     * @return Voyagepersonalise
+     */
+    public function setHotelFk($hotelFk)
+    {
+        $this->hotelFk = $hotelFk;
+
+        return $this;
+    }
+
+    /**
+     * Get hotelFk
+     *
+     * @return integer
+     */
+    public function getHotelFk()
+    {
+        return $this->hotelFk;
+    }
+
+    /**
+     * Set clientVpFk
+     *
+     * @param integer $clientVpFk
+     *
+     * @return Voyagepersonalise
+     */
+    public function setClientVpFk($clientVpFk)
+    {
+        $this->clientVpFk = $clientVpFk;
+
+        return $this;
+    }
+
+    /**
+     * Get clientVpFk
+     *
+     * @return integer
+     */
+    public function getClientVpFk()
+    {
+        return $this->clientVpFk;
+    }
+
+    /**
+     * Set event1Fk
+     *
+     * @param integer $event1Fk
+     *
+     * @return Voyagepersonalise
+     */
+    public function setEvent1Fk($event1Fk)
+    {
+        $this->event1Fk = $event1Fk;
+
+        return $this;
+    }
+
+    /**
+     * Get event1Fk
+     *
+     * @return integer
+     */
+    public function getEvent1Fk()
+    {
+        return $this->event1Fk;
+    }
+
+    /**
+     * Set idGuideFk
+     *
+     * @param integer $idGuideFk
+     *
+     * @return Voyagepersonalise
+     */
+    public function setIdGuideFk($idGuideFk)
+    {
+        $this->idGuideFk = $idGuideFk;
+
+        return $this;
+    }
+
+    /**
+     * Get idGuideFk
+     *
+     * @return integer
+     */
+    public function getIdGuideFk()
+    {
+        return $this->idGuideFk;
+    }
+}
