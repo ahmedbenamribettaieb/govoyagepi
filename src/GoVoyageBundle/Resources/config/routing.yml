@@ -5,3 +5,15 @@ go_voyage_chambre:
 go_voyage_homepage:
     path:     /
     defaults: { _controller: GoVoyageBundle:Default:index }
+
+go_voyage_affichevoiture:
+    path:     /listVoiture
+    defaults: { _controller: GoVoyageBundle:Voiture:list }
+
+go_voyage_ajoutvoiture:
+    path:     /ajoutvoiture
+    defaults: { _controller: GoVoyageBundle:Voiture:ajout }
+
+go_voyage_suppvoiture:
+    path:     /suppvoiture/{id_voiture}
+    defaults: { _controller: GoVoyageBundle:Voiture:supp }
