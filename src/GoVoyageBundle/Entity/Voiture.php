@@ -24,6 +24,13 @@ class Voiture
     /**
      * @var string
      *
+     * @ORM\Column(name="regNo", type="string", length=25, nullable=false)
+     */
+    private $regno;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="model", type="string", length=30, nullable=false)
      */
     private $model;
@@ -73,16 +80,9 @@ class Voiture
     /**
      * @var string
      *
-     * @ORM\Column(name="regNo", type="string", length=25, nullable=true)
+     * @ORM\Column(name="image_voiture", type="string", length=255, nullable=false)
      */
-    private $regno;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="img_voiture", type="string", length=255, nullable=true)
-     */
-    private $imgVoiture;
+    private $imageVoiture;
 
 
 }
