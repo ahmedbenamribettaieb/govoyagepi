@@ -1,0 +1,190 @@
+{% extends "GoVoyageBundle:Vol:Vol_layout.html.twig" %}
+{% block content %}
+<div class="main-cont">
+    <div class="body-wrapper">
+        <div class="wrapper-padding">
+            <div class="page-head">
+                <div class="page-title">Nos Vols :</div>
+
+                <div class="clear"></div>
+            </div>
+            <div class="two-colls">
+                <div class="two-colls-left">
+
+                    <div class="srch-results-lbl fly-in">
+                        <span>Chercher un Vol.</span>
+                    </div>
+
+                    <div class="side-block fly-in">
+                        <div class="side-block-search">
+                            <div class="page-search-p">
+                                <!-- // -->
+                                <div class="srch-tab-line">
+                                    <div class="srch-tab-left">
+                                        <label>From</label>
+                                        <div class="input-a"><input type="text" value="" placeholder="Vienna"></div>
+                                    </div>
+                                    <div class="srch-tab-right">
+                                        <label>To</label>
+                                        <div class="input-a"><input type="text" value="" placeholder="London"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- \\ -->
+                                <!-- // -->
+                                <div class="srch-tab-line">
+                                    <div class="srch-tab-left">
+                                        <label>Departure</label>
+                                        <div class="input-a"><input type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                    </div>
+                                    <div class="srch-tab-right">
+                                        <label>Return</label>
+                                        <div class="input-a"><input type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- \\ -->
+                                <div class="srch-tab-line no-margin-bottom">
+                                    <div class="srch-tab-left transformed">
+                                        <label>Passengers</label>
+                                        <div class="select-wrapper">
+                                            <select class="custom-select">
+                                                <option>--</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="srch-tab-right transformed">
+                                        <label>Class</label>
+                                        <div class="select-wrapper">
+                                            <select class="custom-select">
+                                                <option>--</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- \\ -->
+
+                                <button class="srch-btn">Search</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="two-colls-right">
+                    <div class="two-colls-right-b">
+                        <div class="padding">
+
+                            <div class="catalog-head fly-in">
+                                <label>Afficher les resultats de Recherche par:</label>
+                                <div class="search-select">
+                                    <select>
+                                        <option>Nom du vol</option>
+                                        <option>Prix</option>
+                                        <option>Date</option>
+                                        <option>Depart</option>
+                                        <option>Arrivé</option>
+                                    </select>
+                                </div>
+                                <a href="#" class="show-list"></a>
+
+                                <div class="clear"></div>
+                            </div>
+
+                            <div class="catalog-row">
+                                {% for v in vols %}
+                                    {% if v.clientVolFk == null %}
+                                <!-- // flight-item // -->
+                                <div class="flight-item fly-in">
+                                    <div class="flt-i-a">
+                                        <div class="flt-i-b">
+                                            <div class="flt-i-bb">
+                                                <div class="flt-l-a">
+                                                    <div class="flt-l-b">
+                                                        <div class="way-lbl">Nom du Vol :</div>
+                                                        <div class="company"><img alt="" src="{{ asset('img/flyght-01.png') }}"></div>
+                                                    </div>
+                                                    <div class="flt-l-c">
+                                                        <div class="flt-l-cb">
+                                                            <div class="flt-l-c-padding">
+                                                                <div class="flyght-info-head">{{ v.nomVol }}</div>
+                                                                <!-- // -->
+                                                                <div class="flight-line">
+
+                                                                    <div class="flight-line-a">
+                                                                        <b>depart</b>
+                                                                        <span>{{ v.depart }}</span>
+                                                                    </div>
+                                                                    <div class="flight-line-d"></div>
+                                                                    <div class="flight-line-a">
+                                                                        <b>arrivée</b>
+                                                                        <span>{{ v.arrivee }}</span>
+                                                                    </div>
+                                                                    <div class="flight-line-d"></div>
+
+                                                                    <div class="flight-line-b">
+                                                                        <b>details</b>
+                                                                    </div>
+                                                                    <div class="clear"></div>
+                                                                    <!-- // details // -->
+                                                                    <div class="flight-details">
+                                                                        <div class="flight-details-l">
+                                                                            <div class="flight-details-a">Nom du Compagnie :</div>
+                                                                            <div class="flight-details-a">{{ v.dateDepart | date("d/m/y") }}</div>
+                                                                            <div class="flight-details-c">{{ v.depart }}</div>
+                                                                        </div>
+                                                                        <div class="flight-details-r">
+                                                                            <div class="flight-details-c">{{ v.nomCompagnie }}</div>
+                                                                            <div class="flight-details-a">{{ v.dateArrivee | date("d/m/y") }}</div>
+                                                                            <div class="flight-details-c">{{ v.arrivee }}</div>
+                                                                        </div>
+                                                                        <div class="clear"></div>
+                                                                    </div>
+                                                                    <!-- \\ details \\ -->
+                                                                </div>
+                                                                <!-- \\ -->
+                                                            </div>
+                                                        </div>
+                                                        <br class="clear" />
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <br class="clear" />
+                                        </div>
+                                    </div>
+                                    <div class="flt-i-c">
+                                        <div class="flt-i-padding">
+                                            <div class="flt-i-price-i">
+                                                <div class="flt-i-price">{{ v.prixVol }} TND</div>
+                                            </div>
+                                            <a href="#" class="cat-list-btn">Réserver</a>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- \\ flight-item \\ -->
+                                        {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <br class="clear" />
+                </div>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
