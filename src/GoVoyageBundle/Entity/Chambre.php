@@ -19,7 +19,7 @@ class Chambre
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idChambre;
+    private $id;
 
     /**
      * @var string
@@ -52,17 +52,17 @@ class Chambre
     /**
      * @return int
      */
-    public function getIdChambre()
+    public function getId()
     {
-        return $this->idChambre;
+        return $this->id;
     }
 
     /**
      * @param int $idChambre
      */
-    public function setIdChambre($idChambre)
+    public function setId($id)
     {
-        $this->idChambre = $idChambre;
+        $this->id = $id;
     }
 
     /**

@@ -25,9 +25,9 @@ h3 {font-size:13px; padding: 0px; margin: 0px 0px 10px 0px;}
 .highlight {font-weight: bold;}
 .hfeed .posts {margin-bottom:10px;}
 input,select,button,textarea {outline:none;}
-.body-padding {padding-bottom:30px;}  
+.body-padding {padding-bottom:30px;}
 .index-page .body-padding {padding-bottom:0px;}  
-.body-wrapper {padding-bottom:110px;padding-top:170px;}          
+.body-wrapper {padding-bottom:110px;padding-top:170px;}
 #top {position:fixed;left:0px;top:0px;width:100%;z-index:999;}
 .mobile-menu {background:#141d1e; display:none; width:100%; position:absolute; left:0px; top:89px; padding-top:27px; padding-bottom:26px;}
 .mobile-menu li {display:block; padding:0px 60px 0px 60px;}

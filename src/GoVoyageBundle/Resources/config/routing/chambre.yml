@@ -8,5 +8,17 @@ chambre_show:
     defaults: { _controller: "GoVoyageBundle:Chambre:show" }
     methods:  GET
 
+chambre_new:
+    path:     /new
+    defaults: { _controller: "GoVoyageBundle:Chambre:new" }
+    methods:  [GET, POST]
 
+chambre_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GoVoyageBundle:Chambre:edit" }
+    methods:  [GET, POST]
 
+chambre_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GoVoyageBundle:Chambre:delete" }
+    methods:  DELETE
