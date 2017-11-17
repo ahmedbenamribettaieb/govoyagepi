@@ -49,8 +49,12 @@ class Chambre
      */
     private $hotelChFk;
 
+
+
     /**
-     * @return int
+     * Get idChambre
+     *
+     * @return integer
      */
     public function getIdChambre()
     {
@@ -58,14 +62,22 @@ class Chambre
     }
 
     /**
-     * @param int $idChambre
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Chambre
      */
-    public function setIdChambre($idChambre)
+    public function setType($type)
     {
-        $this->idChambre = $idChambre;
+        $this->type = $type;
+
+        return $this;
     }
 
     /**
+     * Get type
+     *
      * @return string
      */
     public function getType()
@@ -74,15 +86,23 @@ class Chambre
     }
 
     /**
-     * @param string $type
+     * Set prix
+     *
+     * @param integer $prix
+     *
+     * @return Chambre
      */
-    public function setType($type)
+    public function setPrix($prix)
     {
-        $this->type = $type;
+        $this->prix = $prix;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * Get prix
+     *
+     * @return integer
      */
     public function getPrix()
     {
@@ -90,15 +110,23 @@ class Chambre
     }
 
     /**
-     * @param int $prix
+     * Set clientChFk
+     *
+     * @param integer $clientChFk
+     *
+     * @return Chambre
      */
-    public function setPrix($prix)
+    public function setClientChFk($clientChFk)
     {
-        $this->prix = $prix;
+        $this->clientChFk = $clientChFk;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * Get clientChFk
+     *
+     * @return integer
      */
     public function getClientChFk()
     {
@@ -106,30 +134,26 @@ class Chambre
     }
 
     /**
-     * @param int $clientChFk
+     * Set hotelChFk
+     *
+     * @param integer $hotelChFk
+     *
+     * @return Chambre
      */
-    public function setClientChFk($clientChFk)
+    public function setHotelChFk($hotelChFk)
     {
-        $this->clientChFk = $clientChFk;
+        $this->hotelChFk = $hotelChFk;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * Get hotelChFk
+     *
+     * @return integer
      */
     public function getHotelChFk()
     {
         return $this->hotelChFk;
     }
-
-    /**
-     * @param int $hotelChFk
-     */
-    public function setHotelChFk($hotelChFk)
-    {
-        $this->hotelChFk = $hotelChFk;
-    }
-
-
-
 }
-

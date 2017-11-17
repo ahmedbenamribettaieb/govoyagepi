@@ -13,18 +13,26 @@ use Doctrine\ORM\Mapping as ORM;
 class Voiture
 {
     /**
-     * @var string
+     * @var integer
      *
      * @ORM\Column(name="id_voiture", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+<<<<<<< HEAD
     private $id_voiture;
+=======
+    private $idVoiture;
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
 
     /**
      * @var string
      *
+<<<<<<< HEAD
      * @ORM\Column(name="regNo", type="string", length=25, nullable=true)
+=======
+     * @ORM\Column(name="regNo", type="string", length=25, nullable=false)
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      */
     private $regno;
 
@@ -72,27 +80,29 @@ class Voiture
     private $status;
 
     /**
-     * @var \Users
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="alv_vo_fk", referencedColumnName="id_user")
-     * })
+     * @ORM\Column(name="client_vo_fk", type="integer", nullable=true)
+     */
+    private $clientVoFk;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="alv_vo_fk", type="integer", nullable=true)
      */
     private $alvVoFk;
 
     /**
-     * @var \Users
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client_vo_fk", referencedColumnName="id_user")
-     * })
+     * @ORM\Column(name="image_voiture", type="string", length=255, nullable=false)
      */
-    private $clientVoFk;
+    private $imageVoiture;
 
 
 
+<<<<<<< HEAD
 
     /**
      * Get id_voiture
@@ -126,6 +136,16 @@ class Voiture
     public function getRegno()
     {
         return $this->regno;
+=======
+    /**
+     * Get idVoiture
+     *
+     * @return integer
+     */
+    public function getIdVoiture()
+    {
+        return $this->idVoiture;
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
     }
 
     /**
@@ -153,6 +173,7 @@ class Voiture
     }
 
     /**
+<<<<<<< HEAD
      * Set imgVoiture
      *
      * @param string $imgVoiture
@@ -177,6 +198,8 @@ class Voiture
     }
 
     /**
+=======
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      * Set duration
      *
      * @param integer $duration
@@ -251,7 +274,11 @@ class Voiture
     /**
      * Set status
      *
+<<<<<<< HEAD
      * @param string $status
+=======
+     * @param boolean $status
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      *
      * @return Voiture
      */
@@ -265,7 +292,11 @@ class Voiture
     /**
      * Get status
      *
+<<<<<<< HEAD
      * @return string
+=======
+     * @return boolean
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      */
     public function getStatus()
     {
@@ -273,6 +304,7 @@ class Voiture
     }
 
     /**
+<<<<<<< HEAD
      * Set alvVoFk
      *
      * @param \GoVoyageBundle\Entity\Users $alvVoFk
@@ -280,30 +312,14 @@ class Voiture
      * @return Voiture
      */
     public function setAlvVoFk(\GoVoyageBundle\Entity\Users $alvVoFk = null)
-    {
-        $this->alvVoFk = $alvVoFk;
-
-        return $this;
-    }
-
-    /**
-     * Get alvVoFk
-     *
-     * @return \GoVoyageBundle\Entity\Users
-     */
-    public function getAlvVoFk()
-    {
-        return $this->alvVoFk;
-    }
-
-    /**
+=======
      * Set clientVoFk
      *
-     * @param \GoVoyageBundle\Entity\Users $clientVoFk
+     * @param integer $clientVoFk
      *
      * @return Voiture
      */
-    public function setClientVoFk(\GoVoyageBundle\Entity\Users $clientVoFk = null)
+    public function setClientVoFk($clientVoFk)
     {
         $this->clientVoFk = $clientVoFk;
 
@@ -313,10 +329,109 @@ class Voiture
     /**
      * Get clientVoFk
      *
+     * @return integer
+     */
+    public function getClientVoFk()
+    {
+        return $this->clientVoFk;
+    }
+
+    /**
+     * Set alvVoFk
+     *
+     * @param integer $alvVoFk
+     *
+     * @return Voiture
+     */
+    public function setAlvVoFk($alvVoFk)
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
+    {
+        $this->alvVoFk = $alvVoFk;
+
+        return $this;
+    }
+
+    /**
+     * Get alvVoFk
+     *
+<<<<<<< HEAD
+     * @return \GoVoyageBundle\Entity\Users
+=======
+     * @return integer
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
+     */
+    public function getAlvVoFk()
+    {
+        return $this->alvVoFk;
+    }
+
+    /**
+<<<<<<< HEAD
+     * Set clientVoFk
+     *
+     * @param \GoVoyageBundle\Entity\Users $clientVoFk
+     *
+     * @return Voiture
+     */
+    public function setClientVoFk(\GoVoyageBundle\Entity\Users $clientVoFk = null)
+    {
+        $this->clientVoFk = $clientVoFk;
+=======
+     * Set regno
+     *
+     * @param string $regno
+     *
+     * @return Voiture
+     */
+    public function setRegno($regno)
+    {
+        $this->regno = $regno;
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
+
+        return $this;
+    }
+
+    /**
+<<<<<<< HEAD
+     * Get clientVoFk
+     *
      * @return \GoVoyageBundle\Entity\Users
      */
     public function getClientVoFk()
     {
         return $this->clientVoFk;
+=======
+     * Get regno
+     *
+     * @return string
+     */
+    public function getRegno()
+    {
+        return $this->regno;
+    }
+
+    /**
+     * Set imgVoiture
+     *
+     * @param string $imgVoiture
+     *
+     * @return Voiture
+     */
+    public function setImgVoiture($imgVoiture)
+    {
+        $this->imgVoiture = $imgVoiture;
+
+        return $this;
+    }
+
+    /**
+     * Get imgVoiture
+     *
+     * @return string
+     */
+    public function getImgVoiture()
+    {
+        return $this->imgVoiture;
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
     }
 }

@@ -85,8 +85,244 @@ class Voyageorganise
      */
     private $nbreplacesres;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image_voyage", type="string", length=255, nullable=false)
+     */
+    private $imageVoyage;
 
+<<<<<<< HEAD
 
 
 }
+=======
+>>>>>>> 4b074e42bf6e13236202c49272de470081a21352
 
+
+    /**
+     * Get idVoyage
+     *
+     * @return integer
+     */
+    public function getIdVoyage()
+    {
+        return $this->idVoyage;
+    }
+
+    /**
+     * Set idAgence
+     *
+     * @param integer $idAgence
+     *
+     * @return Voyageorganise
+     */
+    public function setIdAgence($idAgence)
+    {
+        $this->idAgence = $idAgence;
+
+        return $this;
+    }
+
+    /**
+     * Get idAgence
+     *
+     * @return integer
+     */
+    public function getIdAgence()
+    {
+        return $this->idAgence;
+    }
+
+    /**
+     * Set titrevoyage
+     *
+     * @param integer $titrevoyage
+     *
+     * @return Voyageorganise
+     */
+    public function setTitrevoyage($titrevoyage)
+    {
+        $this->titrevoyage = $titrevoyage;
+
+        return $this;
+    }
+
+    /**
+     * Get titrevoyage
+     *
+     * @return integer
+     */
+    public function getTitrevoyage()
+    {
+        return $this->titrevoyage;
+    }
+
+    /**
+     * Set datedebutvoy
+     *
+     * @param \DateTime $datedebutvoy
+     *
+     * @return Voyageorganise
+     */
+    public function setDatedebutvoy($datedebutvoy)
+    {
+        $this->datedebutvoy = $datedebutvoy;
+
+        return $this;
+    }
+
+    /**
+     * Get datedebutvoy
+     *
+     * @return \DateTime
+     */
+    public function getDatedebutvoy()
+    {
+        return $this->datedebutvoy;
+    }
+
+    /**
+     * Set datefinvoy
+     *
+     * @param \DateTime $datefinvoy
+     *
+     * @return Voyageorganise
+     */
+    public function setDatefinvoy($datefinvoy)
+    {
+        $this->datefinvoy = $datefinvoy;
+
+        return $this;
+    }
+
+    /**
+     * Get datefinvoy
+     *
+     * @return \DateTime
+     */
+    public function getDatefinvoy()
+    {
+        return $this->datefinvoy;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Voyageorganise
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param float $prix
+     *
+     * @return Voyageorganise
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return float
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set datelimiteres
+     *
+     * @param \DateTime $datelimiteres
+     *
+     * @return Voyageorganise
+     */
+    public function setDatelimiteres($datelimiteres)
+    {
+        $this->datelimiteres = $datelimiteres;
+
+        return $this;
+    }
+
+    /**
+     * Get datelimiteres
+     *
+     * @return \DateTime
+     */
+    public function getDatelimiteres()
+    {
+        return $this->datelimiteres;
+    }
+
+    /**
+     * Set nbreplacesdisp
+     *
+     * @param integer $nbreplacesdisp
+     *
+     * @return Voyageorganise
+     */
+    public function setNbreplacesdisp($nbreplacesdisp)
+    {
+        $this->nbreplacesdisp = $nbreplacesdisp;
+
+        return $this;
+    }
+
+    /**
+     * Get nbreplacesdisp
+     *
+     * @return integer
+     */
+    public function getNbreplacesdisp()
+    {
+        return $this->nbreplacesdisp;
+    }
+
+    /**
+     * Set nbreplacesres
+     *
+     * @param integer $nbreplacesres
+     *
+     * @return Voyageorganise
+     */
+    public function setNbreplacesres($nbreplacesres)
+    {
+        $this->nbreplacesres = $nbreplacesres;
+
+        return $this;
+    }
+
+    /**
+     * Get nbreplacesres
+     *
+     * @return integer
+     */
+    public function getNbreplacesres()
+    {
+        return $this->nbreplacesres;
+    }
+}

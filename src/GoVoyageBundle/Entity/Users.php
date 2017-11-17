@@ -1,136 +1,391 @@
 <?php
 
 namespace GoVoyageBundle\Entity;
-use FOS\UserBundle\Model\User as BaseUser;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Users
+ *
+ * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_D5428AED92FC23A8", columns={"username_canonical"}), @ORM\UniqueConstraint(name="UNIQ_D5428AEDA0D96FBF", columns={"email_canonical"}), @ORM\UniqueConstraint(name="UNIQ_D5428AEDC05FB297", columns={"confirmation_token"})})
  * @ORM\Entity
- * @ORM\Table(name="Users")
  */
-class Users extends BaseUser
+class Users
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_user", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(name="id_user",type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $idUser;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=180, nullable=false)
+     */
+    private $username;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username_canonical", type="string", length=180, nullable=false)
+     */
+    private $usernameCanonical;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=180, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_canonical", type="string", length=180, nullable=false)
+     */
+    private $emailCanonical;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     */
+    private $enabled;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
+     */
+    private $salt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_login", type="datetime", nullable=true)
+     */
+    private $lastLogin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="confirmation_token", type="string", length=180, nullable=true)
+     */
+    private $confirmationToken;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="password_requested_at", type="datetime", nullable=true)
+     */
+    private $passwordRequestedAt;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array", nullable=false)
+     */
+    private $roles;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=30, nullable=true)
      */
-    protected $nom;
+    private $nom;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="numTel", type="integer", nullable=true)
      */
-    protected $numtel;
+    private $numtel;
 
     /**
      * @var string
      *
      * @ORM\Column(name="adresse", type="string", length=30, nullable=true)
      */
-    protected $adresse;
+    private $adresse;
 
     /**
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=30, nullable=true)
      */
-    protected $image;
+    private $image;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="etoile", type="integer", nullable=true)
      */
-    protected $etoile;
+    private $etoile;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="nb_chambre", type="integer", nullable=true)
      */
-    protected $nbChambre;
+    private $nbChambre;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=30, nullable=true)
      */
-    protected $prenom;
+    private $prenom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="cin", type="string", length=30, nullable=true)
      */
-    protected $cin;
+    private $cin;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateNaissence", type="date", nullable=true)
      */
-    protected $datenaissence;
+    private $datenaissence;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="note", type="integer", nullable=true)
      */
-    protected $note;
+    private $note;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="nbr_note", type="integer", nullable=true)
      */
-    protected $nbrNote;
+    private $nbrNote;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="nbr_voiture", type="integer", nullable=true)
      */
-    protected $nbrVoiture;
+    private $nbrVoiture;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="nbr_voyage_organise", type="integer", nullable=true)
      */
-    protected $nbrVoyageOrganise;
+    private $nbrVoyageOrganise;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="nb_chambre_reserve", type="integer", nullable=true)
      */
-    protected $nbChambreReserve;
+    private $nbChambreReserve;
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getId()
+    public function getIdUser()
     {
-        return $this->id;
+        return $this->idUser;
     }
 
     /**
-     * @param mixed $id
+     * @param int $idUser
      */
-    public function setId($id)
+    public function setIdUser($idUser)
     {
-        $this->id = $id;
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsernameCanonical()
+    {
+        return $this->usernameCanonical;
+    }
+
+    /**
+     * @param string $usernameCanonical
+     */
+    public function setUsernameCanonical($usernameCanonical)
+    {
+        $this->usernameCanonical = $usernameCanonical;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmailCanonical()
+    {
+        return $this->emailCanonical;
+    }
+
+    /**
+     * @param string $emailCanonical
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $this->emailCanonical = $emailCanonical;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * @param string $salt
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * @param \DateTime $lastLogin
+     */
+    public function setLastLogin($lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfirmationToken()
+    {
+        return $this->confirmationToken;
+    }
+
+    /**
+     * @param string $confirmationToken
+     */
+    public function setConfirmationToken($confirmationToken)
+    {
+        $this->confirmationToken = $confirmationToken;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPasswordRequestedAt()
+    {
+        return $this->passwordRequestedAt;
+    }
+
+    /**
+     * @param \DateTime $passwordRequestedAt
+     */
+    public function setPasswordRequestedAt($passwordRequestedAt)
+    {
+        $this->passwordRequestedAt = $passwordRequestedAt;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 
     /**
@@ -358,5 +613,15 @@ class Users extends BaseUser
     }
 
 
-}
 
+
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+}
