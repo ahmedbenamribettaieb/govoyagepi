@@ -6,14 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class voyagepersonaliseType extends AbstractType
+class VoyagepersonaliseType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('villeDepart')->add('villeArrive')->add('dateDepart')->add('dateArrive')->add('nbrParticipant')->add('hotelFk')->add('clientVpFk')->add('event1Fk')->add('idGuideFk')        ;
+        $builder->add('nom')->add('villeDepart')->add('villeArrive')->add('dateDepart')->add('dateArrive')->add('nbrParticipant')->add('hotelFk')->add('clientVpFk')->add('event1Fk')->add('idGuideFk');
     }
     
     /**
@@ -22,7 +22,7 @@ class voyagepersonaliseType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'GoVoyageBundle\Entity\voyagepersonalise'
+            'data_class' => 'GoVoyageBundle\Entity\Voyagepersonalise'
         ));
     }
 
