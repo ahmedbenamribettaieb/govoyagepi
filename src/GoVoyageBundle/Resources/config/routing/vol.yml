@@ -1,0 +1,7 @@
+ListVol:
+    path:     /
+    defaults: { _controller: "GoVoyageBundle:Vol:List" }
+    methods:  GET
+
+
+
