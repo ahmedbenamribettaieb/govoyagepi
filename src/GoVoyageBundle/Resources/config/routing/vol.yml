@@ -2,6 +2,16 @@ ListVol:
     path:     /
     defaults: { _controller: "GoVoyageBundle:Vol:List" }
     methods:  GET
+List:
+    path:     /list
+    defaults: { _controller: "GoVoyageBundle:Vol:List2" }
+    methods:  GET
 
+AjouttVol:
+    path:     /ajout
+    defaults: { _controller: "GoVoyageBundle:Vol:Ajout" }
 
+SupprtVol:
+    path:     /suppr/{id}
+    defaults: { _controller: "GoVoyageBundle:Vol:Suppr" }
 
