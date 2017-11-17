@@ -18,6 +18,11 @@ go_voyage_suppvoiture:
     path:     /suppvoiture/{id_voiture}
     defaults: { _controller: GoVoyageBundle:Voiture:supp }
 
-go_voyage_layout:
-    path:     /index
-    defaults: { _controller: GoVoyageBundle:Voiture:index }
+go_voyage_layoutVOITURE:
+    path:     /indexvoiture
+    defaults: { _controller: GoVoyageBundle:Voiture:ajout }
+
+
+
+
+

@@ -65,9 +65,9 @@ class Voiture
     private $type;
 
     /**
-     * @var boolean
+     * @var string
      *
-     * @ORM\Column(name="status", type="boolean", nullable=false)
+     * @ORM\Column(name="status", type="string", nullable=false)
      */
     private $status;
 
@@ -251,7 +251,7 @@ class Voiture
     /**
      * Set status
      *
-     * @param boolean $status
+     * @param string $status
      *
      * @return Voiture
      */
@@ -265,7 +265,7 @@ class Voiture
     /**
      * Get status
      *
-     * @return boolean
+     * @return string
      */
     public function getStatus()
     {
