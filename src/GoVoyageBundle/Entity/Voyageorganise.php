@@ -84,6 +84,13 @@ class Voyageorganise
      */
     private $nbreplacesres;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image_voyage", type="string", length=255, nullable=false)
+     */
+    private $imageVoyage;
+
 
 
     /**

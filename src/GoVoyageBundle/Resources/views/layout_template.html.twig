@@ -207,10 +207,10 @@
                                 <li><a href="booking_complete.html">booking complete</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Tours</a>
+                        <li><a href="#">Voyages</a>
                             <ul>
                                 <li><a href="tour_alternative.html">Tours list style</a></li>
-                                <li><a href="tour_grid.html">tours grid style</a></li>
+                                <li><a href="{{ path('voyagepersonalise_index')}}">Mes Voyages Personalisé</a></li>
                                 <li><a href="tour_simple.html">Tours simple style</a></li>
                                 <li><a href="tour_detail.html">Tour detail page</a></li>
                                 <li><a href="tour_booking.html">tour booking page</a></li>
@@ -240,14 +240,7 @@
                                 <li><a href="standart_blog_post.html">Blog post example</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Features</a>
-                            <ul>
-                                <li><a href="typography.html">typography</a></li>
-                                <li><a href="shortcodes.html">shortcodes</a></li>
-                                <li><a href="interactive_elements.html">interactive elements</a></li>
-                                <li><a href="cover_galleries.html">cover galleries</a></li>
-                                <li><a href="columns.html">columns</a></li>
-                            </ul>
+                        <li><a href="{{ path('users_showclient',{ 'id': 7 }) }}">Mon Profil</a>
                         </li>
                         <li><a href="contacts.html">Contacts</a></li>
                     </ul>
@@ -258,9 +251,19 @@
     </div>
 </header>
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% block content %}
-{% endblock %}
+{% endblock content %}
+
 <!-- /footer -->
 <footer class="footer-a">
     <div class="wrapper-padding">

@@ -1,0 +1,33 @@
+users_index:
+    path:     /
+    defaults: { _controller: "GoVoyageBundle:Users:index" }
+    methods:  GET
+
+users_show:
+    path:     /{id}/show
+    defaults: { _controller: "GoVoyageBundle:Users:show" }
+    methods:  GET
+users_showclient:
+    path:     /{id}/showclient
+    defaults: { _controller: "GoVoyageBundle:Users:showclient" }
+    methods:  GET
+
+users_new:
+    path:     /new
+    defaults: { _controller: "GoVoyageBundle:Users:new" }
+    methods:  [GET, POST]
+
+users_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GoVoyageBundle:Users:edit" }
+    methods:  [GET, POST]
+
+users_editclient:
+    path:     /{id}/editclient
+    defaults: { _controller: "GoVoyageBundle:Users:editclient" }
+    methods:  [GET, POST]
+
+users_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GoVoyageBundle:Users:delete" }
+    methods:  DELETE
