@@ -1,0 +1,51 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Voitures list</h1>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Regno</th>
+            <th>Model</th>
+            <th>Duration</th>
+            <th>Rate</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for voiture in voitures %}
+            <tr>
+                <td><a href="#">{{ voiture.regno }}</a></td>
+                <td>{{ voiture.model }}</td>
+                <td>{{ voiture.duration }}</td>
+                <td>{{ voiture.rate }}</td>
+                <td>{{ voiture.type }}</td>
+                <td>{% if voiture.status %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="#">affiche</a>
+                        </li>
+                        <li>
+                            <a href="#">modifier</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('go_voyage_suppvoiture', {'id_voiture':voiture.id_voiture})}}">supprimer</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('go_voyage_ajoutvoiture') }}">Create a new voiture</a>
+        </li>
+    </ul>
+{% endblock %}
