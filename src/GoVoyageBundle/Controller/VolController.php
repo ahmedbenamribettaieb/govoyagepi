@@ -37,6 +37,24 @@ class VolController extends Controller
         return $this->redirectToRoute('List');
     }
 
+    public function ModifAction(Request $request , $id)
+    {
+
+        $em=$this->getDoctrine()->getManager();
+        $vol=$em->getRepository("GoVoyageBundle:Vol")->find($id);
+        if($request->isMethod('POST')){
+            $vol->setNomVol($request->get('nomv'));
+            $vol->setDepart($request->get('depart'));
+            $vol->setArrivee($request->get('arrivee'));
+            $vol->setNomCompagnie($request->get('nomc'));
+            $vol->setPrixVol($request->get('prix'));
+            $em->persist($vol);
+            $em->flush();
+            return $this->redirectToRoute('List');
+        }
+        return $this->render('GoVoyageBundle:Vol:ModifVol.html.twig',array("v"=>$vol));
+    }
+
     public function AjoutAction(Request $request)
     {
         $vol = new Vol();
