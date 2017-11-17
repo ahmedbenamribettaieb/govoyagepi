@@ -34,7 +34,7 @@ class VolController extends Controller
         $vol=$em->getRepository("GoVoyageBundle:Vol")->find($id);
         $em->remove($vol);
         $em->flush();
-        return $this->redirectToRoute('ListVol');
+        return $this->redirectToRoute('List');
     }
 
     public function AjoutAction(Request $request)
