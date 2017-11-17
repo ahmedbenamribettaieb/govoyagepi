@@ -85,5 +85,230 @@ class Voiture
     private $imageVoiture;
 
 
-}
 
+    /**
+     * Get idVoiture
+     *
+     * @return integer
+     */
+    public function getIdVoiture()
+    {
+        return $this->idVoiture;
+    }
+
+    /**
+     * Set model
+     *
+     * @param string $model
+     *
+     * @return Voiture
+     */
+    public function setModel($model)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Get model
+     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * Set duration
+     *
+     * @param integer $duration
+     *
+     * @return Voiture
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Get duration
+     *
+     * @return integer
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * Set rate
+     *
+     * @param integer $rate
+     *
+     * @return Voiture
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Get rate
+     *
+     * @return integer
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     *
+     * @return Voiture
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return integer
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     *
+     * @return Voiture
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set clientVoFk
+     *
+     * @param integer $clientVoFk
+     *
+     * @return Voiture
+     */
+    public function setClientVoFk($clientVoFk)
+    {
+        $this->clientVoFk = $clientVoFk;
+
+        return $this;
+    }
+
+    /**
+     * Get clientVoFk
+     *
+     * @return integer
+     */
+    public function getClientVoFk()
+    {
+        return $this->clientVoFk;
+    }
+
+    /**
+     * Set alvVoFk
+     *
+     * @param integer $alvVoFk
+     *
+     * @return Voiture
+     */
+    public function setAlvVoFk($alvVoFk)
+    {
+        $this->alvVoFk = $alvVoFk;
+
+        return $this;
+    }
+
+    /**
+     * Get alvVoFk
+     *
+     * @return integer
+     */
+    public function getAlvVoFk()
+    {
+        return $this->alvVoFk;
+    }
+
+    /**
+     * Set regno
+     *
+     * @param string $regno
+     *
+     * @return Voiture
+     */
+    public function setRegno($regno)
+    {
+        $this->regno = $regno;
+
+        return $this;
+    }
+
+    /**
+     * Get regno
+     *
+     * @return string
+     */
+    public function getRegno()
+    {
+        return $this->regno;
+    }
+
+    /**
+     * Set imgVoiture
+     *
+     * @param string $imgVoiture
+     *
+     * @return Voiture
+     */
+    public function setImgVoiture($imgVoiture)
+    {
+        $this->imgVoiture = $imgVoiture;
+
+        return $this;
+    }
+
+    /**
+     * Get imgVoiture
+     *
+     * @return string
+     */
+    public function getImgVoiture()
+    {
+        return $this->imgVoiture;
+    }
+}

@@ -43,5 +43,86 @@ class Reservation
     private $prix;
 
 
-}
 
+    /**
+     * Get idReservation
+     *
+     * @return integer
+     */
+    public function getIdReservation()
+    {
+        return $this->idReservation;
+    }
+
+    /**
+     * Set idClient
+     *
+     * @param string $idClient
+     *
+     * @return Reservation
+     */
+    public function setIdClient($idClient)
+    {
+        $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    /**
+     * Get idClient
+     *
+     * @return string
+     */
+    public function getIdClient()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * Set typeReservation
+     *
+     * @param string $typeReservation
+     *
+     * @return Reservation
+     */
+    public function setTypeReservation($typeReservation)
+    {
+        $this->typeReservation = $typeReservation;
+
+        return $this;
+    }
+
+    /**
+     * Get typeReservation
+     *
+     * @return string
+     */
+    public function getTypeReservation()
+    {
+        return $this->typeReservation;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param float $prix
+     *
+     * @return Reservation
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return float
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+}

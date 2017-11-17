@@ -1,0 +1,87 @@
+{% extends "GoVoyageBundle::layout_template.html.twig" %}
+
+{% block content %}
+    <h1>Users list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Iduser</th>
+                <th>Username</th>
+                <th>Usernamecanonical</th>
+                <th>Email</th>
+                <th>Emailcanonical</th>
+                <th>Enabled</th>
+                <th>Salt</th>
+                <th>Password</th>
+                <th>Lastlogin</th>
+                <th>Confirmationtoken</th>
+                <th>Passwordrequestedat</th>
+                <th>Roles</th>
+                <th>Nom</th>
+                <th>Numtel</th>
+                <th>Adresse</th>
+                <th>Image</th>
+                <th>Etoile</th>
+                <th>Nbchambre</th>
+                <th>Prenom</th>
+                <th>Cin</th>
+                <th>Datenaissence</th>
+                <th>Note</th>
+                <th>Nbrnote</th>
+                <th>Nbrvoiture</th>
+                <th>Nbrvoyageorganise</th>
+                <th>Nbchambrereserve</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('users_show', { 'id': user.idUser }) }}">{{ user.idUser }}</a></td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.usernameCanonical }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.emailCanonical }}</td>
+                <td>{% if user.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>{{ user.salt }}</td>
+                <td>{{ user.password }}</td>
+                <td>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ user.confirmationToken }}</td>
+                <td>{% if user.passwordRequestedAt %}{{ user.passwordRequestedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.roles %}{{ user.roles|join(', ') }}{% endif %}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.numtel }}</td>
+                <td>{{ user.adresse }}</td>
+                <td>{{ user.image }}</td>
+                <td>{{ user.etoile }}</td>
+                <td>{{ user.nbChambre }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.cin }}</td>
+                <td>{% if user.datenaissence %}{{ user.datenaissence|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ user.note }}</td>
+                <td>{{ user.nbrNote }}</td>
+                <td>{{ user.nbrVoiture }}</td>
+                <td>{{ user.nbrVoyageOrganise }}</td>
+                <td>{{ user.nbChambreReserve }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('users_show', { 'id': user.idUser }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('users_edit', { 'id': user.idUser }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table >
+
+    <ul>
+        <li>
+            <a href="{{ path('users_new') }}">Create a new user</a>
+        </li>
+    </ul>
+{% endblock %}

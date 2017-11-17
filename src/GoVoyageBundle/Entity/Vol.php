@@ -77,6 +77,151 @@ class Vol
      */
     private $clientVolFk;
 
+    /**
+     * @return int
+     */
+    public function getNumticket()
+    {
+        return $this->numticket;
+    }
+
+    /**
+     * @param int $numticket
+     */
+    public function setNumticket($numticket)
+    {
+        $this->numticket = $numticket;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateDepart()
+    {
+        return $this->dateDepart;
+    }
+
+    /**
+     * @param \DateTime $dateDepart
+     */
+    public function setDateDepart($dateDepart)
+    {
+        $this->dateDepart = $dateDepart;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateArrivee()
+    {
+        return $this->dateArrivee;
+    }
+
+    /**
+     * @param \DateTime $dateArrivee
+     */
+    public function setDateArrivee($dateArrivee)
+    {
+        $this->dateArrivee = $dateArrivee;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrixVol()
+    {
+        return $this->prixVol;
+    }
+
+    /**
+     * @param int $prixVol
+     */
+    public function setPrixVol($prixVol)
+    {
+        $this->prixVol = $prixVol;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNomVol()
+    {
+        return $this->nomVol;
+    }
+
+    /**
+     * @param string $nomVol
+     */
+    public function setNomVol($nomVol)
+    {
+        $this->nomVol = $nomVol;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDepart()
+    {
+        return $this->depart;
+    }
+
+    /**
+     * @param string $depart
+     */
+    public function setDepart($depart)
+    {
+        $this->depart = $depart;
+    }
+
+    /**
+     * @return string
+     */
+    public function getArrivee()
+    {
+        return $this->arrivee;
+    }
+
+    /**
+     * @param string $arrivee
+     */
+    public function setArrivee($arrivee)
+    {
+        $this->arrivee = $arrivee;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNomCompagnie()
+    {
+        return $this->nomCompagnie;
+    }
+
+    /**
+     * @param string $nomCompagnie
+     */
+    public function setNomCompagnie($nomCompagnie)
+    {
+        $this->nomCompagnie = $nomCompagnie;
+    }
+
+    /**
+     * @return int
+     */
+    public function getClientVolFk()
+    {
+        return $this->clientVolFk;
+    }
+
+    /**
+     * @param int $clientVolFk
+     */
+    public function setClientVolFk($clientVolFk)
+    {
+        $this->clientVolFk = $clientVolFk;
+    }
+
+
 
 }
 

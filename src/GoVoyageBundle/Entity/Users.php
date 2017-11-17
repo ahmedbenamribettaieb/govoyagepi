@@ -196,6 +196,432 @@ class Users
      */
     private $nbChambreReserve;
 
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
 
+    /**
+     * @param int $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsernameCanonical()
+    {
+        return $this->usernameCanonical;
+    }
+
+    /**
+     * @param string $usernameCanonical
+     */
+    public function setUsernameCanonical($usernameCanonical)
+    {
+        $this->usernameCanonical = $usernameCanonical;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmailCanonical()
+    {
+        return $this->emailCanonical;
+    }
+
+    /**
+     * @param string $emailCanonical
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $this->emailCanonical = $emailCanonical;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * @param string $salt
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * @param \DateTime $lastLogin
+     */
+    public function setLastLogin($lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfirmationToken()
+    {
+        return $this->confirmationToken;
+    }
+
+    /**
+     * @param string $confirmationToken
+     */
+    public function setConfirmationToken($confirmationToken)
+    {
+        $this->confirmationToken = $confirmationToken;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPasswordRequestedAt()
+    {
+        return $this->passwordRequestedAt;
+    }
+
+    /**
+     * @param \DateTime $passwordRequestedAt
+     */
+    public function setPasswordRequestedAt($passwordRequestedAt)
+    {
+        $this->passwordRequestedAt = $passwordRequestedAt;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumtel()
+    {
+        return $this->numtel;
+    }
+
+    /**
+     * @param int $numtel
+     */
+    public function setNumtel($numtel)
+    {
+        $this->numtel = $numtel;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param string $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEtoile()
+    {
+        return $this->etoile;
+    }
+
+    /**
+     * @param int $etoile
+     */
+    public function setEtoile($etoile)
+    {
+        $this->etoile = $etoile;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbChambre()
+    {
+        return $this->nbChambre;
+    }
+
+    /**
+     * @param int $nbChambre
+     */
+    public function setNbChambre($nbChambre)
+    {
+        $this->nbChambre = $nbChambre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * @param string $cin
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatenaissence()
+    {
+        return $this->datenaissence;
+    }
+
+    /**
+     * @param \DateTime $datenaissence
+     */
+    public function setDatenaissence($datenaissence)
+    {
+        $this->datenaissence = $datenaissence;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param int $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrNote()
+    {
+        return $this->nbrNote;
+    }
+
+    /**
+     * @param int $nbrNote
+     */
+    public function setNbrNote($nbrNote)
+    {
+        $this->nbrNote = $nbrNote;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrVoiture()
+    {
+        return $this->nbrVoiture;
+    }
+
+    /**
+     * @param int $nbrVoiture
+     */
+    public function setNbrVoiture($nbrVoiture)
+    {
+        $this->nbrVoiture = $nbrVoiture;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrVoyageOrganise()
+    {
+        return $this->nbrVoyageOrganise;
+    }
+
+    /**
+     * @param int $nbrVoyageOrganise
+     */
+    public function setNbrVoyageOrganise($nbrVoyageOrganise)
+    {
+        $this->nbrVoyageOrganise = $nbrVoyageOrganise;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbChambreReserve()
+    {
+        return $this->nbChambreReserve;
+    }
+
+    /**
+     * @param int $nbChambreReserve
+     */
+    public function setNbChambreReserve($nbChambreReserve)
+    {
+        $this->nbChambreReserve = $nbChambreReserve;
+    }
+
+
+
+
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
 }
-
