@@ -67,6 +67,7 @@ class VolController extends Controller
             $em=$this->getDoctrine()->getManager();
             $em->persist($vol);
             $em->flush();
+            return $this->redirectToRoute('List');
         }
         return $this->render('GoVoyageBundle:Vol:AjoutVol.html.twig',array());
     }
