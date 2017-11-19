@@ -36,11 +36,15 @@
                                     <div class="srch-tab-line">
                                         <div class="srch-tab-left">
                                             <label>Date de Depart</label>
-                                            <div class="input-a"><input type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                            <div class="input-a"><input type="text" value="" class="date-inpt"
+                                                                        placeholder="mm/dd/yy"> <span
+                                                        class="date-icon"></span></div>
                                         </div>
                                         <div class="srch-tab-right">
                                             <label>date du fin </label>
-                                            <div class="input-a"><input type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                            <div class="input-a"><input type="text" value="" class="date-inpt"
+                                                                        placeholder="mm/dd/yy"> <span
+                                                        class="date-icon"></span></div>
                                         </div>
                                         <div class="clear"></div>
                                     </div>
@@ -74,8 +78,12 @@
                                     </div>
                                     <!-- \\ -->
 
-                                    <button class="srch-btn" >Chercher</button><br>
-                                    <button class="srch-btn">Creer votre voyage</button>
+                                    <button class="srch-btn">Chercher</button>
+                                    <br>
+
+                                    <a href="{{ path('voyagepersonalise_new') }}" class="srch-btn">Creer votre
+                                        voyage</a>
+
                                 </div>
 
                             </div>
@@ -113,7 +121,9 @@
                                                             <div class="flt-l-a">
                                                                 <div class="flt-l-b">
                                                                     <div class="way-lbl">intitulé du voyage :</div>
-                                                                    <div class="company"><img alt="" src="{{ asset('img/partner-01.png') }}"></div>
+                                                                    <div class="company"><img alt=""
+                                                                                              src="{{ asset('img/partner-01.png') }}">
+                                                                    </div>
                                                                 </div>
                                                                 <div class="flt-l-c">
                                                                     <div class="flt-l-cb">
@@ -140,7 +150,9 @@
                                                                                 <!-- // details // -->
                                                                                 <div class="flight-details">
                                                                                     <div class="flight-details-l">
-                                                                                        <div class="flight-details-a">Nom de l'organisateur :</div>
+                                                                                        <div class="flight-details-a">
+                                                                                            Nom de l'organisateur :
+                                                                                        </div>
                                                                                         <div class="flight-details-a">{{ v.dateDepart | date("d/m/y") }}</div>
                                                                                         <div class="flight-details-c">{{ v.villeDepart }}</div>
                                                                                     </div>
@@ -156,21 +168,21 @@
                                                                             <!-- \\ -->
                                                                         </div>
                                                                     </div>
-                                                                    <br class="clear" />
+                                                                    <br class="clear"/>
                                                                 </div>
                                                             </div>
                                                             <div class="clear"></div>
                                                         </div>
-                                                        <br class="clear" />
+                                                        <br class="clear"/>
                                                     </div>
                                                 </div>
                                                 <div class="flt-i-c">
                                                     <div class="flt-i-padding">
                                                         <div class="flt-i-price-i">
-                                                            <div class="flt-i-price">{{ v.nbrParticipant }} TND</div>
                                                             <div class="flt-i-price"> nbr de place {{ v.nbrParticipant }}</div>
                                                         </div>
-                                                        <a href="#" class="cat-list-btn">Reserver</a>
+                                                        <a href="{{ path('voyagepersonalise_supp',{'id':v.IdVp}) }}" class="cat-list-btn">Supprimer</a>
+                                                        <a href="{{ path('voyagepersonalise_modif',{'id':v.IdVp}) }}" class="cat-list-btn">   Modifierr </a>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -182,7 +194,7 @@
                                 <div class="clear"></div>
                             </div>
                         </div>
-                        <br class="clear" />
+                        <br class="clear"/>
                     </div>
                 </div>
                 <div class="clear"></div>

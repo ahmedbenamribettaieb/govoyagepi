@@ -10,8 +10,7 @@ voyagepersonalise_show:
 
 voyagepersonalise_new:
     path:     /new
-    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:new" }
-    methods:  [GET, POST]
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:Ajout" }
 
 voyagepersonalise_edit:
     path:     /{idVp}/edit
@@ -22,3 +21,11 @@ voyagepersonalise_delete:
     path:     /{idVp}/delete
     defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:delete" }
     methods:  DELETE
+
+voyagepersonalise_supp:
+    path:     /suppr/{id}
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:Suppr" }
+
+voyagepersonalise_modif:
+    path:     /mod/{id}
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:Modif" }

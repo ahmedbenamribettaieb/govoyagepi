@@ -106,6 +106,15 @@ class VoyagepersonaliseController extends Controller
         return $this->redirectToRoute('voyagepersonalise_index');
     }
 
+    public function SupprAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vol=$em->getRepository("GoVoyageBundle:Voyagepersonalise")->find($id);
+        $em->remove($vol);
+        $em->flush();
+        return $this->redirectToRoute('voyagepersonalise_index');
+    }
+
     /**
      * Creates a form to delete a voyagepersonalise entity.
      *
@@ -120,5 +129,42 @@ class VoyagepersonaliseController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    public function AjoutAction(Request $request)
+    {
+        $vo = new Voyagepersonalise();
+        if($request->isMethod('POST')){
+            $vo->setNom($request->get('nomvoyage'));
+            $vo->setVilleDepart($request->get('villed'));
+            $vo->setVilleArrive($request->get('villea'));
+            $vo->setNbrParticipant($request->get('nbrpar'));
+            $vo->setHotelFk($request->get('hotelfk'));
+            $vo->setEvent1Fk($request->get('eventfk'));
+            $vo->setIdGuideFk($request->get('guidefk'));
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($vo);
+            $em->flush();
+            return $this->redirectToRoute('voyagepersonalise_index');
+        }
+        return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig',array());
+    }
+    public function ModifAction(Request $request , $id)
+    {
+
+        $em=$this->getDoctrine()->getManager();
+        $vo=$em->getRepository("GoVoyageBundle:Voyagepersonalise")->find($id);
+        if($request->isMethod('POST')){
+            $vo->setNom($request->get('nomvoyage'));
+            $vo->setVilleDepart($request->get('villed'));
+            $vo->setVilleArrive($request->get('villea'));
+            $vo->setNbrParticipant($request->get('nbrpar'));
+            $vo->setHotelFk($request->get('hotelfk'));
+            $vo->setEvent1Fk($request->get('eventfk'));
+            $vo->setIdGuideFk($request->get('guidefk'));
+            $em->persist($vo);
+            $em->flush();
+            return $this->redirectToRoute('voyagepersonalise_index');
+        }
+        return $this->render('GoVoyageBundle:voyagepersonalise:edit.html.twig',array("v"=>$vo));
     }
 }
