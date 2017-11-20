@@ -112,7 +112,7 @@
 
                                 <div class="catalog-row">
                                     {% for v in voyagepersonalises %}
-                                        {% if v.clientVpFk == null %}
+                                        {% if v.clientVpFk == u %}
                                             <!-- // flight-item // -->
                                             <div class="flight-item fly-in">
                                                 <div class="flt-i-a">
@@ -191,6 +191,9 @@
                                     {% endfor %}
                                 </div>
                                 <div class="clear"></div>
+                            </div>
+                            <div  class="navigation" align="center">
+                                {{ knp_pagination_render(voyagepersonalises) }}
                             </div>
                         </div>
                         <br class="clear"/>
