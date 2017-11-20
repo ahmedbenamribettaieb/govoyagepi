@@ -80,7 +80,7 @@ class Voiture
     /**
      * @var string
      *
-     * @ORM\Column(name="image_voiture", type="string", length=255, nullable=false)
+     * @ORM\Column(name="image_voiture", type="string", length=255, nullable=true)
      */
     private $imageVoiture;
 

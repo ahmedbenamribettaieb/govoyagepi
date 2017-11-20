@@ -3,17 +3,15 @@
 namespace GoVoyageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Mgilet\NotificationBundle\Annotation\Notifiable;
-use Mgilet\NotificationBundle\NotifiableInterface;
+
 
 /**
  * Voyagepersonalise
  *
  * @ORM\Table(name="voyagepersonalise", indexes={@ORM\Index(name="hotel_fk", columns={"hotel_fk"}), @ORM\Index(name="client_vp_fk", columns={"client_vp_fk"}), @ORM\Index(name="event1_fk", columns={"event1_fk"}), @ORM\Index(name="id_guide_fk", columns={"id_guide_fk"})})
  * @ORM\Entity
- * @Notifiable(name="voyagepersonalise")
  */
-class Voyagepersonalise implements NotifiableInterface
+class Voyagepersonalise
 {
     /**
      * @var integer

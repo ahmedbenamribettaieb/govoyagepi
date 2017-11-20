@@ -41,11 +41,6 @@ go_voyage_layoutVOITURE:
     path:     /indexvoiture
     defaults: { _controller: GoVoyageBundle:Voiture:ajout }
 
-
-
-
-
-
 ext:
     path:     /ext
     defaults: { _controller: GoVoyageBundle:Default:ext }

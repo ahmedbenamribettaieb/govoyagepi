@@ -16,6 +16,7 @@ class VoyagepersonaliseController extends Controller
      * Lists all voyagepersonalise entities.
      *
      */
+
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -163,9 +164,11 @@ class VoyagepersonaliseController extends Controller
             $em=$this->getDoctrine()->getManager();
             $em->persist($vo);
             $em->flush();
+
             return $this->redirectToRoute('voyagepersonalise_index');
         }
         return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig',array());
+
     }
     public function ModifAction(Request $request , $id)
     {
@@ -197,4 +200,5 @@ class VoyagepersonaliseController extends Controller
         }
         return $this->render('GoVoyageBundle:voyagepersonalise:edit.html.twig',array("v"=>$vo));
     }
+
 }
