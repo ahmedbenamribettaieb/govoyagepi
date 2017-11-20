@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>{% block title %} Espace Etudiant {% endblock %}</title>
         {% block stylesheet %}
-            <link rel="stylesheet" href="{{ asset('../ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css')}}">
+            <link rel="stylesheet" href="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css')}}">
             <link rel="stylesheet" href="{{ asset('css/owl.carousel.css')}}">
             <link rel="stylesheet" href="{{ asset('css/idangerous.swiper.css')}}">
             <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
@@ -207,10 +207,10 @@
                                 <li><a href="booking_complete.html">booking complete</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Tours</a>
+                        <li><a href="#">Voyages</a>
                             <ul>
                                 <li><a href="tour_alternative.html">Tours list style</a></li>
-                                <li><a href="tour_grid.html">tours grid style</a></li>
+                                <li><a href="{{ path('voyagepersonalise_index')}}">Mes Voyages Personalisé</a></li>
                                 <li><a href="tour_simple.html">Tours simple style</a></li>
                                 <li><a href="tour_detail.html">Tour detail page</a></li>
                                 <li><a href="tour_booking.html">tour booking page</a></li>
@@ -240,14 +240,7 @@
                                 <li><a href="standart_blog_post.html">Blog post example</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Features</a>
-                            <ul>
-                                <li><a href="typography.html">typography</a></li>
-                                <li><a href="shortcodes.html">shortcodes</a></li>
-                                <li><a href="interactive_elements.html">interactive elements</a></li>
-                                <li><a href="cover_galleries.html">cover galleries</a></li>
-                                <li><a href="columns.html">columns</a></li>
-                            </ul>
+                        <li><a href="{{ path('users_showclient',{ 'id': 7 }) }}">Mon Profil</a>
                         </li>
                         <li><a href="contacts.html">Contacts</a></li>
                     </ul>
@@ -258,11 +251,19 @@
     </div>
 </header>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 {% block content %}
-
 {% endblock %}
-
 <!-- /footer -->
 <footer class="footer-a">
     <div class="wrapper-padding">
@@ -331,11 +332,11 @@
 <script src="{{ asset('js/script.js')}}"></script>
 <script src="{{ asset('js/owl.carousel.min.js')}}"></script>
 <script src="{{ asset('js/custom.select.js')}}"></script>
-<script src="{{ asset('../ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js')}}"></script>
+<script src="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/twitterfeed.js')}}"></script>
 
 <script>
-   /* $(document).ready(function(){
+    $(document).ready(function(){
         $('.date-inpt').datepicker();
         $('.custom-select').customSelect();
         $(function() {
@@ -370,7 +371,7 @@
             }
         });
         $slideHover();
-    });  */
+    });
 </script>
 <!-- \\ scripts \\ -->
 

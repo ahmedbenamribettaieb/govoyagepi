@@ -1,0 +1,120 @@
+{% extends"GoVoyageBundle:Voiture:alvPost.html.twig" %}
+
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{{asset('source/jquery.fancybox.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.formstyler.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block body %}
+    <div class="main-cont">
+        <div class="inner-page">
+
+            <div class="inner-breadcrumbs">
+                <div class="content-wrapper">
+                    <div class="page-title">portfolio tree columns</div>
+                    <div class="breadcrumbs">
+                        <a href="#">Home</a> / <span>portfolio tree columns</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="portfolio-filters">
+                    <nav>
+                        <ul>
+                            <li class="active"><a data-sort="all" href="#">All</a></li>
+                            <li><a data-sort="countries" href="#">countries</a></li>
+                            <li><a data-sort="travel" href="#">travel</a></li>
+                            <li><a data-sort="photography" href="#">photography</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="portfolio-holder portfolio-holder-three">
+                <div class="portfolio-three-colls">
+                    <!-- // -->
+                    {% for voiture in voitures %}
+                   <div class="portfolio-i photography">
+                        <div class="portfolio-i-img">
+                            <div class="portfolio-i-over">
+                                <div class="portfolio-i-over-a">
+                                    <div class="portfolio-i-over-b">
+                                        <a href="{{asset('img/portfolio-b-01.jpg')}}" data-fancybox-group="gallery" class="fancybox portfolio-zoom"></a>
+                                        <a href="#" class="portfolio-more"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <img alt="" src="{{asset('img/portfolio-b-01.jpg')}}">
+                        </div>
+                        <div class="portfolio-i-text">
+                            <b>day dreamer {{ voiture.model }}</b>
+                            <span>Photography</span>
+                        </div>
+                    </div>
+                      {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{{asset('js/jquery.1.7.1.js')}}"></script>
+    <script src="{{asset('js/jqeury.appear.js')}}"></script>
+    <script src="{{asset('js/jquery.ui.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
+    <script src="{{asset('js/isotope.js')}}"></script>
+    <script src="{{asset('source/jquery.fancybox.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/twitterfeed.js')}}"></script>
+    <script>
+        $(window).load(function(){
+            var $container = $('.portfolio-three-colls');
+            $container.isotope({
+                itemSelector: '.portfolio-i',
+                columnWidth: 520,
+                rowHeight: 220
+            });
+            $(".fancybox").fancybox({
+                helpers:  {
+                    overlay : {
+                        locked : false
+                    },
+                    title : { type : 'over' }
+                },
+                beforeShow : function() {
+                    this.title = (this.title ? '' + this.title + '' : '')  + (this.index + 1) + ' of ' + this.group.length;
+                }
+            });
+            $('.portfolio-filters li a').click(function(){
+                var $sort = $(this).data('sort');
+                if ($sort=='all') {
+                    var $sort = '*';
+                    $container.isotope({ filter: $sort });
+                } else {
+                    $container.isotope({ filter: '.'+$sort });
+                }
+                $('.portfolio-filters li').removeClass('active');
+                $(this).closest('li').addClass('active');
+                return false;
+            });
+        });
+
+    </script>
+    <!-- \\ scripts \\ -->
+
+{% endblock %}

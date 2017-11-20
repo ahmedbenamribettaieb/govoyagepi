@@ -1,0 +1,80 @@
+{% extends "GoVoyageBundle:Vol:Vol_layout.html.twig" %}
+{% block content %}
+    <div class="main-cont">
+        <div class="body-wrapper">
+            <div class="wrapper-padding">
+                <div class="page-head">
+                    <div class="page-title">Vol - <span>Creation</span></div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="sp-page">
+                    <div class="sp-page-a">
+                        <div class="sp-page-l">
+                            <div class="sp-page-lb">
+                                <form method="POST">
+                                <div class="sp-page-p">
+                                    <div class="booking-left">
+                                        <h2>Vol :</h2>
+                                        <div class="booking-form">
+                                            <div class="booking-form-i">
+                                                <label>Nom du Vol:</label>
+                                                <div class="input"><input name="nomv" type="text" value="" /></div>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="bookin-three-coll">
+                                                <div class="booking-form-i">
+                                                    <label>Nom du Compagnie:</label>
+                                                    <div class="input"><input name="nomc" type="text" value="" /></div>
+                                                </div>
+                                                <div class="booking-form-i">
+                                                    <label>Depart:</label>
+                                                    <div class="input"><input name="depart" type="text" value="" /></div>
+                                                </div>
+                                                <div class="booking-form-i">
+                                                    <label>Arrivée:</label>
+                                                    <div class="input"><input name="arrivee" type="text" value="" /></div>
+                                                </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            <div class="booking-form-i">
+                                                <label>Prix:</label>
+                                                <div class="input"><input name="prix" type="text" value="" /></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="srch-tab-line">
+                                                <div class="srch-tab-left">
+                                                    <label>Date Depart</label>
+                                                    <div class="input-a"><input name="dated" type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                </div>
+                                                <div class="srch-tab-right">
+                                                    <label>Date d'arrivée</label>
+                                                    <div class="input-a"><input name="datea" type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="booking-devider no-margin"></div>
+                                        <div class="booking-complete">
+                                            <input class="booking-complete-btn" type="submit" value="AJOUTER">
+                                        </div>
+
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

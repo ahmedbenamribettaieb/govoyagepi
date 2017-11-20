@@ -1,0 +1,93 @@
+{% extends 'GoVoyageBundle::layout_template.html.twig' %}
+
+{% block content %}
+    <div class="main-cont" >
+        <div class="body-wrapper">
+            <div class="wrapper-padding">
+                <div class="page-head">
+                    <div class="page-title"><span>Modification du </span>Voyage Personalisé</div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="sp-page">
+                    <div class="sp-page-a">
+                        <div class="sp-page-l">
+                            <div class="sp-page-lb">
+                                <form method="POST">
+                                    <div class="sp-page-p">
+                                        <div class="booking-left">
+                                            <h2>Voyage Personalisé :</h2>
+                                            <div class="booking-form">
+                                                <div class="booking-form-i">
+                                                    <label>Intitulé du Voyage:</label>
+                                                    <div class="input"><input name="nomvoyage" type="text" value="{{ v.Nom }}" /></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="srch-tab-line">
+                                                    <div class="srch-tab-left">
+                                                        <label>Ville Depart</label>
+                                                        <div class="input-a"><input name="villed" type="text" value="{{ v.VilleDepart }}"></div>
+                                                    </div>
+                                                    <div class="srch-tab-right">
+                                                        <label>Ville d'arrivée</label>
+                                                        <div class="input-a"><input name="villea" type="text" value="{{ v.VilleArrive }}"></div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="srch-tab-line">
+                                                    <div class="srch-tab-left">
+                                                        <label>Date Depart</label>
+                                                        <div class="input-a"><input name="dated" type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                    </div>
+                                                    <div class="srch-tab-right">
+                                                        <label>Date d'arrivée</label>
+                                                        <div class="input-a"><input name="datea" type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="booking-form-i">
+                                                    <label>Nombre de Participent :</label>
+                                                    <div class="input"><input name="nbrpar" type="text" value="{{ v.NbrParticipant }}" /></div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="bookin-three-coll">
+                                                    <div class="booking-form-i">
+                                                        <label>Nom du Hotel:</label>
+                                                        <div class="input"><input name="hotelfk" type="text" value="{{ v.HotelFk }}" /></div>
+                                                    </div>
+                                                    <div class="booking-form-i">
+                                                        <label>Nom de l'evenenement :</label>
+                                                        <div class="input"><input name="eventfk" type="text" value="{{ v.Event1Fk }}" /></div>
+                                                    </div>
+                                                    <div class="booking-form-i">
+                                                        <label>Nom du Guide :</label>
+                                                        <div class="input"><input name="guidefk" type="text" value="{{ v.IdGuideFk }}" /></div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="booking-devider no-margin"></div>
+                                        <div class="booking-complete">
+                                            <input class="booking-complete-btn" type="submit" value="   Confirmer la modification ">
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

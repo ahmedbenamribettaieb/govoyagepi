@@ -1,0 +1,31 @@
+voyagepersonalise_index:
+    path:     /
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:index" }
+    methods:  GET
+
+voyagepersonalise_show:
+    path:     /{idVp}/show
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:show" }
+    methods:  GET
+
+voyagepersonalise_new:
+    path:     /new
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:Ajout" }
+
+voyagepersonalise_edit:
+    path:     /{idVp}/edit
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:edit" }
+    methods:  [GET, POST]
+
+voyagepersonalise_delete:
+    path:     /{idVp}/delete
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:delete" }
+    methods:  DELETE
+
+voyagepersonalise_supp:
+    path:     /suppr/{id}
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:Suppr" }
+
+voyagepersonalise_modif:
+    path:     /mod/{id}
+    defaults: { _controller: "GoVoyageBundle:Voyagepersonalise:Modif" }

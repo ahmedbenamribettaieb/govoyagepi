@@ -1,0 +1,16 @@
+{% extends 'GoVoyageBundle::layout_template.html.twig' %}
+
+{% block content %}
+    <h1>Modifier vos Données</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('users_showclient', { 'id': 7 }) }}">Retour vers L'affichage</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'GoVoyageBundle::layout_template.html.twig' %}
+
+{% block content %}
+    <h1>User</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ user.idUser }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Usernamecanonical</th>
+                <td>{{ user.usernameCanonical }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Emailcanonical</th>
+                <td>{{ user.emailCanonical }}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if user.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Salt</th>
+                <td>{{ user.salt }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Lastlogin</th>
+                <td>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Confirmationtoken</th>
+                <td>{{ user.confirmationToken }}</td>
+            </tr>
+            <tr>
+                <th>Passwordrequestedat</th>
+                <td>{% if user.passwordRequestedAt %}{{ user.passwordRequestedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{% if user.roles %}{{ user.roles|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Numtel</th>
+                <td>{{ user.numtel }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ user.image }}</td>
+            </tr>
+            <tr>
+                <th>Etoile</th>
+                <td>{{ user.etoile }}</td>
+            </tr>
+            <tr>
+                <th>Nbchambre</th>
+                <td>{{ user.nbChambre }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ user.cin }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissence</th>
+                <td>{% if user.datenaissence %}{{ user.datenaissence|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ user.note }}</td>
+            </tr>
+            <tr>
+                <th>Nbrnote</th>
+                <td>{{ user.nbrNote }}</td>
+            </tr>
+            <tr>
+                <th>Nbrvoiture</th>
+                <td>{{ user.nbrVoiture }}</td>
+            </tr>
+            <tr>
+                <th>Nbrvoyageorganise</th>
+                <td>{{ user.nbrVoyageOrganise }}</td>
+            </tr>
+            <tr>
+                <th>Nbchambrereserve</th>
+                <td>{{ user.nbChambreReserve }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('users_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('users_edit', { 'id': user.idUser }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
