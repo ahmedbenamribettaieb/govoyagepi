@@ -1,0 +1,52 @@
+{% extends 'GoVoyageBundle:chambre:layout_template_chambre.html.twig' %}
+
+{% block ahmed %}
+    <style>
+        table {
+
+            width: 60%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #c76300;
+            color: white;
+        }
+
+        c {
+            font-size: x-large;
+        }
+
+    </style>
+
+    <c class="side-lbl-a"> your room</c>
+    <table>
+        <tbody>
+
+        <tr>
+            <th>Type</th>
+            <td>{{ chambre.type }}</td>
+        </tr>
+        <tr>
+            <th>Prix</th>
+            <td>{{ chambre.prix }}</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+    </br></br></br>
+    <div class="btn-toolbar">
+    <a href="{{ path('chambre_edit', { 'id': chambre.id}) }}" class="srch-btn">Edit</a>
+     <a href="{{ path('chambre_delete', { 'id': chambre.id}) }}" class="srch-btn">delete</a></>
+    <a href="{{ path('chambre_index') }}" class="srch-btn"> Back </a>
+    </div>
+{% endblock %}

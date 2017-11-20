@@ -1,0 +1,75 @@
+{% extends "GoVoyageBundle:Guide:Guide_layout.html.twig" %}
+{% block mon_compte %}
+    <a href="{{ path('AfficherGuideCompte',{'id':3}) }}">Mon Compte</a>
+{% endblock %}
+{% block content %}
+<div class="main-cont">
+
+    <div class="inner-page">
+        <div class="inner-breadcrumbs">
+            <div class="content-wrapper">
+                <div class="page-title">Mon Compte</div>
+                <div class="breadcrumbs">
+                    <a href="#">Home</a> / <a href="#">Projects</a> / <span>Project page</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="p-item-page">
+                <div class="p-item-page-l">
+                    <div class="p-item-page-lb">
+                        <div class="p-item-padding">
+                            <div id="p-item-slider">
+                                <div class="p-item-slide"><img alt="" src="img/p-slider-01.jpg" /></div>
+                                <div class="p-item-slide"><img alt="" src="img/p-slider-02.jpg" /></div>
+                                <div class="p-item-slide"><img alt="" src="img/p-slider-03.jpg" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br class="clear" />
+                </div>
+            </div>
+            <div class="p-item-page-r">
+                <h3>project details</h3>
+                <div class="p-item-details">
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Nom:</div>
+                        <div class="p-item-details-ir">{{ g.nom }}</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Prenom:</div>
+                        <div class="p-item-details-ir">{{ g.prenom }}</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Link:</div>
+                        <div class="p-item-details-ir">www.weblionmedia.com</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <h3>About Project</h3>
+                <div class="p-item-more">Cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendrem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo.</div>
+                <div class="p-item-social">
+                    <a class="team-fb" href="#"></a>
+                    <a class="team-tw" href="#"></a>
+                    <a class="team-gp" href="#"></a>
+                    <a class="team-inst" href="#"></a>
+                    <a class="team-pint" href="#"></a>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+
+            <div class="portfolio-nav no-margin">
+                <div class="portfolio-nav-l"><a href="#"></a></div>
+                <div class="portfolio-nav-c"><a href="#"></a></div>
+                <div class="portfolio-nav-r"><a href="#"></a></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

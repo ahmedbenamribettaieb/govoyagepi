@@ -1,83 +1,37 @@
 <html>
 <head>
-    {% block head %}
-        <meta charset="utf-8"/>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>{% block title %} Espace Etudiant {% endblock %}</title>
-        {% block stylesheet %}
-            <link rel="stylesheet" href="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css')}}">
-            <link rel="stylesheet" href="{{ asset('css/owl.carousel.css')}}">
-            <link rel="stylesheet" href="{{ asset('css/idangerous.swiper.css')}}">
-            <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
-            <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,800' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-        {%  endblock %}
-    {% endblock %}
+
+    <meta charset="utf-8"/>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title> Espace Etudiant </title>
+
+    <link rel="stylesheet" href="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/idangerous.swiper.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
 </head>
 <body class="index-page">
-<!-- // authorize // -->
-<div class="overlay"></div>
-<div class="autorize-popup">
-    <div class="autorize-tabs">
-        <a href="#" class="autorize-tab-a current">Sign in</a>
-        <a href="#" class="autorize-tab-b">Register</a>
-        <a href="#" class="autorize-close"></a>
-        <div class="clear"></div>
-    </div>
-    <section class="autorize-tab-content">
-        <div class="autorize-padding">
-            <h6 class="autorize-lbl">Welocome! Login in to Your Accont</h6>
-            <input type="text" value="" placeholder="Name">
-            <input type="text" value="" placeholder="Password">
-            <footer class="autorize-bottom">
-                <button class="authorize-btn">Login</button>
-                <a href="#" class="authorize-forget-pass">Forgot your password?</a>
-                <div class="clear"></div>
-            </footer>
-        </div>
-    </section>
-    <section class="autorize-tab-content">
-        <div class="autorize-padding">
-            <h6 class="autorize-lbl">Register for Your Account</h6>
-            <input type="text" value="" placeholder="Name">
-            <input type="text" value="" placeholder="Password">
-            <footer class="autorize-bottom">
-                <button class="authorize-btn">Registration</button>
-                <div class="clear"></div>
-            </footer>
-        </div>
-    </section>
-</div>
-<!-- \\ authorize \\-->
 <header id="top">
     <div class="header-a">
         <div class="wrapper-padding">
             <div class="header-phone"><span>+216 55 863 415</span></div>
             <div class="header-account">
+                {% block mon_compte %}
                 <a href="#">Mon Compte</a>
-            </div>
-            <div class="header-social">
-                <a href="#" class="social-twitter"></a>
-                <a href="#" class="social-facebook"></a>
-                <a href="#" class="social-vimeo"></a>
-                <a href="#" class="social-pinterest"></a>
-                <a href="#" class="social-instagram"></a>
+                {% endblock %}
             </div>
             <div class="header-lang">
                 <a href="#"><img alt="" src="{{ asset('img/fr.gif') }}" /></a>
-                <div class="langs-drop">
-                    <div><a href="#" class="langs-item en">english</a></div>
-                    <div><a href="#" class="langs-item fr">francais</a></div>
-                    <div><a href="#" class="langs-item de">deutsch</a></div>
-                    <div><a href="#" class="langs-item it">italiano</a></div>
-                </div>
             </div>
             <div class="clear"></div>
         </div>
@@ -207,10 +161,10 @@
                                 <li><a href="booking_complete.html">booking complete</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Voyages</a>
+                        <li><a href="#">Tours</a>
                             <ul>
                                 <li><a href="tour_alternative.html">Tours list style</a></li>
-                                <li><a href="{{ path('voyagepersonalise_index')}}">Mes Voyages Personalisé</a></li>
+                                <li><a href="tour_grid.html">tours grid style</a></li>
                                 <li><a href="tour_simple.html">Tours simple style</a></li>
                                 <li><a href="tour_detail.html">Tour detail page</a></li>
                                 <li><a href="tour_booking.html">tour booking page</a></li>
@@ -240,7 +194,14 @@
                                 <li><a href="standart_blog_post.html">Blog post example</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ path('users_showclient',{ 'id': 7 }) }}">Mon Profil</a>
+                        <li><a href="#">Features</a>
+                            <ul>
+                                <li><a href="typography.html">typography</a></li>
+                                <li><a href="shortcodes.html">shortcodes</a></li>
+                                <li><a href="interactive_elements.html">interactive elements</a></li>
+                                <li><a href="cover_galleries.html">cover galleries</a></li>
+                                <li><a href="columns.html">columns</a></li>
+                            </ul>
                         </li>
                         <li><a href="contacts.html">Contacts</a></li>
                     </ul>
@@ -251,16 +212,6 @@
     </div>
 </header>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 {% block content %}
 {% endblock %}

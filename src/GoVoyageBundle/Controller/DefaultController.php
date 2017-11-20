@@ -10,4 +10,17 @@ class DefaultController extends Controller
     {
         return $this->render('GoVoyageBundle:Default:index.html.twig');
     }
+    public function chAction()
+    {
+        return $this->render('GoVoyageBundle:chambre:layout_template_chambre.html.twig');
+    }
+
+    public function extAction()
+    {
+        return $this->render('GoVoyageBundle::layout_template.html.twig');
+    }
+    public function ghassenAction()
+    {
+        return $this->render('GoVoyageBundle:Vol:vol_layout.html.twig');
+    }
 }
