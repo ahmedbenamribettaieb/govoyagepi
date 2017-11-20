@@ -1,0 +1,3 @@
+Backend_show:
+    path:     /
+    defaults: { _controller: "GoVoyageBundle:Backend:test" }
