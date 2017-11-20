@@ -4,6 +4,7 @@ namespace GoVoyageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Voyagepersonalise
  *

@@ -42,7 +42,7 @@ class UsersController extends Controller
             $em->persist($user);
             $em->flush($user);
 
-            return $this->redirectToRoute('users_show', array('id' => $user->getIdUser()));
+            return $this->redirectToRoute('users_show', array('id' => $user->getId()));
         }
 
         return $this->render('GoVoyageBundle:users:new.html.twig', array(
@@ -88,7 +88,7 @@ class UsersController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('users_edit', array('id' => $user->getIdUser()));
+            return $this->redirectToRoute('users_edit', array('id' => $user->getId()));
         }
 
         return $this->render('GoVoyageBundle:users:edit.html.twig', array(
@@ -106,7 +106,7 @@ class UsersController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('users_showclient', array('id' => $user->getIdUser()));
+            return $this->redirectToRoute('users_showclient', array('id' => $user->getId()));
         }
 
         return $this->render('GoVoyageBundle:users:editclient.html.twig', array(
@@ -144,7 +144,7 @@ class UsersController extends Controller
     private function createDeleteForm(Users $user)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('users_delete', array('id' => $user->getIdUser())))
+            ->setAction($this->generateUrl('users_delete', array('id' => $user->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
