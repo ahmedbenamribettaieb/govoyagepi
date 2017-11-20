@@ -118,7 +118,7 @@
                                                         <div class="flt-i-bb">
                                                             <div class="flt-l-a">
                                                                 <div class="flt-l-b">
-                                                                    <div class="way-lbl">Nom du Vol :</div>
+                                                                    <div class="way-lbl">{{ knp_pagination_sortable(vols,'Nom du vol','dateDepart') }}</div>
                                                                     <div class="company"><img alt="" src="{{ asset('img/flyght-01.png') }}"></div>
                                                                 </div>
                                                                 <div class="flt-l-c">
@@ -190,7 +190,8 @@
                         </div>
                         <br class="clear" />
                     </div>
-                    <div align="center" class="navigation">
+
+                    <div  class="navigation" align="center">
                         {{ knp_pagination_render(vols) }}
                     </div>
                 </div>

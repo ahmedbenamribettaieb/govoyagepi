@@ -56,8 +56,15 @@ class VolController extends Controller
             $vol->setArrivee($request->get('arrivee'));
             $vol->setNomCompagnie($request->get('nomc'));
             $vol->setPrixVol($request->get('prix'));
-            $vol->setDateDepart(\DateTime::createFromFormat('m-d-y', $request->get('dated')));
-            $vol->setDateArrivee(\DateTime::createFromFormat('m-d-y', $request->get('datea')));
+
+            $d1 = new \DateTime($request->get('dated'));
+            $d1->format('Y-m-d');
+            $vol->setDateDepart($d1);
+
+            $d2 = new \DateTime($request->get('datea'));
+            $d2->format('Y-m-d');
+            $vol->setDateArrivee($d2);
+
             $em->persist($vol);
             $em->flush();
             return $this->redirectToRoute('List');
@@ -74,6 +81,15 @@ class VolController extends Controller
             $vol->setArrivee($request->get('arrivee'));
             $vol->setNomCompagnie($request->get('nomc'));
             $vol->setPrixVol($request->get('prix'));
+
+            $d1 = new \DateTime($request->get('dated'));
+            $d1->format('Y-m-d');
+            $vol->setDateDepart($d1);
+
+            $d2 = new \DateTime($request->get('datea'));
+            $d2->format('Y-m-d');
+            $vol->setDateArrivee($d2);
+
             $em=$this->getDoctrine()->getManager();
             $em->persist($vol);
             $em->flush();
