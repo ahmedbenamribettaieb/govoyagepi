@@ -81,7 +81,7 @@
                                         <label>Pour ajouter des nouveaux Vols</label>
                                         <div class="clear"></div>
                                     </div>
-                                    <a href="{{ path('AjouttVol')}}" class="cat-list-btn" style="background-color: #ff7200 , ">Ajouter Un Vol</a>
+                                    <a href="{{ path('AjouttVol')}}" class="srch-btn">Ajouter Un Vol</a>
                                 </div>
 
                             </div>
@@ -189,6 +189,9 @@
                             </div>
                         </div>
                         <br class="clear" />
+                    </div>
+                    <div align="center" class="navigation">
+                        {{ knp_pagination_render(vols) }}
                     </div>
                 </div>
                 <div class="clear"></div>
