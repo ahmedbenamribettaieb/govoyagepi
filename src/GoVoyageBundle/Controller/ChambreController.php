@@ -12,10 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ChambreController extends Controller
 {
-    /**
-     * Lists all chambre entities.
-     *
-     */
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -27,51 +24,36 @@ class ChambreController extends Controller
         ));
     }
 
-    /**
-     * Creates a new chambre entity.
-     *
-     */
-    public function newAction(Request $request)
+
+    function newAction(\Symfony\Component\HttpFoundation\Request $request)
     {
         $chambre = new Chambre();
-        $form = $this->createForm('GoVoyageBundle\Form\ChambreType', $chambre);
-        $form->handleRequest($request);
+        if ($request->isMethod('POST')) {
+            $chambre->setType($request->get('type'));
+            $chambre->setPrix($request->get('prix'));
 
-        if ($form->isSubmitted() && $form->isValid()) {
+            $chambre->setHotelChFk($user = $this->getUser()->getId());
             $em = $this->getDoctrine()->getManager();
             $em->persist($chambre);
-            $em->flush($chambre);
+            $em->flush();
 
-            return $this->redirectToRoute('chambre_show', array('id' => $chambre->getId()));
+
         }
-
-        return $this->render('GoVoyageBundle:chambre:new.html.twig', array(
-            'chambre' => $chambre,
-            'form' => $form->createView(),
-        ));
+        return $this->render("GoVoyageBundle:chambre:new.html.twig", array());
     }
-
-    /**
-     * Finds and displays a chambre entity.
-     *
-     */
     public function showAction(Chambre $chambre)
     {
-        $deleteForm = $this->createDeleteForm($chambre);
+
 
         return $this->render('GoVoyageBundle:chambre:show.html.twig', array(
-            'chambre' => $chambre,
-            'delete_form' => $deleteForm->createView(),
+            'chambre' => $chambre
         ));
     }
 
-    /**
-     * Displays a form to edit an existing chambre entity.
-     *
-     */
+
     public function editAction(Request $request, Chambre $chambre)
     {
-        $deleteForm = $this->createDeleteForm($chambre);
+
         $editForm = $this->createForm('GoVoyageBundle\Form\ChambreType', $chambre);
         $editForm->handleRequest($request);
 
@@ -83,42 +65,19 @@ class ChambreController extends Controller
 
         return $this->render('GoVoyageBundle:chambre:edit.html.twig', array(
             'chambre' => $chambre,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'edit_form' => $editForm->createView()
+
         ));
     }
 
-    /**
-     * Deletes a chambre entity.
-     *
-     */
-    public function deleteAction(Request $request, Chambre $chambre)
+
+    public function deleteAction(Chambre $chambre)
     {
-        $form = $this->createDeleteForm($chambre);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($chambre);
-            $em->flush($chambre);
-        }
-
-        return $this->redirectToRoute('chambre_index');
+        $em=$this->getDoctrine()->getManager();
+        $chambre=$em->getRepository("GoVoyageBundle:Chambre")->find($chambre->getId());
+        $em->remove($chambre);
+        $em->flush();
+        return $this->redirectToRoute("chambre_index");
     }
 
-    /**
-     * Creates a form to delete a chambre entity.
-     *
-     * @param Chambre $chambre The chambre entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Chambre $chambre)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('chambre_delete', array('id' => $chambre->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
 }

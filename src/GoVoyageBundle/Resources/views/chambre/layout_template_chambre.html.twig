@@ -1,0 +1,89 @@
+{% extends "GoVoyageBundle::layout_template.html.twig" %}
+{% block head %}
+    <title>{% block title %}ahmed {% endblock %}</title>
+    {% block stylesheet %}
+        <link rel="stylesheet"
+              href="{{ asset('../ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/idangerous.swiper.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,800' rel='stylesheet'
+              type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic' rel='stylesheet'
+              type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin,latin-ext' rel='stylesheet'
+              type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=latin,cyrillic'
+              rel='stylesheet' type='text/css'>
+    {% endblock %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="main-cont">
+        <div class="body-padding">
+            <div class="mp-slider">
+                <!-- // slider // -->
+
+                <div class="swiper-container1">
+
+                    <div id="body-wrapper3">
+
+                        <div class="body-wrapper3">
+
+                            <div class="wrapper-padding">
+
+                                <div class="page-head">
+
+                                    <div class="two-colls-left">
+                                        <div class="profile_nav" align="left">
+                                            <ul>
+                                                <li class="active"><a href="{{ path ('chambre_index') }}">My
+                                                        Rooms</a></li>
+                                                <li><a href="{{ path ('chambre_new') }}">Add new</a></li>
+
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="page-title" align="left">
+
+
+
+                                        </div>
+
+                                            <div class="p-item-slide" style="float: right; list-style: outside none none; width: 400px;">
+
+
+                                            <img src="{{ asset('img/lit-i-01.jpg') }}">
+                                        </div>
+
+
+
+                                        <div>
+
+
+                                            {% block ahmed %}
+
+                                            {% endblock %}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

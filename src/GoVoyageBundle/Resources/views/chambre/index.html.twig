@@ -1,44 +1,45 @@
 {% extends "GoVoyageBundle:chambre:layout_template_chambre.html.twig" %}
-{% block ahmed %}
-    <h1>Chambres list</h1>
 
-    <table border="1">
+
+{% block ahmed %}
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #c76300;
+            color: white;
+        }
+    </style>
+
+    <table class="tablech" border="1" align="center">
         <thead>
-            <tr>
-                <th>Idchambre</th>
-                <th>Type</th>
-                <th>Prix</th>
-                <th>Clientchfk</th>
-                <th>Hotelchfk</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>numero</th>
+            <th>type</th>
+            <th>prix</th>
+
+        </tr>
         </thead>
         <tbody>
         {% for chambre in chambres %}
             <tr>
                 <td><a href="{{ path('chambre_show', { 'id': chambre.id }) }}">{{ chambre.id }}</a></td>
-                <td>{{ chambre.type }}</td>
+                <td >{{ chambre.type }}</td>
                 <td>{{ chambre.prix }}</td>
-                <td>{{ chambre.clientChFk }}</td>
-                <td>{{ chambre.hotelChFk }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('chambre_show', { 'id': chambre.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('chambre_edit', { 'id': chambre.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('chambre_new') }}">Create a new chambre</a>
-        </li>
-    </ul>
 {% endblock %}

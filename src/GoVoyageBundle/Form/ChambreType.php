@@ -13,7 +13,7 @@ class ChambreType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('type')->add('prix')->add('clientChFk')->add('hotelChFk')        ;
+        $builder->add('type')->add('prix')->add('clientChFk')      ;
     }
     
     /**

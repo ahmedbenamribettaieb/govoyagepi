@@ -21,4 +21,4 @@ chambre_edit:
 chambre_delete:
     path:     /{id}/delete
     defaults: { _controller: "GoVoyageBundle:Chambre:delete" }
-    methods:  DELETE
+    methods:  [GET, POST]

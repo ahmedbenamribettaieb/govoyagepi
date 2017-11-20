@@ -21,6 +21,6 @@ class DefaultController extends Controller
     }
     public function ghassenAction()
     {
-        return $this->render('GoVoyageBundle::ghassen.html.twig');
+        return $this->render('GoVoyageBundle:Vol:vol_layout.html.twig');
     }
 }

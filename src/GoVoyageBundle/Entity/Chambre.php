@@ -37,8 +37,8 @@ class Chambre
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="client_ch_fk", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumn(name="client_ch_fk", referencedColumnName="id_user")
      */
     private $clientChFk;
 
@@ -58,7 +58,7 @@ class Chambre
     }
 
     /**
-     * @param int $idChambre
+     * @param int $id
      */
     public function setId($id)
     {

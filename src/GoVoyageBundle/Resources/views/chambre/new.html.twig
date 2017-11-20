@@ -1,16 +1,20 @@
 {% extends 'GoVoyageBundle:chambre:layout_template_chambre.html.twig' %}
 
 {% block ahmed %}
-    <h1>Chambre creation</h1>
+    <form method="POST">
+        <table>
+            <tr>
+                <td> type</td>
+                <td><input type="text" name="type"></td>
+            </tr>
+            <tr>
+                <td> prix</td> </br>
+                <td><input type="text" name="prix"></td>
+            </tr>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('chambre_index') }}">Back to the list</a>
-        </li>
-    </ul>
-{% endblock %}
+            <tr>
+                <td><input type="submit" VALUE="submit"></td>
+            </tr>
+        </table>
+    </form>
+    {% endblock %}
