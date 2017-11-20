@@ -112,7 +112,7 @@
 
                                 <div class="catalog-row">
                                     {% for v in voyagepersonalises %}
-                                        {% if v.clientVpFk == null %}
+                                        {% if v.clientVpFk == u %}
                                             <!-- // flight-item // -->
                                             <div class="flight-item fly-in">
                                                 <div class="flt-i-a">
@@ -121,8 +121,7 @@
                                                             <div class="flt-l-a">
                                                                 <div class="flt-l-b">
                                                                     <div class="way-lbl">intitulé du voyage :</div>
-                                                                    <div class="company"><img alt=""
-                                                                                              src="{{ asset('img/partner-01.png') }}">
+                                                                    <div class="company"><img alt="" src="{{ asset('img/partner-01.png') }}">
                                                                     </div>
                                                                 </div>
                                                                 <div class="flt-l-c">
@@ -192,6 +191,9 @@
                                     {% endfor %}
                                 </div>
                                 <div class="clear"></div>
+                            </div>
+                            <div  class="navigation" align="center">
+                                {{ knp_pagination_render(voyagepersonalises) }}
                             </div>
                         </div>
                         <br class="clear"/>

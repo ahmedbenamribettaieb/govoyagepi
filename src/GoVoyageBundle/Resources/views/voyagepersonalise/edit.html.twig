@@ -38,11 +38,11 @@
                                                 <div class="srch-tab-line">
                                                     <div class="srch-tab-left">
                                                         <label>Date Depart</label>
-                                                        <div class="input-a"><input name="dated" type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                        <div class="input-a"><input name="dated" type="text" value="{{ v.DateDepart | date("y-m-d")}}" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
                                                     </div>
                                                     <div class="srch-tab-right">
                                                         <label>Date d'arrivée</label>
-                                                        <div class="input-a"><input name="datea" type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                        <div class="input-a"><input name="datea" type="text" value="{{ v.DateArrive | date("y-m-d")}}" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
                                                     </div>
                                                     <div class="clear"></div>
                                                 </div>
@@ -50,7 +50,6 @@
                                                 <div class="booking-form-i">
                                                     <label>Nombre de Participent :</label>
                                                     <div class="input"><input name="nbrpar" type="text" value="{{ v.NbrParticipant }}" /></div>
-                                                    <div class="clear"></div>
                                                 </div>
                                                 <div class="clear"></div>
                                                 <div class="bookin-three-coll">
