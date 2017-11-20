@@ -21,7 +21,7 @@ class RegistrationType extends AbstractType
                     'entry_options' => array(
                         'choices' => array(
                             'ROLE_ADMIN' => 'Admin',
-                            'ROLE_HOTEL' => 'hotel',
+                            'ROLE_aaaa' => 'hotel',
                             'ROLE_AGENCE'=>'agence'
                         )
                     )
