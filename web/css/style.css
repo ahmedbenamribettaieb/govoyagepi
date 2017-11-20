@@ -1374,6 +1374,7 @@ nav ul,nav ul li {margin:0px;padding:0px;list-style:none;}
 .flt-l-c {margin:0px 0px 0px 112px;}
 .flt-l-cb {width:100%; float:left; overflow:hidden;}
 .way-lbl {margin-bottom: 23px; margin-top: 5px; text-transform: uppercase; font-size: 12px; color:#8a8a8a; font-family: 'Raleway'; display: inline-block; padding-right: 27px; font-weight: 500; background: url(../img/depart-icon.png) right top no-repeat; background-position: right 1px;}
+.voyage-per {margin-bottom: 23px; margin-top: 5px; text-transform: uppercase; font-size: 12px; color:#8a8a8a; font-family: 'Raleway'; display: inline-block; padding-right: 27px; font-weight: 500; background: url(../img/services-02.png) right top no-repeat; background-position: right 1px;}
 .flt-i-bb.flight-return .way-lbl {background:url(../img/return-icon.png) right top no-repeat; padding-right:48px; background-position: right 1px;}
 .flyght-info-head {font-size: 12px; color:#4c4c4c; text-transform: uppercase; font-family: 'Montserrat'; font-weight: normal; background: #f5f7f7; padding: 5px 9px 4px 9px ; margin-bottom:5px;}
 .flight-line {padding: 15px 0px 14px 0px; border-bottom: 1px solid #ebebeb;}
