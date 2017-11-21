@@ -22,9 +22,7 @@
                     <div class="p-item-page-lb">
                         <div class="p-item-padding">
                             <div id="p-item-slider">
-                                <div class="p-item-slide"><img alt="" src="img/p-slider-01.jpg" /></div>
-                                <div class="p-item-slide"><img alt="" src="img/p-slider-02.jpg" /></div>
-                                <div class="p-item-slide"><img alt="" src="img/p-slider-03.jpg" /></div>
+                                <div class="p-item-slide"><img alt="" src="{{ asset('img/p-slider-01.jpg') }}" /></div>
                             </div>
                         </div>
                     </div>
@@ -45,8 +43,8 @@
                         <div class="clear"></div>
                     </div>
                     <div class="p-item-details-i">
-                        <div class="p-item-details-il">Link:</div>
-                        <div class="p-item-details-ir">www.weblionmedia.com</div>
+                        <div class="p-item-details-il">Nom:</div>
+                        <div class="p-item-details-ir">{{ g.get_the_role() }}</div>
                         <div class="clear"></div>
                     </div>
                 </div>
