@@ -47,10 +47,10 @@ class BackendController extends Controller
     }
     public function listVolAdminAction()
     {
-        $user = $this->getUser()->getNom();
+        $user = $this->getUser()->getPrenom();
         $em=$this->getDoctrine()->getManager();
         $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
-        return $this->render('GoVoyageBundle:Admin:List_vol_admin.html.twig',array('vols'=>$vols),array('u'=>$user));
+        return $this->render('GoVoyageBundle:Admin:List_vol_admin.html.twig',array('vols'=>$vols , 'u' => $user));
     }
 
     public function SupprVolAdminAction($id)
