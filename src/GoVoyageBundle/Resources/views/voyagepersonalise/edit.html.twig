@@ -55,12 +55,32 @@
                                                 <div class="srch-tab-line">
                                                     <div class="srch-tab-left">
                                                         <label>Hotel associé</label>
-                                                        <div class="input-a"><input name="hotelfk" type="text" value="{{ v.HotelFk }}">
+                                                        <div class="select-wrapper">
+                                                            <select class="custom-select" name="hotelfk" >
+                                                                <option>
+
+                                                                </option>
+                                                                {% for v in users %}
+                                                                    <option value="{{ v.Id }}">
+                                                                        {{ v.Nom }}
+                                                                    </option>
+                                                                {% endfor %}
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="srch-tab-right">
                                                         <label>Evenement associé</label>
-                                                        <div class="input-a"><input name="eventfk" type="text" value="{{ v.Event1Fk }}">
+                                                        <div class="select-wrapper">
+                                                            <select class="custom-select" name="eventfk" >
+                                                                <option>
+
+                                                                </option>
+                                                                {% for v in event %}
+                                                                    <option value="{{ v.IdEvenement }}">
+                                                                        {{ v.Activite }}
+                                                                    </option>
+                                                                {% endfor %}
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="clear"></div>

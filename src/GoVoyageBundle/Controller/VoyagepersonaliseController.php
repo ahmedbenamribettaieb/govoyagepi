@@ -179,7 +179,11 @@ class VoyagepersonaliseController extends Controller
     }
     public function ModifAction(Request $request , $id)
     {
+        $em2 = $this->getDoctrine()->getManager();
+        $users = $em2->getRepository('GoVoyageBundle:Users')->findAll();
 
+        $em1 = $this->getDoctrine()->getManager();
+        $event = $em1->getRepository('GoVoyageBundle:Evenement')->findAll();
         $em=$this->getDoctrine()->getManager();
         $vo=$em->getRepository("GoVoyageBundle:Voyagepersonalise")->find($id);
         if($request->isMethod('POST')){
@@ -204,7 +208,7 @@ class VoyagepersonaliseController extends Controller
             $em->flush();
             return $this->redirectToRoute('voyagepersonalise_index');
         }
-        return $this->render('GoVoyageBundle:voyagepersonalise:edit.html.twig',array("v"=>$vo));
+        return $this->render('GoVoyageBundle:voyagepersonalise:edit.html.twig',array("v"=>$vo,'users'=>$users,'event'=>$event));
     }
 
 }
