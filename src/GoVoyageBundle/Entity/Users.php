@@ -128,6 +128,7 @@ class Users extends BaseUser
     public function __construct()
     {
         parent::__construct();
+
     }
 
     /**
