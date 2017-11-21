@@ -8,7 +8,7 @@ users_show:
     defaults: { _controller: "GoVoyageBundle:Users:show" }
     methods:  GET
 users_showclient:
-    path:     /{id}/showclient
+    path:     /showclient
     defaults: { _controller: "GoVoyageBundle:Users:showclient" }
     methods:  GET
 
@@ -23,7 +23,7 @@ users_edit:
     methods:  [GET, POST]
 
 users_editclient:
-    path:     /{id}/editclient
+    path:     /editclient
     defaults: { _controller: "GoVoyageBundle:Users:editclient" }
     methods:  [GET, POST]
 

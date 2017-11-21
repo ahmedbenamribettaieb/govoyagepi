@@ -61,9 +61,11 @@
 
                                                                 </option>
                                                                 {% for v in users %}
+                                                                    {% if v.get_the_role()=='ROLE_HOTEL' %}
                                                                     <option value="{{ v.Id }}">
                                                                         {{ v.Nom }}
                                                                     </option>
+                                                                    {% endif %}
                                                                 {% endfor %}
                                                             </select>
                                                         </div>
