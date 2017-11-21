@@ -10,6 +10,12 @@ Backend_suppr_vol:
 Backend_vp:
     path:     /vp
     defaults: { _controller: "GoVoyageBundle:Backend:vp" }
+Backend_client:
+    path:     /client
+    defaults: { _controller: "GoVoyageBundle:Backend:Client" }
 Backend_vp_supp:
-    path:     /suppr/{id}
-    defaults: { _controller: "GoVoyageBundle:Backend:Suppr" }
+    path:     /supprvp/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:vpSuppr" }
+Backend_client_supp:
+    path:     /supprclient/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:clientSuppr" }

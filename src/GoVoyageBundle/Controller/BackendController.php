@@ -23,13 +23,21 @@ class BackendController extends Controller
     public function vpAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $em2 = $this->getDoctrine()->getManager();
         $voyagepersonalises = $em->getRepository('GoVoyageBundle:Voyagepersonalise')->findAll();
         return $this->render('GoVoyageBundle:Admin:voyagepersonaliseadmin.html.twig', array(
             'voyagepersonalises' => $voyagepersonalises
         ));
     }
-    public function SupprAction($id)
+    public function ClientAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
+
+        return $this->render('GoVoyageBundle:Admin:Clientadmin.html.twig', array(
+            'users' => $users
+        ));
+    }
+    public function vpSupprAction($id)
     {
         $em=$this->getDoctrine()->getManager();
         $vol=$em->getRepository("GoVoyageBundle:Voyagepersonalise")->find($id);
@@ -54,4 +62,13 @@ class BackendController extends Controller
         return $this->redirectToRoute('Backend_list_vol');
     }
 
+
+    public function clientSupprAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vo=$em->getRepository("GoVoyageBundle:Users")->find($id);
+        $em->remove($vo);
+        $em->flush();
+        return $this->redirectToRoute('Backend_client');
+    }
 }
