@@ -51,3 +51,6 @@ ext:
 ghassen:
     path:     /ghassen
     defaults: { _controller: GoVoyageBundle:Default:ghassen }
+admintempl:
+    path:     /admin_template
+    defaults: { _controller: GoVoyageBundle:Default:admintempl }

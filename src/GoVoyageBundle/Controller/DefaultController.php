@@ -23,4 +23,8 @@ class DefaultController extends Controller
     {
         return $this->render('GoVoyageBundle:Vol:vol_layout.html.twig');
     }
+    public function admintemplAction()
+    {
+        return $this->render('GoVoyageBundle:Admin:index_admin.html.twig');
+    }
 }
