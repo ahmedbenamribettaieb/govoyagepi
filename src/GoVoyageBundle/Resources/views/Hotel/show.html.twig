@@ -1,0 +1,71 @@
+{% extends 'GoVoyageBundle:chambre:layout_template_chambre.html.twig' %}
+
+{% block content %}
+    <style>
+        table {
+
+            width: 60%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #c76300;
+            color: white;
+        }
+
+        c {
+            font-size: x-large;
+        }
+
+    </style>
+
+    <c class="side-lbl-a"> your Hotel</c>
+    <table align="center">
+        <tbody>
+
+        <tr>
+            <th>nom</th>
+            <td>{{ hotel.nom }}</td>
+        </tr>
+        <tr>
+            <th>numero telephone</th>
+            <td>{{ hotel.numTel }}</td>
+        </tr>
+        <tr>
+            <th>adresse</th>
+            <td>{{ hotel.adresse }}</td>
+        </tr>
+        <tr>
+            <th>etoile</th>
+            <td>{{ hotel.etoile }}</td>
+        </tr>
+        <tr>
+            <th>nombre de chambre</th>
+            <td>{{ hotel.nbchambre }}</td>
+        </tr>
+        <tr>
+            <th>note</th>
+            <td>{{ hotel.note }}</td>
+        </tr>
+
+
+
+        </tbody>
+    </table>
+    </br></br></br>
+    <div>
+        <a href="{{ path('hotel_edit', { 'id': hotel.id}) }}" class="srch-btn" >Edit</a>
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "GoVoyageBundle:chambre:layout_template_chambre.html.twig" %}
+
+{% block content %}
+    <h1 align="center">modify your Hotel</h1>
+
+    {{ form_start(edit_form) }}
+
+    <table align="center">
+        <tr>
+            <td class="autorize-lbl">
+                <h4> {{ form_label(edit_form.nom) }} </h4>
+            </td>
+            <td>
+                {{ form_widget(edit_form.nom) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td class="autorize-lbl">
+                <h4> {{ form_label(edit_form.numTel) }} </h4>
+            </td>
+            <td>
+                {{ form_widget(edit_form.numTel) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td class="autorize-lbl">
+                <h4> {{ form_label(edit_form.adresse) }} </h4>
+            </td>
+            <td>
+                {{ form_widget(edit_form.adresse) }}
+            </td>
+        </tr>
+        <tr>
+            <td class="autorize-lbl">
+                <h4> {{ form_label(edit_form.etoile) }} </h4>
+            </td>
+            <td>
+                {{ form_widget(edit_form.etoile) }}
+            </td>
+        </tr>
+        <tr>
+            <td class="autorize-lbl">
+                <h4> {{ form_label(edit_form.nb_chambre) }} </h4>
+            </td>
+            <td>
+                {{ form_widget(edit_form.nb_chambre) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="Edit" class="authorize-btn"/>
+            </td>
+        </tr>
+
+    </table>
+    {{ form_end(edit_form) }}
+{% endblock %}

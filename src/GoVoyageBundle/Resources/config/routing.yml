@@ -1,6 +1,9 @@
 go_voyage_chambre:
     resource: "@GoVoyageBundle/Resources/config/routing/chambre.yml"
     prefix:   /chambre
+go_voyage_hotel:
+    resource: "@GoVoyageBundle/Resources/config/routing/hotel.yml"
+    prefix:   /hotel
 
 go_voyage_users:
     resource: "@GoVoyageBundle/Resources/config/routing/users.yml"

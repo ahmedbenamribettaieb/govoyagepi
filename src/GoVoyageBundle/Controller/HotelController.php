@@ -7,9 +7,11 @@
  */
 
 namespace GoVoyageBundle\Controller;
-use FOS\UserBundle\FOSUserBundle;
 
 
+use GoVoyageBundle\Entity\Users;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class HotelController extends Controller
@@ -19,10 +21,42 @@ class HotelController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll(['role'=>"ROLE_HOTEL"]);
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->findBy(["get_the_role()"=>"ROLE_HOTEL"]);
 
         return $this->render('GoVoyageBundle:Hotel:index.html.twig', array(
-            'Hotel' => $hotel,
+            'hotel' => $hotel,
+        ));
+    }
+
+
+    public function showAction()
+    {
+
+        $id = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->find($this->getUser()->getId());
+        return $this->render('GoVoyageBundle:Hotel:show.html.twig', array(
+            'hotel' => $hotel
+        ));
+    }
+
+    public function editAction(Request $request, Users $hotel)
+    {
+
+        $editForm = $this->createForm('GoVoyageBundle\Form\HotelType', $hotel);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('hotel_edit', array('id' => $hotel->getId()));
+        }
+
+        return $this->render('GoVoyageBundle:Hotel:edit.html.twig', array(
+            'hotel' => $hotel,
+            'edit_form' => $editForm->createView()
+
         ));
     }
 }
