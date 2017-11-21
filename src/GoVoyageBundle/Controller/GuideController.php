@@ -9,6 +9,7 @@
 namespace GoVoyageBundle\Controller;
 
 
+use GoVoyageBundle\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class GuideController extends Controller
