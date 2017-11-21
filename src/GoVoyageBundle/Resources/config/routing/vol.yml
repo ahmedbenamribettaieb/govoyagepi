@@ -18,4 +18,7 @@ SupprtVol:
 ModifVol:
     path:     /mod/{id}
     defaults: { _controller: "GoVoyageBundle:Vol:Modif" }
+ReserverVol:
+    path:     /reserver/{id}
+    defaults: { _controller: "GoVoyageBundle:Vol:Reserver" }
 

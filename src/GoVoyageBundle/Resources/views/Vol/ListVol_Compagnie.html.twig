@@ -93,18 +93,11 @@
                             <div class="padding">
 
                                 <div class="catalog-head fly-in">
-                                    <label>Afficher les resultats de Recherche par:</label>
-                                    <div class="search-select">
-                                        <select>
-                                            <option>Nom du vol</option>
-                                            <option>Prix</option>
-                                            <option>Date</option>
-                                            <option>Depart</option>
-                                            <option>Arrivé</option>
-                                        </select>
-                                    </div>
-                                    <a href="#" class="show-list"></a>
-
+                                    <label style="color: darkorange">Afficher les resultats de recherche triées par:</label>
+                                    <label>{{ knp_pagination_sortable(vols,'Nom du vol','nomVol') }}</label>
+                                    <label>{{ knp_pagination_sortable(vols,'Prix','prixVol') }}</label>
+                                    <label>{{ knp_pagination_sortable(vols,'Date Départ','dateDepart') }}</label>
+                                    <label>{{ knp_pagination_sortable(vols,'Date Arrivée','dateArrivee') }}</label>
                                     <div class="clear"></div>
                                 </div>
 
@@ -118,7 +111,7 @@
                                                         <div class="flt-i-bb">
                                                             <div class="flt-l-a">
                                                                 <div class="flt-l-b">
-                                                                    <div class="way-lbl">{{ knp_pagination_sortable(vols,'Nom du vol','dateDepart') }}</div>
+                                                                    <div class="way-lbl">Nom du Vol :</div>
                                                                     <div class="company"><img alt="" src="{{ asset('img/flyght-01.png') }}"></div>
                                                                 </div>
                                                                 <div class="flt-l-c">

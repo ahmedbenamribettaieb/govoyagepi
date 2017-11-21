@@ -85,18 +85,11 @@
                         <div class="padding">
 
                             <div class="catalog-head fly-in">
-                                <label>Afficher les resultats de Recherche par:</label>
-                                <div class="search-select">
-                                    <select>
-                                        <option>Nom du vol</option>
-                                        <option>Prix</option>
-                                        <option>Date</option>
-                                        <option>Depart</option>
-                                        <option>Arrivé</option>
-                                    </select>
-                                </div>
-                                <a href="#" class="show-list"></a>
-
+                                <label style="color: darkorange">Afficher les resultats de recherche triées par:</label>
+                                <label>{{ knp_pagination_sortable(vols,'Nom du vol','nomVol') }}</label>
+                                <label>{{ knp_pagination_sortable(vols,'Prix','prixVol') }}</label>
+                                <label>{{ knp_pagination_sortable(vols,'Date Départ','dateDepart') }}</label>
+                                <label>{{ knp_pagination_sortable(vols,'Date Arrivée','dateArrivee') }}</label>
                                 <div class="clear"></div>
                             </div>
 
@@ -167,7 +160,7 @@
                                             <div class="flt-i-price-i">
                                                 <div class="flt-i-price">{{ v.prixVol }} TND</div>
                                             </div>
-                                            <a href="#" class="cat-list-btn">Réserver</a>
+                                            <a href="{{ path('ReserverVol',{'id':v.numticket}) }}" class="cat-list-btn">Réserver</a>
                                         </div>
                                     </div>
                                     <div class="clear"></div>
