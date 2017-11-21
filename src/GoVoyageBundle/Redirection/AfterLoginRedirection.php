@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
+use GoVoyageBundle\Entity\Users;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
 {
@@ -63,8 +65,8 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
             $redirection = new RedirectResponse($this->router->generate('chambre_index'));
         if (in_array('ROLE_ADMIN', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('admintempl'));
-        if (in_array('ROLE_GUIDE', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('chambre_index'));
+        //if (in_array('ROLE_GUIDE', $rolesTab, true))
+            //$redirection = new RedirectResponse($this->router->generate('chambre_index'));
 
 
 

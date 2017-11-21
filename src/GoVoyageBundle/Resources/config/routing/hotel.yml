@@ -1,0 +1,4 @@
+chambre_index:
+    path:     /
+    defaults: { _controller: "GoVoyageBundle:Hotel:index" }
+    methods:  GET

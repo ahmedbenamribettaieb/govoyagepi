@@ -3,6 +3,7 @@
 namespace GoVoyageBundle\Controller;
 
 use GoVoyageBundle\Entity\Chambre;
+use GoVoyageBundle\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -17,7 +18,7 @@ class ChambreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $chambres = $em->getRepository('GoVoyageBundle:Chambre')->findAll();
+        $chambres = $em->getRepository('GoVoyageBundle:Chambre')->findBy(["hotelChFk"=>$this->getUser()->getId()]);
 
         return $this->render('GoVoyageBundle:chambre:index.html.twig', array(
             'chambres' => $chambres,
