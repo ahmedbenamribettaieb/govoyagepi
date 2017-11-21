@@ -90,15 +90,6 @@ class Voyageorganise
      *
      * @ORM\Column(name="image_voyage", type="string", length=255, nullable=false)
      */
-    private $imageVoyage;
-
-<<<<<<< HEAD
-
-
-}
-=======
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
-
 
     /**
      * Get idVoyage

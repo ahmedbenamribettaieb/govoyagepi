@@ -15,8 +15,8 @@
 {% block title %}
 {% endblock %}
 
-{% block body %}
 
+{% block body %}
 
     <div class="body-wrapper">
         <div class="wrapper-padding">
@@ -39,20 +39,20 @@
                                     <div class="booking-form">
                                         <div class="booking-form-i">
                                             <label>numero de la matricule:</label>
-                                            <div class="input"><input type="text" value="" name="regNo"/></div>
+                                            <div class="input"><input type="text" value="{{ voiture1.regno }}" name="regNo"/></div>
                                         </div>
                                         <div class="booking-form-i">
                                             <label>Modele:</label>
-                                            <div class="input"><input type="text" value="" name="model"></div>
+                                            <div class="input"><input type="text" value="{{ voiture1.model }}" name="model"></div>
                                         </div>
                                         <div class="booking-form-i">
                                             <label>duration:</label>
-                                            <div class="input"><input type="number" value="" name="duration"/></div>
+                                            <div class="input"><input type="number" value="{{ voiture1.duration }}" name="duration"/></div>
                                         </div>
 
                                         <div class="booking-form-i">
                                             <label>rate:</label>
-                                            <div class="input"><input type="number" value="" name="rate"/></div>
+                                            <div class="input"><input type="number" value="{{ voiture1.rate }}" name="rate"/></div>
                                         </div>
 
                                         <div class="clear"></div>
@@ -60,7 +60,7 @@
                                         <div class="bookin-three-coll">
                                             <div class="booking-form-i">
                                                 <label>type:</label>
-                                                <div class="input"><input type="number" value="" name="type"/></div>
+                                                <div class="input"><input type="number" value="{{ voiture1.type }}" name="type"/></div>
                                             </div>
 
 

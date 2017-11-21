@@ -13,29 +13,34 @@ use Doctrine\ORM\Mapping as ORM;
 class Voiture
 {
     /**
-     * @var integer
+     * @var string
      *
      * @ORM\Column(name="id_voiture", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-<<<<<<< HEAD
     private $id_voiture;
-=======
-    private $idVoiture;
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
 
     /**
      * @var string
      *
-<<<<<<< HEAD
      * @ORM\Column(name="regNo", type="string", length=25, nullable=true)
-=======
-     * @ORM\Column(name="regNo", type="string", length=25, nullable=false)
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      */
     private $regno;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="depart", type="date", nullable=true)
+     */
+    private $depart;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="arrivee",type="date", nullable=true)
+     */
+    private $arrivee;
 
     /**
      * @var string
@@ -80,29 +85,27 @@ class Voiture
     private $status;
 
     /**
-     * @var integer
+     * @var \Users
      *
-     * @ORM\Column(name="client_vo_fk", type="integer", nullable=true)
-     */
-    private $clientVoFk;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="alv_vo_fk", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="alv_vo_fk", referencedColumnName="id_user")
+     * })
      */
     private $alvVoFk;
 
     /**
-     * @var string
+     * @var \Users
      *
-     * @ORM\Column(name="image_voiture", type="string", length=255, nullable=false)
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="client_vo_fk", referencedColumnName="id_user")
+     * })
      */
-    private $imageVoiture;
+    private $clientVoFk;
 
 
 
-<<<<<<< HEAD
 
     /**
      * Get id_voiture
@@ -136,16 +139,6 @@ class Voiture
     public function getRegno()
     {
         return $this->regno;
-=======
-    /**
-     * Get idVoiture
-     *
-     * @return integer
-     */
-    public function getIdVoiture()
-    {
-        return $this->idVoiture;
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
     }
 
     /**
@@ -173,7 +166,6 @@ class Voiture
     }
 
     /**
-<<<<<<< HEAD
      * Set imgVoiture
      *
      * @param string $imgVoiture
@@ -198,8 +190,6 @@ class Voiture
     }
 
     /**
-=======
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      * Set duration
      *
      * @param integer $duration
@@ -274,11 +264,7 @@ class Voiture
     /**
      * Set status
      *
-<<<<<<< HEAD
      * @param string $status
-=======
-     * @param boolean $status
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      *
      * @return Voiture
      */
@@ -292,11 +278,7 @@ class Voiture
     /**
      * Get status
      *
-<<<<<<< HEAD
      * @return string
-=======
-     * @return boolean
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      */
     public function getStatus()
     {
@@ -304,7 +286,6 @@ class Voiture
     }
 
     /**
-<<<<<<< HEAD
      * Set alvVoFk
      *
      * @param \GoVoyageBundle\Entity\Users $alvVoFk
@@ -312,39 +293,6 @@ class Voiture
      * @return Voiture
      */
     public function setAlvVoFk(\GoVoyageBundle\Entity\Users $alvVoFk = null)
-=======
-     * Set clientVoFk
-     *
-     * @param integer $clientVoFk
-     *
-     * @return Voiture
-     */
-    public function setClientVoFk($clientVoFk)
-    {
-        $this->clientVoFk = $clientVoFk;
-
-        return $this;
-    }
-
-    /**
-     * Get clientVoFk
-     *
-     * @return integer
-     */
-    public function getClientVoFk()
-    {
-        return $this->clientVoFk;
-    }
-
-    /**
-     * Set alvVoFk
-     *
-     * @param integer $alvVoFk
-     *
-     * @return Voiture
-     */
-    public function setAlvVoFk($alvVoFk)
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
     {
         $this->alvVoFk = $alvVoFk;
 
@@ -354,11 +302,7 @@ class Voiture
     /**
      * Get alvVoFk
      *
-<<<<<<< HEAD
      * @return \GoVoyageBundle\Entity\Users
-=======
-     * @return integer
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
      */
     public function getAlvVoFk()
     {
@@ -366,7 +310,6 @@ class Voiture
     }
 
     /**
-<<<<<<< HEAD
      * Set clientVoFk
      *
      * @param \GoVoyageBundle\Entity\Users $clientVoFk
@@ -376,23 +319,11 @@ class Voiture
     public function setClientVoFk(\GoVoyageBundle\Entity\Users $clientVoFk = null)
     {
         $this->clientVoFk = $clientVoFk;
-=======
-     * Set regno
-     *
-     * @param string $regno
-     *
-     * @return Voiture
-     */
-    public function setRegno($regno)
-    {
-        $this->regno = $regno;
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
 
         return $this;
     }
 
     /**
-<<<<<<< HEAD
      * Get clientVoFk
      *
      * @return \GoVoyageBundle\Entity\Users
@@ -400,38 +331,65 @@ class Voiture
     public function getClientVoFk()
     {
         return $this->clientVoFk;
-=======
-     * Get regno
-     *
-     * @return string
-     */
-    public function getRegno()
-    {
-        return $this->regno;
     }
 
     /**
-     * Set imgVoiture
+     * Get idVoiture
      *
-     * @param string $imgVoiture
+     * @return integer
+     */
+    public function getIdVoiture()
+    {
+        return $this->id_voiture;
+    }
+
+
+
+    /**
+     * Set depart
+     *
+     * @param \DateTime $depart
      *
      * @return Voiture
      */
-    public function setImgVoiture($imgVoiture)
+    public function setDepart($depart)
     {
-        $this->imgVoiture = $imgVoiture;
+        $this->depart = $depart;
 
         return $this;
     }
 
     /**
-     * Get imgVoiture
+     * Get depart
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getImgVoiture()
+    public function getDepart()
     {
-        return $this->imgVoiture;
->>>>>>> 4b074e42bf6e13236202c49272de470081a21352
+        return $this->depart;
+    }
+
+    /**
+     * Set arrivee
+     *
+     * @param \DateTime $arrivee
+     *
+     * @return Voiture
+     */
+    public function setArrivee($arrivee)
+    {
+        $this->arrivee = $arrivee;
+
+        return $this;
+    }
+
+    /**
+     * Get arrivee
+     *
+     * @return \DateTime
+     */
+    public function getArrivee()
+    {
+        return $this->arrivee;
     }
 }

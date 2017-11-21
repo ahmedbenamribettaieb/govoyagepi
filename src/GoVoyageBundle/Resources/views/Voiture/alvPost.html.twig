@@ -7,7 +7,6 @@
     <title>{% block title %}GoVoyage{% endblock %}</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <!-- <meta charset="utf-8" /><link rel="icon" href="{{asset('favicon.png')}}" />-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="{{asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('css/idangerous.swiper.css')}}">
@@ -175,7 +174,7 @@
                             <li><a href="#">shortcodes</a></li>
                             <li><a href="#">interactive elements</a></li>
                             <li><a href="#">cover galleries</a></li>
-                            <li><a href=""#">columns</a></li>
+                            <li><a href="#">columns</a></li>
                         </ul>
                     </li>
                     <li><a href="#">CONTACS</a></li>
@@ -238,11 +237,11 @@
                                 <li><a href="#">booking complete</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Pages</a>
+                        <li><a href="#">Voitures</a>
                             <ul>
-                                <li><a href="#">about us style one</a></li>
+                                <li><a href="{{ path('go_voyage_affichevoitureforAgence') }}">Listes De Voitures</a></li>
 
-                                <li><a href="#">services</a></li>
+                                <li><a href="{{ path('go_voyage_ajoutvoiture') }}">Ajout Voiture</a></li>
                                 <li><a href="#">contact us</a></li>
                             </ul>
                         </li>
@@ -314,9 +313,6 @@
     </section>
 </div>
 <!-- \\ authorize \\-->
-
-
-
 
 
 
@@ -408,8 +404,10 @@
         <div class="clear"></div>
     </div>
 </footer>
+
 <!-- // scripts // -->
 {% block script %}
+
 <script src="{{asset('js/jquery.1.7.1.js')}}"></script>
 <script src="{{asset('js/idangerous.swiper.js')}}"></script>
 <script src="{{asset('js/slideInit.js')}}"></script>

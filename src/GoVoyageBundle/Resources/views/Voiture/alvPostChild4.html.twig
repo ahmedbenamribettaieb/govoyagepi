@@ -1,0 +1,167 @@
+{% extends"GoVoyageBundle:Voiture:alvPost.html.twig" %}
+
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{{asset('source/jquery.fancybox.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.formstyler.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <script src="{{asset('js/jquery-3.2.1.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+{% endblock %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="main-cont">
+        <div class="inner-page">
+
+            <div class="inner-breadcrumbs">
+                <div class="content-wrapper">
+                    <div class="page-title">portfolio tree columns</div>
+                    <div class="breadcrumbs">
+                        <a href="#">Home</a> / <span>portfolio tree columns</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="portfolio-filters">
+                    <nav>
+                        <ul>
+                            <li class="active"><a data-sort="all" href="#">All</a></li>
+                            <li><a data-sort="M" href="#">countries</a></li>
+                            <li><a data-sort="travel" href="#">travel</a></li>
+                            <li><a data-sort="photography" href="#">photography</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="portfolio-holder portfolio-holder-three">
+                <div class="portfolio-three-colls">
+                    <!-- // -->
+                    {% for voiture in voitures %}
+
+                   <div class="portfolio-i photography">
+                       <div class="portfolio-i-img">
+                            <div class="portfolio-i-over">
+                                <div class="portfolio-i-over-a">
+                                    <div class="portfolio-i-over-b">
+                                        <a href="{{asset(voiture.imgVoiture)}}" data-fancybox-group="gallery" class="fancybox portfolio-zoom"></a>
+                                       <a class="portfolio-more"  href="{{ path('go_voyage_updatevoitureforAgence2',{ 'id': voiture.id_Voiture }) }}"> </a>
+                                        <button type="button" class="booking-complete-btn" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{ voiture.regno }}">Details</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <img alt="" src="{{asset(voiture.imgVoiture)}}" style="height: 300px;width: 370.14px">
+                        </div>
+                        <div class="portfolio-i-text">
+                            <b>Model : {{ voiture.model }}
+                            </b>
+                            <a href="{{ path('go_voyage_suppvoiture',{ 'id': voiture.id_Voiture }) }}" style="color: darkorange">Delete</a>
+
+                        </div>
+                    </div>
+                        <!-- Modal -->
+                    <div class="modal fade" id="{{ voiture.regno }}" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- /.container -->
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">{{ voiture.model }}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <b style="font-size: x-large;color: #515e5f;">Model : {{ voiture.model }}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">Client : {% if  voiture.clientVoFk!= null%}  {{ voiture.clientVoFk.nom }}{% else %}No Client Yet{% endif %}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">NumMatricule : {{ voiture.regno }}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">status : {{ voiture.status }}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">alv_vo_fk : {% if  voiture.alvVoFk!= null%}  {{ voiture.alvVoFk.nom }}{% else %}No Client Yet{% endif %}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">Type : {{ voiture.type }}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">rate : {{ voiture.rate }}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">duration : {{ voiture.duration }}</b><br>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                      {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+
+
+    <script src="{{asset('js/jquery.1.7.1.js')}}"></script>
+    <script src="{{asset('js/jqeury.appear.js')}}"></script>
+    <script src="{{asset('js/jquery.ui.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
+    <script src="{{asset('js/isotope.js')}}"></script>
+    <script src="{{asset('source/jquery.fancybox.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/twitterfeed.js')}}"></script>
+    <script>
+        $(window).load(function(){
+            var $container = $('.portfolio-three-colls');
+            $container.isotope({
+                itemSelector: '.portfolio-i',
+                columnWidth: 520,
+                rowHeight: 220
+            });
+            $(".fancybox").fancybox({
+                helpers:  {
+                    overlay : {
+                        locked : false
+                    },
+                    title : { type : 'over' }
+                },
+                beforeShow : function() {
+                    this.title = (this.title ? '' + this.title + '' : '')  + (this.index + 1) + ' of ' + this.group.length;
+                }
+            });
+            $('.portfolio-filters li a').click(function(){
+                var $sort = $(this).data('sort');
+                if ($sort=='all') {
+                    var $sort = '*';
+                    $container.isotope({ filter: $sort });
+                } else {
+                    $container.isotope({ filter: '.'+$sort });
+                }
+                $('.portfolio-filters li').removeClass('active');
+                $(this).closest('li').addClass('active');
+                return false;
+            });
+        });
+
+    </script>
+    <!-- \\ scripts \\ -->
+
+{% endblock %}

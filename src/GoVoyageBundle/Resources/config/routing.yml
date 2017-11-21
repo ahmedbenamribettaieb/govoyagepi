@@ -18,21 +18,36 @@ go_voyage_homepage:
     path:     /
     defaults: { _controller: GoVoyageBundle:Default:index }
 
-go_voyage_affichevoiture:
+go_voyage_affichevoitureforClient:
     path:     /listVoiture
-    defaults: { _controller: GoVoyageBundle:Voiture:list }
+    defaults: { _controller: GoVoyageBundle:Voiture:indexForClient }
 
 go_voyage_ajoutvoiture:
     path:     /ajoutvoiture
     defaults: { _controller: GoVoyageBundle:Voiture:ajout }
 
 go_voyage_suppvoiture:
-    path:     /suppvoiture/{id_voiture}
+    path:     /suppvoiture/{id}
     defaults: { _controller: GoVoyageBundle:Voiture:supp }
 
-go_voyage_layoutVOITURE:
+go_voyage_layout:
     path:     /indexvoiture
     defaults: { _controller: GoVoyageBundle:Voiture:ajout }
+
+go_voyage_affichevoitureforAgence:
+    path:     /listVoitureFA
+    defaults: { _controller: GoVoyageBundle:Voiture:indexForAgence }
+
+go_voyage_updatevoitureforAgence:
+    path:     /updateVoitureFA2/{id}
+    defaults: { _controller: GoVoyageBundle:Voiture:updateForAgence }
+
+
+go_voyage_updatevoitureforAgence2:
+    path:     /listVoitureFA1/{id}
+    defaults: { _controller: GoVoyageBundle:Voiture:updateForAgence2 }
+
+
 
 
 
