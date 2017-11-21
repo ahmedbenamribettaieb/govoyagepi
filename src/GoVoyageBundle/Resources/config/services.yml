@@ -1,0 +1,4 @@
+services:
+    redirect.after.login:
+            class: GoVoyageBundle\Redirection\AfterLoginRedirection
+            arguments: ['@router','@security.authorization_checker']
