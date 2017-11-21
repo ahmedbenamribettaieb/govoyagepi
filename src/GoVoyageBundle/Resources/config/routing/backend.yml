@@ -1,3 +1,9 @@
 Backend_show:
     path:     /
     defaults: { _controller: "GoVoyageBundle:Backend:test" }
+Backend_list_vol:
+    path:     /listvoladmin
+    defaults: { _controller: "GoVoyageBundle:Backend:listVolAdmin" }
+Backend_suppr_vol:
+    path:     /supprvol/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:SupprVolAdmin" }

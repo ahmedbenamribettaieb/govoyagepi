@@ -18,4 +18,20 @@ class BackendController extends Controller
         return $this->render('GoVoyageBundle:Admin:index_admin.html.twig');
     }
 
+    public function listVolAdminAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
+        return $this->render('GoVoyageBundle:Admin:List_vol_admin.html.twig',array('vols'=>$vols));
+    }
+
+    public function SupprVolAdminAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vol=$em->getRepository("GoVoyageBundle:Vol")->find($id);
+        $em->remove($vol);
+        $em->flush();
+        return $this->redirectToRoute('Backend_list_vol');
+    }
+
 }
