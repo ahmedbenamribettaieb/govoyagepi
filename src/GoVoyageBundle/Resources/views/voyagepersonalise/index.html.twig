@@ -96,18 +96,11 @@
                             <div class="padding">
 
                                 <div class="catalog-head fly-in">
-                                    <label>Afficher les resultats de Recherche par:</label>
-                                    <div class="search-select">
-                                        <select>
-                                            <option>intitulé du voyage</option>
-                                            <option>Prix</option>
-                                            <option>Date de depart</option>
-                                            <option>Ville Depart</option>
-                                            <option>Destination</option>
-                                        </select>
-                                    </div>
-                                    <a href="#" class="show-list"></a>
-
+                                    <label style="color: darkorange">Afficher les resultats de recherche triées par:</label>
+                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Nom du Voyage','nom') }}</label>
+                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Nombre des Participants','nbrParticipant')}}</label>
+                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Départ','dateDepart') }}</label>
+                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Arrivée','dateArrive') }}</label>
                                     <div class="clear"></div>
                                 </div>
 

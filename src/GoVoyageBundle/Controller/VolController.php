@@ -72,6 +72,20 @@ class VolController extends Controller
         return $this->render('GoVoyageBundle:Vol:ModifVol.html.twig',array("v"=>$vol));
     }
 
+    public function ReserverAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vo=$em->getRepository("GoVoyageBundle:Vol")->find($id);
+        $userid = $this->getUser()->getId();
+        if($user = $this->getUser()->get_the_role() == "ROLE_CLIENT")
+        {
+            $vo->setClientVolFk($userid);
+            $em->persist($vo);
+            $em->flush();
+        }
+        return $this->redirectToRoute('ListVol');
+    }
+
     public function AjoutAction(Request $request)
     {
         $vol = new Vol();

@@ -38,12 +38,17 @@ class GuideController extends Controller
             'voyagepersonalises' => $res));
     }
 
-    public function PostulerAction($id){
+    public function PostulerAction($id)
+    {
         $em=$this->getDoctrine()->getManager();
         $vo=$em->getRepository("GoVoyageBundle:Voyagepersonalise")->find($id);
-        $vo->setIdGuideFk($user = $this->getUser()->getId());
+        $userid = $this->getUser()->getId();
+        if($user = $this->getUser()->get_the_role() == "ROLE_GUIDE")
+        {
+        $vo->setIdGuideFk($userid);
         $em->persist($vo);
         $em->flush();
+        }
         return $this->redirectToRoute('AfficherGuideVpList');
     }
 

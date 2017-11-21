@@ -371,13 +371,6 @@ class Users extends BaseUser
         $this->nbChambreReserve = $nbChambreReserve;
     }
 
-    /**
-     * @return array
-     */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
 
     /**
      * @return string
