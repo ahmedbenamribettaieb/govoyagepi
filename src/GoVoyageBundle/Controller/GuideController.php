@@ -13,10 +13,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class GuideController extends Controller
 {
-    public function AffAction($id){
-
+    public function AffAction(){
+        $user = $this->getUser()->getId();
         $em=$this->getDoctrine()->getManager();
-        $guide=$em->getRepository("GoVoyageBundle:Users")->findOneBy(array('email' => 'ghassen.jemai@esprit.tn'));
+        $guide=$em->getRepository("GoVoyageBundle:Users")->find($user);
         return $this->render('GoVoyageBundle:Guide:GuideShow.html.twig',array("g"=>$guide));
 
     }
