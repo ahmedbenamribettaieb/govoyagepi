@@ -141,8 +141,14 @@
                                                                                     <b>Ville destination </b>
                                                                                     <span>{{ v.villeArrive }}</span>
                                                                                 </div>
+                                                                                {% if v.IdGuideFk != null %}
+                                                                                    <div class="flight-line-d"></div>
+                                                                                    <div class="flight-line-a">
+                                                                                        <b>Nouvelle notification </b>
+                                                                                        <span style="color: red">Verifier dans les details</span>
+                                                                                    </div>
+                                                                                {% endif %}
                                                                                 <div class="flight-line-d"></div>
-
                                                                                 <div class="flight-line-b">
                                                                                     <b>Plus de detail</b>
                                                                                 </div>
@@ -155,6 +161,9 @@
                                                                                         </div>
                                                                                         <div class="flight-details-a">{{ v.dateDepart | date("d/m/y") }}</div>
                                                                                         <div class="flight-details-c">{{ v.villeDepart }}</div>
+                                                                                           {% if v.IdGuideFk != null %}
+                                                                                            <div class="flight-details-a">Un guide a postuler pour votre voyage </div>
+                                                                                        {% endif %}
                                                                                     </div>
                                                                                     <div class="flight-details-r">
                                                                                         <div class="flight-details-c">{{ v.villeDepart }}</div>

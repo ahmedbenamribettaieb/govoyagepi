@@ -3,6 +3,8 @@
 namespace GoVoyageBundle\Controller;
 
 use GoVoyageBundle\Entity\Voyagepersonalise;
+use GoVoyageBundle\Entity\Users;
+use GoVoyageBundle\Entity\Evenement;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -142,6 +144,12 @@ class VoyagepersonaliseController extends Controller
     }
     public function AjoutAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
+
+        $em1 = $this->getDoctrine()->getManager();
+        $event = $em1->getRepository('GoVoyageBundle:Evenement')->findAll();
+
         $vo = new Voyagepersonalise();
         if($request->isMethod('POST')){
             $vo->setNom($request->get('nomvoyage'));
@@ -160,14 +168,13 @@ class VoyagepersonaliseController extends Controller
             $vo->setHotelFk($request->get('hotelfk'));
             $vo->setEvent1Fk($request->get('eventfk'));
             $vo->setClientVpFk($user = $this->getUser()->getId());
-            $vo->setIdGuideFk($request->get('guidefk'));
             $em=$this->getDoctrine()->getManager();
             $em->persist($vo);
             $em->flush();
 
             return $this->redirectToRoute('voyagepersonalise_index');
         }
-        return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig',array());
+        return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig',array('users'=>$users,'event'=>$event));
 
     }
     public function ModifAction(Request $request , $id)
@@ -193,7 +200,6 @@ class VoyagepersonaliseController extends Controller
             $vo->setHotelFk($request->get('hotelfk'));
             $vo->setEvent1Fk($request->get('eventfk'));
             $vo->setClientVpFk($user = $this->getUser()->getId());
-            $vo->setIdGuideFk($request->get('guidefk'));
             $em->persist($vo);
             $em->flush();
             return $this->redirectToRoute('voyagepersonalise_index');
