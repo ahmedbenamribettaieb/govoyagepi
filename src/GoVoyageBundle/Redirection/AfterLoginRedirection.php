@@ -64,7 +64,9 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
         if (in_array('ROLE_ADMIN', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('admintempl'));
         if (in_array('ROLE_GUIDE', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('chambre_index'));
+            $redirection = new RedirectResponse($this->router->generate('AfficherGuideCompte'));
+        if (in_array('ROLE_CLIENT', $rolesTab, true))
+            $redirection = new RedirectResponse($this->router->generate('ListVol'));
 
 
 

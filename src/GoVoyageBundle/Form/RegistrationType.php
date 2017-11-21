@@ -25,6 +25,7 @@ class RegistrationType extends AbstractType
                         'ROLE_HOTEL' => 'ROLE_HOTEL',
                         'ROLE_AGENCE' => 'ROLE_AGENCE',
                         'ROLE_GUIDE' => 'ROLE_GUIDE',
+                        'ROLE_CLIENT' => 'ROLE_CLIENT',
                         'ROLE_AGENCE_VOITURE' => 'ROLE_AGENCE_VOITURE'
                         )
                     )
