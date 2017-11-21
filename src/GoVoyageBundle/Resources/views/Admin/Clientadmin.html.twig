@@ -1,4 +1,7 @@
 {% extends 'GoVoyageBundle::layout_admin.html.twig' %}
+{% block username %}
+    {{ u }}
+{% endblock %}
 {% block content %}
     <div class="right_col" role="main">
         <div class="">
@@ -32,13 +35,14 @@
                                                 <div class="mask">
                                                     <p>{{ v.Numtel }}</p>
                                                     <div class="tools tools-bottom">
-                                                        <a href="{{ path('Backend_client_supp',{'id':v.id}) }}"><i class="fa fa-times"></i></a>
+                                                        <a href="{{ path('Backend_client_supp',{'id':v.id}) }}"><i
+                                                                    class="fa fa-times"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="caption">
                                                 <center>
-                                                    <p>{{ v.Prenom}}</p>
+                                                    <p>{{ v.Prenom }}</p>
                                                 </center>
                                             </div>
                                         </div>
