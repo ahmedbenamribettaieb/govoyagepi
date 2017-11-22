@@ -1,7 +1,5 @@
 {% extends "GoVoyageBundle:Guide:Guide_layout.html.twig" %}
-{% block mon_compte %}
-    <a href="{{ path('AfficherGuideCompte',{'id':3}) }}">Mon Compte</a>
-{% endblock %}
+
 {% block content %}
 <div class="main-cont">
 
@@ -9,9 +7,6 @@
         <div class="inner-breadcrumbs">
             <div class="content-wrapper">
                 <div class="page-title">Mon Compte</div>
-                <div class="breadcrumbs">
-                    <a href="#">Home</a> / <a href="#">Projects</a> / <span>Project page</span>
-                </div>
                 <div class="clear"></div>
             </div>
         </div>
@@ -30,8 +25,13 @@
                 </div>
             </div>
             <div class="p-item-page-r">
-                <h3>project details</h3>
+                <h3>Vos Informations</h3>
                 <div class="p-item-details">
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Username:</div>
+                        <div class="p-item-details-ir">{{ g.username }}</div>
+                        <div class="clear"></div>
+                    </div>
                     <div class="p-item-details-i">
                         <div class="p-item-details-il">Nom:</div>
                         <div class="p-item-details-ir">{{ g.nom }}</div>
@@ -43,29 +43,47 @@
                         <div class="clear"></div>
                     </div>
                     <div class="p-item-details-i">
-                        <div class="p-item-details-il">Nom:</div>
-                        <div class="p-item-details-ir">{{ g.get_the_role() }}</div>
+                        <div class="p-item-details-il">Email:</div>
+                        <div class="p-item-details-ir">{{ g.email }}</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">CIN:</div>
+                        <div class="p-item-details-ir">{{ g.cin }}</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Numéro du téléphone:</div>
+                        <div class="p-item-details-ir">{{ g.numtel }}</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Date de naissance:</div>
+                        <div class="p-item-details-ir">{{ g.datenaissence|date('Y-m-d') }}</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Adresse:</div>
+                        <div class="p-item-details-ir">{{ g.adresse }}</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Note:</div>
+                        <div class="p-item-details-ir">
+                                {% for i in 1..g.note %}
+                                    <img alt="" src="{{ asset('img/chk-star-b.png') }}" />
+                                {% endfor %}
+                            {% if g.note != 5 %}
+                            {% for i in g.note..4 %}
+                                <img alt="" src="{{ asset('img/chk-star-a.png') }}" />
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+
+                            <div class="clear"></div>
                         <div class="clear"></div>
                     </div>
                 </div>
-                <h3>About Project</h3>
-                <div class="p-item-more">Cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendrem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo.</div>
-                <div class="p-item-social">
-                    <a class="team-fb" href="#"></a>
-                    <a class="team-tw" href="#"></a>
-                    <a class="team-gp" href="#"></a>
-                    <a class="team-inst" href="#"></a>
-                    <a class="team-pint" href="#"></a>
-                </div>
-
-            </div>
-            <div class="clear"></div>
-
-            <div class="portfolio-nav no-margin">
-                <div class="portfolio-nav-l"><a href="#"></a></div>
-                <div class="portfolio-nav-c"><a href="#"></a></div>
-                <div class="portfolio-nav-r"><a href="#"></a></div>
-            </div>
 
         </div>
     </div>

@@ -2,59 +2,60 @@
 <head>
     {% block head %}
         <meta charset="utf-8"/>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>{% block title %} Espace Etudiant {% endblock %}</title>
         {% block stylesheet %}
-            <link rel="stylesheet" href="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css')}}">
-            <link rel="stylesheet" href="{{ asset('css/owl.carousel.css')}}">
-            <link rel="stylesheet" href="{{ asset('css/idangerous.swiper.css')}}">
-            <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/rating.css') }}" />
+            <link rel="stylesheet"
+                  href="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/idangerous.swiper.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/rating.css') }}"/>
             <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,800' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,800' rel='stylesheet'
+                  type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-        {%  endblock %}
+            <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic'
+                  rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin,latin-ext' rel='stylesheet'
+                  type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=latin,cyrillic'
+                  rel='stylesheet' type='text/css'>
+        {% endblock %}
     {% endblock %}
 </head>
 <body class="index-page">
 <!-- // authorize // -->
 <div class="overlay"></div>
 <div class="autorize-popup">
-    <div class="autorize-tabs">
-        <a href="#" class="autorize-tab-a current">Sign in</a>
-        <a href="#" class="autorize-tab-b">Register</a>
-        <a href="#" class="autorize-close"></a>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <div align="center">
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+        </div>
         <div class="clear"></div>
-    </div>
-    <section class="autorize-tab-content">
-        <div class="autorize-padding">
-            <h6 class="autorize-lbl">Welocome! Login in to Your Accont</h6>
-            <input type="text" value="" placeholder="Name">
-            <input type="text" value="" placeholder="Password">
-            <footer class="autorize-bottom">
-                <button class="authorize-btn">Login</button>
-                <a href="#" class="authorize-forget-pass">Forgot your password?</a>
-                <div class="clear"></div>
-            </footer>
+        <br>
+        <br>
+        <br>
+        <div align="center" >
+
+            <a class="authorize-btn" style="float: none" href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
         </div>
-    </section>
-    <section class="autorize-tab-content">
-        <div class="autorize-padding">
-            <h6 class="autorize-lbl">Register for Your Account</h6>
-            <input type="text" value="" placeholder="Name">
-            <input type="text" value="" placeholder="Password">
-            <footer class="autorize-bottom">
-                <button class="authorize-btn">Registration</button>
-                <div class="clear"></div>
-            </footer>
-        </div>
-    </section>
+
+    {% else %}
+        {% block fos_user_content %}
+            {{ render(controller('FOSUserBundle:Security:login')) }}
+        {% endblock fos_user_content %}
+    {% endif %}
+
 </div>
 <!-- \\ authorize \\-->
 <header id="top">
@@ -72,7 +73,7 @@
                 <a href="#" class="social-instagram"></a>
             </div>
             <div class="header-lang">
-                <a href="#"><img alt="" src="{{ asset('img/fr.gif') }}" /></a>
+                <a href="#"><img alt="" src="{{ asset('img/fr.gif') }}"/></a>
                 <div class="langs-drop">
                     <div><a href="#" class="langs-item en">english</a></div>
                     <div><a href="#" class="langs-item fr">francais</a></div>
@@ -211,7 +212,7 @@
                         <li><a href="#">Voyages</a>
                             <ul>
                                 <li><a href="tour_alternative.html">Tours list style</a></li>
-                                <li><a href="{{ path('voyagepersonalise_index')}}">Mes Voyages Personalisé</a></li>
+                                <li><a href="{{ path('voyagepersonalise_index') }}">Mes Voyages Personalisé</a></li>
                                 <li><a href="tour_simple.html">Tours simple style</a></li>
                                 <li><a href="tour_detail.html">Tour detail page</a></li>
                                 <li><a href="tour_booking.html">tour booking page</a></li>
@@ -243,8 +244,9 @@
                         </li>
                         <li><a href="">Profil</a>
                             <ul>
-                                <li><a href="{{ path('users_showclient') }}">Mon Profil</a></li>
-                                <li><a href="{{ path('users_editclient') }}">Modifier mon Profil</a></li>
+                                <li><a href="{{ path('users_showclient',{ 'id': 7 }) }}">Mon Profil</a></li>
+                                <li><a href="{{ path('users_showclient',{ 'id': 7 }) }}">blog masonry style</a></li>
+
                             </ul>
                         </li>
                         <li><a href="contacts.html">Contacts</a></li>
@@ -275,7 +277,7 @@
     <div class="wrapper-padding">
         <div class="section">
             <div class="footer-lbl">Get In Touch</div>
-            <div class="footer-adress">Address: 58911 Lepzig Hore,<br />85000 Vienna, Austria</div>
+            <div class="footer-adress">Address: 58911 Lepzig Hore,<br/>85000 Vienna, Austria</div>
             <div class="footer-phones">Telephones: +1 777 55-32-21</div>
             <div class="footer-email">E-mail: contacts@miracle.com</div>
             <div class="footer-skype">Skype: angelotours</div>
@@ -285,7 +287,8 @@
             <div class="footer-tours">
                 <!-- // -->
                 <div class="footer-tour">
-                    <div class="footer-tour-l"><a href="#"><img alt="" src="{{ asset('img/f-tour-01.jpg')}}" /></a></div>
+                    <div class="footer-tour-l"><a href="#"><img alt="" src="{{ asset('img/f-tour-01.jpg') }}"/></a>
+                    </div>
                     <div class="footer-tour-r">
                         <div class="footer-tour-a">amsterdam tour</div>
                         <div class="footer-tour-b">location: netherlands</div>
@@ -306,7 +309,7 @@
             <div class="footer-lbl">newsletter sign up</div>
             <div class="footer-subscribe">
                 <div class="footer-subscribe-a">
-                    <input type="text" placeholder="you email" value="" />
+                    <input type="text" placeholder="you email" value=""/>
                 </div>
             </div>
             <button class="footer-subscribe-btn">Sign up</button>
@@ -331,50 +334,49 @@
 <!-- /footer -->
 
 <!-- // scripts // -->
-<script src="{{ asset('js/jquery.1.7.1.js')}}"></script>
-<script src="{{ asset('js/idangerous.swiper.js')}}"></script>
-<script src="{{ asset('js/slideInit.js')}}"></script>
-<script src="{{ asset('js/jqeury.appear.js')}}"></script>
-<script src="{{ asset('js/script.js')}}"></script>
-<script src="{{ asset('js/owl.carousel.min.js')}}"></script>
-<script src="{{ asset('js/custom.select.js')}}"></script>
-<script src="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('js/twitterfeed.js')}}"></script>
-<script src="{{ 'https//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'}}"></script>
-<script src="{{ asset('js/rating.js') }}"></script>
+<script src="{{ asset('js/jquery.1.7.1.js') }}"></script>
+<script src="{{ asset('js/idangerous.swiper.js') }}"></script>
+<script src="{{ asset('js/slideInit.js') }}"></script>
+<script src="{{ asset('js/jqeury.appear.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('js/custom.select.js') }}"></script>
+<script src="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/twitterfeed.js') }}"></script>
+
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.date-inpt').datepicker();
         $('.custom-select').customSelect();
-        $(function() {
-            $(document.body).on('appear', '.fly-in', function(e, $affected) {
+        $(function () {
+            $(document.body).on('appear', '.fly-in', function (e, $affected) {
                 $(this).addClass("appeared");
             });
             $('.fly-in').appear({force_process: true});
         });
 
         $(".owl-slider").owlCarousel({
-            loop:true,
-            margin:28,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:true
+            loop: true,
+            margin: 28,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
                 },
-                620:{
-                    items:2,
-                    nav:true
+                620: {
+                    items: 2,
+                    nav: true
                 },
-                900:{
-                    items:3,
-                    nav:false
+                900: {
+                    items: 3,
+                    nav: false
                 },
-                1120:{
-                    items:4,
-                    nav:true,
-                    loop:false
+                1120: {
+                    items: 4,
+                    nav: true,
+                    loop: false
                 }
             }
         });
