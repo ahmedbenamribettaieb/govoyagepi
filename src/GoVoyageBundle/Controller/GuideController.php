@@ -52,4 +52,30 @@ class GuideController extends Controller
         return $this->redirectToRoute('AfficherGuideVpList');
     }
 
+    public function EditDataAction(Request $request)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vo=$em->getRepository("GoVoyageBundle:Users")->find($this->getUser()->getId());
+        if($request->isMethod('POST')){
+
+            $vo->setNom($request->get('Nom'));
+            $vo->setPrenom($request->get('Prenom'));
+            $vo->setUsername($request->get('username'));
+
+            $d1 = new \DateTime($request->get('datenaissance'));
+            $d1->format('Y-m-d');
+            $vo->setDatenaissence($d1);
+
+            $vo->setEmail($request->get('mail'));
+            $vo->setPassword($request->get('pass'));
+            $vo->setNumtel($request->get('numtel'));
+            $vo->setAdresse($request->get('adresse'));
+            $vo->setCin($request->get('cin'));
+            $em->persist($vo);
+            $em->flush();
+            return $this->redirectToRoute('AfficherGuideCompte');
+        }
+        return $this->render('GoVoyageBundle:Guide:GuideModifData.html.twig',array("v"=>$vo));
+    }
+
 }

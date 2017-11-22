@@ -1,7 +1,5 @@
 {% extends "GoVoyageBundle:Guide:Guide_layout.html.twig" %}
-{% block mon_compte %}
-    <a href="{{ path('AfficherGuideCompte',{'id':3}) }}">Mon Compte</a>
-{% endblock %}
+
 {% block content %}
 <div class="main-cont">
 
@@ -29,6 +27,11 @@
             <div class="p-item-page-r">
                 <h3>Vos Informations</h3>
                 <div class="p-item-details">
+                    <div class="p-item-details-i">
+                        <div class="p-item-details-il">Username:</div>
+                        <div class="p-item-details-ir">{{ g.username }}</div>
+                        <div class="clear"></div>
+                    </div>
                     <div class="p-item-details-i">
                         <div class="p-item-details-il">Nom:</div>
                         <div class="p-item-details-ir">{{ g.nom }}</div>
