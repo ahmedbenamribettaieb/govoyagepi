@@ -24,14 +24,24 @@ class VolController extends Controller
     public function List2Action( Request $request)
     {
         $em=$this->getDoctrine()->getManager();
-        $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
+        $queryBuilder = $em->getRepository('GoVoyageBundle:Vol')->createQueryBuilder('bp');
+
+        if ($request->query->getAlnum('filter_nom')) {
+            $queryBuilder->where('bp.nomVol LIKE :nomVol')
+                ->setParameter('nomVol', '%' . $request->query->getAlnum('filter_nom') . '%');
+        }
+        if ($request->query->getAlnum('filter_prix')) {
+            $queryBuilder->where('bp.prixVol LIKE :prixVol')
+                ->setParameter('prixVol', '%' . $request->query->getAlnum('filter_prix') . '%');
+        }
+        $query = $queryBuilder->getQuery();
         /**
          * @var $paginator \Knp\Component\Pager\Paginator
          */
         $paginator =$this->get('knp_paginator');
-        $res=$paginator->paginate($vols,
+        $res=$paginator->paginate($query,
         $request->query->getInt('page',1),
-        $request->query->getInt('Limit',10)
+        $request->query->getInt('Limit',2)
         );
         return $this->render('GoVoyageBundle:Vol:ListVol_Compagnie.html.twig',array("vols"=>$res));
     }
