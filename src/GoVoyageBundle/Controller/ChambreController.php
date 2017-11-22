@@ -91,5 +91,20 @@ class ChambreController extends Controller
             'hotel'=>$hotel,
         ));
     }
+    public function reserverAction(Request $request, $id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $chambre = $em->getRepository('GoVoyageBundle:Chambre')->find($id);
+        $chambre->setClientChFk($user=$this->getUser()->getId());
+        $em->flush();
+        return $this->render('GoVoyageBundle:Hotel:index.html.twig', array(
+            'chambre' => $chambre,
+
+        ));
+    }
+
+
 
 }

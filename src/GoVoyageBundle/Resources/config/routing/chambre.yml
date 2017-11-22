@@ -26,3 +26,8 @@ chambre_list:
     path:     /{id}/chambre_list
     defaults: { _controller: "GoVoyageBundle:Chambre:list" }
     methods:  [GET, POST]
+
+chambre_reserver:
+    path:     /{id}/chambre_res
+    defaults: { _controller: "GoVoyageBundle:Chambre:reserver" }
+    methods:  [GET, POST]
