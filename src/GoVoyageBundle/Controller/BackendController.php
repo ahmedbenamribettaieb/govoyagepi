@@ -17,7 +17,7 @@ class BackendController extends Controller
 {
     public function testAction()
     {
-        return $this->render('GoVoyageBundle:Admin:index_admin.html.twig');
+        return $this->render('GoVoyageBundle:Admin:index_admin.html.twig' );
     }
 
     public function vpAction()
@@ -34,9 +34,11 @@ class BackendController extends Controller
         $user = $this->getUser()->getPrenom();
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
+        $manager = $this->get('mgilet.notification');
+        $notif = $manager->getAll();
 
         return $this->render('GoVoyageBundle:Admin:Clientadmin.html.twig', array(
-            'users' => $users,'u' => $user
+            'users' => $users,'u' => $user,'notif'=>$notif
         ));
     }
     public function GuideAction()
