@@ -1,7 +1,7 @@
 {% extends 'GoVoyageBundle::layout_template.html.twig' %}
 
 {% block content %}
-    {{ 4|rating }}
+
     <div class="main-cont">
         <div class="body-wrapper">
             <div class="wrapper-padding">
@@ -96,18 +96,11 @@
                             <div class="padding">
 
                                 <div class="catalog-head fly-in">
-                                    <label>Afficher les resultats de Recherche par:</label>
-                                    <div class="search-select">
-                                        <select>
-                                            <option>intitulé du voyage</option>
-                                            <option>Prix</option>
-                                            <option>Date de depart</option>
-                                            <option>Ville Depart</option>
-                                            <option>Destination</option>
-                                        </select>
-                                    </div>
-                                    <a href="#" class="show-list"></a>
-
+                                    <label style="color: darkorange">Afficher les resultats de recherche triées par:</label>
+                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Nom du Voyage','nom') }}</label>
+                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Nombre des Participants','nbrParticipant')}}</label>
+                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Départ','dateDepart') }}</label>
+                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Arrivée','dateArrive') }}</label>
                                     <div class="clear"></div>
                                 </div>
 
@@ -141,8 +134,14 @@
                                                                                     <b>Ville destination </b>
                                                                                     <span>{{ v.villeArrive }}</span>
                                                                                 </div>
+                                                                                {% if v.IdGuideFk != null %}
+                                                                                    <div class="flight-line-d"></div>
+                                                                                    <div class="flight-line-a">
+                                                                                        <b>Nouvelle notification </b>
+                                                                                        <span style="color: red">Verifier dans les details</span>
+                                                                                    </div>
+                                                                                {% endif %}
                                                                                 <div class="flight-line-d"></div>
-
                                                                                 <div class="flight-line-b">
                                                                                     <b>Plus de detail</b>
                                                                                 </div>
@@ -155,6 +154,9 @@
                                                                                         </div>
                                                                                         <div class="flight-details-a">{{ v.dateDepart | date("d/m/y") }}</div>
                                                                                         <div class="flight-details-c">{{ v.villeDepart }}</div>
+                                                                                           {% if v.IdGuideFk != null %}
+                                                                                            <div class="flight-details-a">Un guide a postuler pour votre voyage </div>
+                                                                                        {% endif %}
                                                                                     </div>
                                                                                     <div class="flight-details-r">
                                                                                         <div class="flight-details-c">{{ v.villeDepart }}</div>
@@ -205,4 +207,8 @@
             </div>
         </div>
     </div>
+    <div>
+        {{ 4|rating }}
+    </div>
+
 {% endblock %}

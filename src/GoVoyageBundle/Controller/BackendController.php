@@ -22,19 +22,31 @@ class BackendController extends Controller
 
     public function vpAction()
     {
+        $user = $this->getUser()->getPrenom();
         $em = $this->getDoctrine()->getManager();
         $voyagepersonalises = $em->getRepository('GoVoyageBundle:Voyagepersonalise')->findAll();
         return $this->render('GoVoyageBundle:Admin:voyagepersonaliseadmin.html.twig', array(
-            'voyagepersonalises' => $voyagepersonalises
+            'voyagepersonalises' => $voyagepersonalises,'u' => $user
         ));
     }
     public function ClientAction()
     {
+        $user = $this->getUser()->getPrenom();
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
 
         return $this->render('GoVoyageBundle:Admin:Clientadmin.html.twig', array(
-            'users' => $users
+            'users' => $users,'u' => $user
+        ));
+    }
+    public function GuideAction()
+    {
+        $user = $this->getUser()->getPrenom();
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
+
+        return $this->render('GoVoyageBundle:Admin:Guidelistadmin.html.twig', array(
+            'users' => $users,'u' => $user
         ));
     }
     public function vpSupprAction($id)
@@ -63,6 +75,14 @@ class BackendController extends Controller
     }
 
 
+    public function guideSupprAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vo=$em->getRepository("GoVoyageBundle:Users")->find($id);
+        $em->remove($vo);
+        $em->flush();
+        return $this->redirectToRoute('Backend_guide');
+    }
     public function clientSupprAction($id)
     {
         $em=$this->getDoctrine()->getManager();

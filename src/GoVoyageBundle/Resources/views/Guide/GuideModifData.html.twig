@@ -1,0 +1,90 @@
+{% extends "GoVoyageBundle:Guide:Guide_layout.html.twig" %}
+
+{% block content %}
+    <div class="main-cont" >
+        <div class="body-wrapper">
+            <div class="wrapper-padding">
+                <div class="page-head">
+                    <div class="page-title"><span>Modification  </span>De vos donnés</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="sp-page">
+                    <div class="sp-page-a">
+                        <div class="sp-page-l">
+                            <div class="sp-page-lb">
+                                <form method="POST">
+                                    <div class="sp-page-p">
+                                        <div class="booking-left">
+                                            <h2>Vos données :</h2>
+                                            <div class="booking-form">
+                                                <div class="booking-form-i">
+                                                    <label> Username : </label>
+                                                    <div class="input"><input name="username" type="text" value="{{ v.username }}" /></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="srch-tab-line">
+                                                    <div class="srch-tab-left">
+                                                        <label>Email</label>
+                                                        <div class="input-a"><input name="mail" type="text" value="{{ v.email }}"></div>
+                                                    </div>
+                                                    <div class="srch-tab-right">
+                                                        <label> Mot de Passe </label>
+                                                        <div class="input-a"><input name="pass" type="text" value="{{ v.password }}"></div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="srch-tab-line">
+                                                    <div class="srch-tab-left">
+                                                        <label>Nom</label>
+                                                        <div class="input-a"><input name="Nom" type="text" value="{{ v.nom }}" > </div>
+                                                    </div>
+                                                    <div class="srch-tab-right">
+                                                        <label>Prenom</label>
+                                                        <div class="input-a"><input name="Prenom" type="text" value="{{ v.prenom }}" > </div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="bookin-three-coll">
+                                                    <div class="booking-form-i">
+                                                        <label>Numero de Téléphone :</label>
+                                                        <div class="input"><input name="numtel" type="text" value="{{ v.numtel }}" /></div>
+                                                    </div>
+                                                    <div class="booking-form-i">
+                                                        <label> Adresse : </label>
+                                                        <div class="input"><input name="adresse" type="text" value="{{ v.adresse }}" /></div>
+                                                    </div>
+                                                    <div class="booking-form-i">
+                                                        <label> Carte d'identité nationalle </label>
+                                                        <div class="input"><input name="cin" type="text" value="{{ v.cin }}" /></div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                    <div class="booking-form-i">
+                                                        <label> Date de Naissence : </label>
+                                                        <div class="input-a"><input name="datenaissance" type="text" value="{{ v.datenaissence | date("y-m-d")}}" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                            <div class="booking-devider no-margin"></div>
+                                            <div class="booking-complete">
+                                                <input class="booking-complete-btn" type="submit" value="   Confirmer la modification ">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

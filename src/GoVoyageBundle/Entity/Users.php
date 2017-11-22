@@ -372,4 +372,25 @@ class Users extends BaseUser
     }
 
 
+    /**
+     * @return string
+     */
+    public function get_the_role(){
+            $rolesTab = $this->getRoles();
+        if (in_array('ROLE_AGENCE_VOITURE', $rolesTab, true))
+            return $redirection="ROLE_AGENCE_VOITURE";
+        if (in_array('ROLE_AGENCE', $rolesTab, true))
+            return $redirection="ROLE_AGENCE";
+        if (in_array('ROLE_HOTEL', $rolesTab, true))
+            return $redirection="ROLE_HOTEL";
+        if (in_array('ROLE_ADMIN', $rolesTab, true))
+            return $redirection="ROLE_ADMIN";
+        if (in_array('ROLE_GUIDE', $rolesTab, true))
+            return $redirection="ROLE_GUIDE";
+        if (in_array('ROLE_CLIENT', $rolesTab, true))
+            return $redirection="ROLE_CLIENT";
+    }
+
+
+
 }

@@ -1,3 +1,15 @@
 AfficherGuideCompte:
     path:     /
     defaults: { _controller: "GoVoyageBundle:Guide:Aff" }
+AfficherGuideVpList:
+    path:     /listvp
+    defaults: { _controller: "GoVoyageBundle:Guide:Listvp" }
+GuideVpListPostuler:
+    path:     /postuler/{id}
+    defaults: { _controller: "GoVoyageBundle:Guide:Postuler" }
+GuideVpListPostuler:
+    path:     /postuler/{id}
+    defaults: { _controller: "GoVoyageBundle:Guide:Postuler" }
+GuideDataEdit:
+    path:     /DataEdit
+    defaults: { _controller: "GoVoyageBundle:Guide:EditData" }

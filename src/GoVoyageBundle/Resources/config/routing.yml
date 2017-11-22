@@ -80,3 +80,6 @@ ghassen:
 admintempl:
     path:     /admin_template
     defaults: { _controller: GoVoyageBundle:Default:admintempl }
+mgilet_notifications:
+    resource: "@MgiletNotificationBundle/Controller/"
+    prefix: /notifications

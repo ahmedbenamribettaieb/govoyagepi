@@ -26,9 +26,7 @@
         <div class="wrapper-padding">
             <div class="header-phone"><span>+216 55 863 415</span></div>
             <div class="header-account">
-                {% block mon_compte %}
                 <a href="#">Mon Compte</a>
-                {% endblock %}
             </div>
             <div class="header-lang">
                 <a href="#"><img alt="" src="{{ asset('img/fr.gif') }}" /></a>
@@ -102,13 +100,10 @@
                             <li><a href="standart_blog_post.html">Blog post example</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-child" href="#">Features</a>
+                    <li><a class="has-child" href="{{ path('AfficherGuideCompte') }}">Mon Compte</a>
                         <ul>
-                            <li><a href="typography.html">typography</a></li>
-                            <li><a href="shortcodes.html">shortcodes</a></li>
-                            <li><a href="interactive_elements.html">interactive elements</a></li>
-                            <li><a href="cover_galleries.html">cover galleries</a></li>
-                            <li><a href="columns.html">columns</a></li>
+                            <li><a href="{{ path('AfficherGuideCompte') }}">Consulter votre compte</a></li>
+                            <li><a href="{{ path('GuideDataEdit') }}">Modifier mes informations</a></li>
                         </ul>
                     </li>
                     <li><a href="contacts.html">CONTACS</a></li>
@@ -194,13 +189,10 @@
                                 <li><a href="standart_blog_post.html">Blog post example</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Features</a>
+                        <li><a href="{{ path('AfficherGuideCompte') }}">Mon Compte</a>
                             <ul>
-                                <li><a href="typography.html">typography</a></li>
-                                <li><a href="shortcodes.html">shortcodes</a></li>
-                                <li><a href="interactive_elements.html">interactive elements</a></li>
-                                <li><a href="cover_galleries.html">cover galleries</a></li>
-                                <li><a href="columns.html">columns</a></li>
+                                <li><a href="{{ path('AfficherGuideCompte') }}">Consulter votre compte</a></li>
+                                <li><a href="{{ path('GuideDataEdit') }}">Modifier mes informations</a></li>
                             </ul>
                         </li>
                         <li><a href="contacts.html">Contacts</a></li>

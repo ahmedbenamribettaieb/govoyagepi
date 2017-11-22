@@ -24,15 +24,31 @@ class VolController extends Controller
     public function List2Action( Request $request)
     {
         $em=$this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository('GoVoyageBundle:Vol')->createQueryBuilder('bp');
         $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
-        /**
-         * @var $paginator \Knp\Component\Pager\Paginator
-         */
-        $paginator =$this->get('knp_paginator');
-        $res=$paginator->paginate($vols,
-        $request->query->getInt('page',1),
-        $request->query->getInt('Limit',10)
-        );
+        $x = true;
+
+        if ($request->query->getAlnum('filter_nom')) {
+            $queryBuilder->where('bp.nomVol LIKE :nomVol')
+                ->setParameter('nomVol', '%' . $request->query->getAlnum('filter_nom') . '%');
+            $x = false;
+        }
+        $query = $queryBuilder->getQuery();
+        if($x){
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($vols,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',2)
+            );
+        }else{
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($query,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',2)
+            );
+            $x = true;
+        }
+
         return $this->render('GoVoyageBundle:Vol:ListVol_Compagnie.html.twig',array("vols"=>$res));
     }
 
@@ -70,6 +86,20 @@ class VolController extends Controller
             return $this->redirectToRoute('List');
         }
         return $this->render('GoVoyageBundle:Vol:ModifVol.html.twig',array("v"=>$vol));
+    }
+
+    public function ReserverAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vo=$em->getRepository("GoVoyageBundle:Vol")->find($id);
+        $userid = $this->getUser()->getId();
+        if($user = $this->getUser()->get_the_role() == "ROLE_CLIENT")
+        {
+            $vo->setClientVolFk($userid);
+            $em->persist($vo);
+            $em->flush();
+        }
+        return $this->redirectToRoute('ListVol');
     }
 
     public function AjoutAction(Request $request)
