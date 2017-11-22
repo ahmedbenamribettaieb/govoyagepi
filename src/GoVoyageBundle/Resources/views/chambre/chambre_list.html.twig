@@ -45,6 +45,7 @@
                         </div>
 
                     </div>
+
                     <div class="two-colls-right">
                         <div class="two-colls-right-b">
                             <div class="padding">
@@ -60,11 +61,13 @@
 
 
                                 <div class="catalog-row">
+
                                     {% for chambre in chambre %}
                                         {% if  chambre.clientChFk == NULL %}
                                             <!--  -->
                                             <!-- // flight-item // -->
                                             <div class="flight-item fly-in">
+
                                                 <div class="flt-i-a">
                                                     <div class="flt-i-b">
                                                         <div class="flt-i-bb">
@@ -86,7 +89,13 @@
                                                                                      align="center">
                                                                                     <b>Type de chambre</b>
                                                                                     <span>{{ chambre.type }}</span>
+
                                                                                 </div>
+
+
+
+
+
                                                                                 <div class="clear"></div>
                                                                                 <!-- // details // -->
                                                                                 <div class="flight-details">
@@ -115,10 +124,15 @@
                                                             <div class="flt-i-price"> cliquez pour reserver</div>
                                                         </div>
 
-                                                        <a href="{{ path('chambre_reserver',{'id':chambre.id}) }}" class="cat-list-btn">reserver</a>
+                                                        <a type="submit"
+                                                                href="{{ path('chambre_reserver',{'id':chambre.id}) }}"
+                                                                class="cat-list-btn">reserver
+                                                        </a>
 
                                                     </div>
+
                                                 </div>
+
                                                 <div class="clear"></div>
                                             </div>
                                             <!-- \\ flight-item \\ -->
@@ -126,6 +140,7 @@
                                     {% endfor %}
 
                                 </div>
+
                                 <div class="clear"></div>
                             </div>
                             <div class="navigation" align="center">
@@ -134,6 +149,7 @@
                         </div>
                         <br class="clear"/>
                     </div>
+                    </form>
                 </div>
                 <div class="clear"></div>
 

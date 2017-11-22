@@ -95,14 +95,18 @@ class ChambreController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-
         $chambre = $em->getRepository('GoVoyageBundle:Chambre')->find($id);
         $chambre->setClientChFk($user=$this->getUser()->getId());
-        $em->flush();
-        return $this->render('GoVoyageBundle:Hotel:index.html.twig', array(
-            'chambre' => $chambre,
 
-        ));
+        $em->flush();
+
+
+
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll();
+
+        return $this->render('GoVoyageBundle:Hotel:index.html.twig', array(
+            'hotel' => $hotel)) ;
+
     }
 
 

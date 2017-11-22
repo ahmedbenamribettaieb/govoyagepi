@@ -11,7 +11,10 @@
                 <h4> {{ form_label(edit_form.type) }} </h4>
             </td>
             <td>
-                {{ form_widget(edit_form.type) }}
+                <div class="input-a">
+                    {{ form_widget(edit_form.type) }}
+                </div>
+
             </td>
         </tr>
 
@@ -21,7 +24,9 @@
             </td>
 
             <td>
+                <div class="input-a">
                 {{ form_widget(edit_form.prix) }}
+                </div>
             </td>
         </tr>
 
@@ -31,7 +36,9 @@
             </td>
 
             <td>
+                <div class="input-a">
                 {{ form_widget(edit_form.clientChFk) }}
+                </div>
             </td>
         </tr>
 
