@@ -1,56 +1,99 @@
 {% extends 'GoVoyageBundle::layout_template.html.twig' %}
 
 {% block content %}
-    <h1>Vos Données </h1>
+    <div class="main-cont">
 
-    <table>
-        <tbody>
-        <tr>
-            <th>Username</th>
-            <td>{{ user.username }}</td>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <td>{{ user.email }}</td>
-        </tr>
-        <tr>
-            <th>Password</th>
-            <td>{{ user.password }}</td>
-        </tr>
-        <tr>
-            <th>Nom</th>
-            <td>{{ user.nom }}</td>
-        </tr>
-        <tr>
-            <th>Numtel</th>
-            <td>{{ user.numtel }}</td>
-        </tr>
-        <tr>
-            <th>Adresse</th>
-            <td>{{ user.adresse }}</td>
-        </tr>
-        <tr>
-            <th>Image</th>
-            <td>{{ user.image }}</td>
-        </tr>
-        <tr>
-            <th>Prenom</th>
-            <td>{{ user.prenom }}</td>
-        </tr>
-        <tr>
-            <th>Cin</th>
-            <td>{{ user.cin }}</td>
-        </tr>
-        <tr>
-            <th>Datenaissence</th>
-            <td>{% if user.datenaissence %}{{ user.datenaissence|date('Y-m-d') }}{% endif %}</td>
-        </tr>
-        </tbody>
-    </table>
+        <div class="inner-page">
+            <div class="inner-breadcrumbs">
+                <div class="content-wrapper">
+                    <div class="page-title">Mon Compte</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('users_editclient', { 'id': user.id }) }}">Edit</a>
-        </li>
-    </ul>
+            <div class="content-wrapper">
+                <div class="p-item-page">
+                    <div class="p-item-page-l">
+                        <div class="p-item-page-lb">
+                            <div class="p-item-padding">
+                                <div id="p-item-slider">
+                                    <div class="p-item-slide"><img alt="" src="{{ asset('img/p-slider-01.jpg') }}" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <br class="clear" />
+                    </div>
+                </div>
+                <div class="p-item-page-r">
+                    <h3>Vos Données</h3>
+                    <div class="p-item-details">
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Nom:</div>
+                            <div class="p-item-details-ir">{{ g.nom }}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Prenom:</div>
+                            <div class="p-item-details-ir">{{ g.prenom }}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Prenom:</div>
+                            <div class="p-item-details-ir">{{ g.username }}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Prenom:</div>
+                            <div class="p-item-details-ir">{{ g.email }}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Prenom:</div>
+                            <div class="p-item-details-ir">{{ g.password }}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Prenom:</div>
+                            <div class="p-item-details-ir">{{ g.numtel }}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Prenom:</div>
+                            <div class="p-item-details-ir">{{ g.adresse }}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Prenom:</div>
+                            <div class="p-item-details-ir">{{ g.cin }}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-item-details-i">
+                            <div class="p-item-details-il">Nom:</div>
+                            <div class="p-item-details-ir">{{ g.datenaissence | date("d/m/y")}}</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <h3>About Me</h3>
+                    <div class="p-item-more">J'aime le sport la lecture est beaucoup d'autre chose </div>
+                    <div class="p-item-social">
+                        <a class="team-fb" href="#"></a>
+                        <a class="team-tw" href="#"></a>
+                        <a class="team-gp" href="#"></a>
+                        <a class="team-inst" href="#"></a>
+                        <a class="team-pint" href="#"></a>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+
+                <div class="portfolio-nav no-margin">
+                    <div class="portfolio-nav-l"><a href="#"></a></div>
+                    <div class="portfolio-nav-c"><a href="#"></a></div>
+                    <div class="portfolio-nav-r"><a href="#"></a></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

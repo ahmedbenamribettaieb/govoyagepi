@@ -1,0 +1,115 @@
+{% extends "GoVoyageBundle:Hotel:layout_template_hotel1.html.twig" %}
+{% block content %}
+    <div class="main-cont">
+        <div class="body-wrapper">
+            <div class="wrapper-padding">
+                <div class="page-head">
+                    <div class="page-title">Tours - <span>simple style</span></div>
+                    <div class="breadcrumbs">
+                        <a href="#">Home</a> / <a href="#">Tours</a> / <span>simple style</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="two-colls">
+                    <div class="two-colls-left">
+
+
+
+
+                        <!-- // side // -->
+
+                        <!-- \\ side \\ -->
+
+                        <!-- // side // -->
+
+                        <!-- \\ side \\ -->
+                        <!-- // side // -->
+
+                        <!-- \\ side \\ -->
+                        <!-- // side // -->
+
+                        <!-- \\ side \\ -->
+
+
+                        <div class="two-colls-right">
+                            <div class="two-colls-right-b">
+
+                                <div class="catalog-row grid">
+                                    <!-- // -->
+
+                                    {% for chambre in chambre %}
+                                        <div class="cat-list-item fly-in appeared">
+                                            <div class="cat-list-item-l">
+
+                                                <a href="#"><img src="{{ asset('img/lit-i-01.jpg') }}"></a>
+                                            </div>
+                                            <div class="cat-list-item-r">
+                                                <div class="cat-list-item-rb">
+                                                    <div class="cat-list-item-p">
+                                                        <div class="cat-list-content">
+                                                            <div class="cat-list-content-a">
+                                                                <div class="cat-list-content-lpadding">
+                                                                    <div class="offer-slider-txt" align="left">
+
+                                                                        <div class="offer-slider-link"><a href="#">{{ hotel.nom }}</a></div>
+                                                                        <div class="offer-slider-r">
+                                                                            <span>chamber type : </span>
+                                                                            <b>{{ chambre.type }}</b>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cat-list-content-r">
+
+
+                                                                <div class="cat-list-content-p">
+
+
+
+                                                                    <div class="offer-slider-r">
+                                                                        <span>chamber price</span>
+                                                                        <b>{{ chambre.prix }}DT</b>
+
+                                                                    </div>
+                                                                    <div class="offer-slider-devider"></div>
+                                                                </div>
+                                                            </div>
+
+                                                            <a href="{{ path ('chambre_list' ,{'id':hotel.id})}}" class="sch-btn">Select</a>
+                                                            <div class="clear"></div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- \\ -->
+                        <!-- // -->
+
+                        <!-- \\ -->
+                        <!-- // -->
+
+                        <!-- \\ -->
+
+
+                        <div class="clear"></div>
+
+
+                    </div>
+                </div>
+                <br class="clear"/>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

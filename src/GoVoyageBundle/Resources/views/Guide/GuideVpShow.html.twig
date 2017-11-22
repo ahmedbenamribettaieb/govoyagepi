@@ -106,7 +106,7 @@
 
                                 <div class="catalog-row">
                                     {% for v in voyagepersonalises %}
-                                        {% if v.clientVpFk == u %}
+                                        {% if v.idGuideFk == null %}
                                             <!-- // flight-item // -->
                                             <div class="flight-item fly-in">
                                                 <div class="flt-i-a">
@@ -134,14 +134,8 @@
                                                                                     <b>Ville destination </b>
                                                                                     <span>{{ v.villeArrive }}</span>
                                                                                 </div>
-                                                                                {% if v.IdGuideFk != null %}
-                                                                                    <div class="flight-line-d"></div>
-                                                                                    <div class="flight-line-a">
-                                                                                        <b>Nouvelle notification </b>
-                                                                                        <span style="color: red">Verifier dans les details</span>
-                                                                                    </div>
-                                                                                {% endif %}
                                                                                 <div class="flight-line-d"></div>
+
                                                                                 <div class="flight-line-b">
                                                                                     <b>Plus de detail</b>
                                                                                 </div>
@@ -154,9 +148,6 @@
                                                                                         </div>
                                                                                         <div class="flight-details-a">{{ v.dateDepart | date("d/m/y") }}</div>
                                                                                         <div class="flight-details-c">{{ v.villeDepart }}</div>
-                                                                                           {% if v.IdGuideFk != null %}
-                                                                                            <div class="flight-details-a">Un guide a postuler pour votre voyage </div>
-                                                                                        {% endif %}
                                                                                     </div>
                                                                                     <div class="flight-details-r">
                                                                                         <div class="flight-details-c">{{ v.villeDepart }}</div>
@@ -183,8 +174,7 @@
                                                         <div class="flt-i-price-i">
                                                             <div class="flt-i-price"> nbr de place {{ v.nbrParticipant }}</div>
                                                         </div>
-                                                        <a href="{{ path('voyagepersonalise_supp',{'id':v.IdVp}) }}" class="cat-list-btn">Supprimer</a>
-                                                        <a href="{{ path('voyagepersonalise_modif',{'id':v.IdVp}) }}" class="cat-list-btn">   Modifierr </a>
+                                                        <a href="{{ path('GuideVpListPostuler',{'id':v.IdVp}) }}" class="srch-btn">Postuler</a>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
@@ -203,7 +193,6 @@
                     </div>
                 </div>
                 <div class="clear"></div>
-
             </div>
         </div>
     </div>

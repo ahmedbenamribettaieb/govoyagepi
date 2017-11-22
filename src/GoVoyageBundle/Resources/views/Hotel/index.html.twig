@@ -72,6 +72,7 @@
             </div>
         </div>
     </div>  {% for hotel in hotel %}
+    {% if hotel.get_the_role() == 'ROLE_HOTEL' %}
     <div class="catalog-row list-rows">
         <div class="cat-list-item fly-in">
             <div class="cat-list-item-l">
@@ -119,7 +120,7 @@
 
                                         <span>avg/night</span>
                                     </div>
-                                    <a href="{{ path ('chambre_index') }}" class="cat-list-btn">Select</a>
+                                    <a href="{{ path ('chambre_list' ,{'id':hotel.id})}}" class="cat-list-btn">Select</a>
                                 </div>
                             </div>
                             <div class="clear"></div>
@@ -131,5 +132,6 @@
             <div class="clear"></div>
         </div>
     </div>
+        {% endif %}
     {% endfor %}
 {% endblock %}

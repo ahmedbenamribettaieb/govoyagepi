@@ -21,7 +21,7 @@ class HotelController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $hotel = $em->getRepository('GoVoyageBundle:Users')->findBy(["get_the_role()"=>"ROLE_HOTEL"]);
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll();
 
         return $this->render('GoVoyageBundle:Hotel:index.html.twig', array(
             'hotel' => $hotel,

@@ -81,4 +81,15 @@ class ChambreController extends Controller
         return $this->redirectToRoute("chambre_index");
     }
 
+    public function listAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $chambre = $em->getRepository('GoVoyageBundle:Chambre')->findBy(['hotelChFk'=>$id]);
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->find($id);
+        return $this->render('GoVoyageBundle:chambre:chambre_list.html.twig', array(
+            'chambre' => $chambre,
+            'hotel'=>$hotel,
+        ));
+    }
+
 }
