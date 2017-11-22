@@ -3,20 +3,39 @@
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
-
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
-
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
-
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
+<div class="autorize-tabs">
+    <a href="#" class="autorize-tab-a current">Sign in</a>
+    <a href="#" class="autorize-tab-b">Register</a>
+    <a href="#" class="autorize-close"></a>
+    <div class="clear"></div>
+</div>
+<section class="autorize-tab-content">
+    <div class="autorize-padding">
+        <h6 class="autorize-lbl"> Bienvenue! Conecter vous sur votre compte </h6>
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+            {% endif %}
+            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Name"/>
+            <input type="text" id="password" name="_password" required="required" placeholder="Mot de passe"/><br>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+            Se Souvenir de Moi<br>
+            <div class="clear"></div>
+            <footer class="autorize-bottom">
+                <input type="submit" class="authorize-btn" id="_submit" name="_submit"
+                       value="{{ 'security.login.submit'|trans }}"/>
+            </footer>
+        </form>
+    </div>
+</section>
+<section class="autorize-tab-content">
+    <div class="autorize-padding">
+        <h6 class="autorize-lbl">Register for Your Account</h6>
+        <input type="text" value="" placeholder="Name">
+        <input type="text" value="" placeholder="Password">
+        <footer class="autorize-bottom">
+            <button class="authorize-btn">Registration</button>
+            <div class="clear"></div>
+        </footer>
+    </div>
+</section>
