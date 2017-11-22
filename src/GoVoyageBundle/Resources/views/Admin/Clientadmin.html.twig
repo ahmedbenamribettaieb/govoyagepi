@@ -27,13 +27,14 @@
 
                                 <p>Client List</p>
                                 {% for v in users %}
+                                    {% if v.get_the_role() == 'ROLE_CLIENT' %}
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
                                                 <img style="width: 100%; display: block;"
                                                      src="{{ asset('img/about-03.jpg') }}" alt="image"/>
                                                 <div class="mask">
-                                                    <p>{{ v.Numtel }}</p>
+                                                    <p>{{ v.username }}</p>
                                                     <div class="tools tools-bottom">
                                                         <a href="{{ path('Backend_client_supp',{'id':v.id}) }}"><i
                                                                     class="fa fa-times"></i></a>
@@ -47,6 +48,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                        {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
