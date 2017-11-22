@@ -19,7 +19,7 @@ class Chambre
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idChambre;
+    private $id;
 
     /**
      * @var string
@@ -37,8 +37,8 @@ class Chambre
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="client_ch_fk", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumn(name="client_ch_fk", referencedColumnName="id_user")
      */
     private $clientChFk;
 
@@ -49,35 +49,23 @@ class Chambre
      */
     private $hotelChFk;
 
-
-
     /**
-     * Get idChambre
-     *
-     * @return integer
+     * @return int
      */
-    public function getIdChambre()
+    public function getId()
     {
-        return $this->idChambre;
+        return $this->id;
     }
 
     /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return Chambre
+     * @param int $id
      */
-    public function setType($type)
+    public function setId($id)
     {
-        $this->type = $type;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get type
-     *
      * @return string
      */
     public function getType()
@@ -86,23 +74,15 @@ class Chambre
     }
 
     /**
-     * Set prix
-     *
-     * @param integer $prix
-     *
-     * @return Chambre
+     * @param string $type
      */
-    public function setPrix($prix)
+    public function setType($type)
     {
-        $this->prix = $prix;
-
-        return $this;
+        $this->type = $type;
     }
 
     /**
-     * Get prix
-     *
-     * @return integer
+     * @return int
      */
     public function getPrix()
     {
@@ -110,23 +90,15 @@ class Chambre
     }
 
     /**
-     * Set clientChFk
-     *
-     * @param integer $clientChFk
-     *
-     * @return Chambre
+     * @param int $prix
      */
-    public function setClientChFk($clientChFk)
+    public function setPrix($prix)
     {
-        $this->clientChFk = $clientChFk;
-
-        return $this;
+        $this->prix = $prix;
     }
 
     /**
-     * Get clientChFk
-     *
-     * @return integer
+     * @return int
      */
     public function getClientChFk()
     {
@@ -134,26 +106,30 @@ class Chambre
     }
 
     /**
-     * Set hotelChFk
-     *
-     * @param integer $hotelChFk
-     *
-     * @return Chambre
+     * @param int $clientChFk
      */
-    public function setHotelChFk($hotelChFk)
+    public function setClientChFk($clientChFk)
     {
-        $this->hotelChFk = $hotelChFk;
-
-        return $this;
+        $this->clientChFk = $clientChFk;
     }
 
     /**
-     * Get hotelChFk
-     *
-     * @return integer
+     * @return int
      */
     public function getHotelChFk()
     {
         return $this->hotelChFk;
     }
+
+    /**
+     * @param int $hotelChFk
+     */
+    public function setHotelChFk($hotelChFk)
+    {
+        $this->hotelChFk = $hotelChFk;
+    }
+
+
+
 }
+

@@ -392,4 +392,10 @@ class Voiture
     {
         return $this->arrivee;
     }
+
+
+    public function setClient($id)
+    {
+        return $this->getClientVoFk()->setId($id) ;
+    }
 }

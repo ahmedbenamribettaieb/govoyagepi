@@ -21,19 +21,23 @@
     {% endblock %}
 </head>
 <header id="top">
+
     <div class="header-a">
         <div class="wrapper-padding">
             <div class="header-phone"><span>1 - 555 - 555 - 555</span></div>
+
             <div class="header-account">
                 <a href="#">My account</a>
             </div>
-            <div class="header-social">
+
+            {#<div class="header-social">
+
                 <a href="#" class="social-twitter"></a>
                 <a href="#" class="social-facebook"></a>
                 <a href="#" class="social-vimeo"></a>
                 <a href="#" class="social-pinterest"></a>
                 <a href="#" class="social-instagram"></a>
-            </div>
+            </div>#}
             <div class="header-viewed">
                 <a href="#" class="header-viewed-btn">recently viewed</a>
                 <!-- // viewed drop // -->
@@ -91,6 +95,7 @@
                     <div><a href="#" class="langs-item it">italiano</a></div>
                 </div>
             </div>
+
             <div class="header-curency">
                 <a href="#">USD</a>
                 <div class="curency-drop">
@@ -99,6 +104,7 @@
                     <div><a href="#">GBR</a></div>
                 </div>
             </div>
+
             <div class="clear"></div>
         </div>
     </div>
@@ -220,7 +226,7 @@
                         </li>
                         <li><a href="#">Flights</a>
                             <ul>
-                                <li><a href="#">Flights round trip</a></li>
+                                <li><a href="{{ path('ListVol') }}">Flights round trip</a></li>
                                 <li><a href="#">flights one way trip</a></li>
                                 <li><a href="#">flights alternative style</a></li>
                                 <li><a href="#">Flights detail page</a></li>
@@ -394,12 +400,13 @@
 <footer class="footer-b">
     <div class="wrapper-padding">
         <div class="footer-left">© Copyright 2015 by weblionmedia. All rights reserved.</div>
-        <div class="footer-social">
-            <a href="#" class="footer-twitter"></a>
+        <div class="footer-social" style="width:500px;">
+            {{ socialButtons() }}
+          {# <a href="#" class="footer-twitter"></a>
             <a href="#" class="footer-facebook"></a>
             <a href="#" class="footer-vimeo"></a>
             <a href="#" class="footer-pinterest"></a>
-            <a href="#" class="footer-instagram"></a>
+            <a href="#" class="footer-instagram"></a>#}
         </div>
         <div class="clear"></div>
     </div>

@@ -16,14 +16,24 @@ class VoyagepersonaliseController extends Controller
      * Lists all voyagepersonalise entities.
      *
      */
-    public function indexAction()
+
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $voyagepersonalises = $em->getRepository('GoVoyageBundle:Voyagepersonalise')->findAll();
+        $user = $this->getUser()->getId();
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator =$this->get('knp_paginator');
+        $res=$paginator->paginate($voyagepersonalises,
+            $request->query->getInt('page',1),
+            $request->query->getInt('Limit',20)
+        );
 
         return $this->render('GoVoyageBundle:voyagepersonalise:index.html.twig', array(
-            'voyagepersonalises' => $voyagepersonalises,
+            'voyagepersonalises' => $res,'u'=>$user
         ));
     }
 
@@ -106,6 +116,15 @@ class VoyagepersonaliseController extends Controller
         return $this->redirectToRoute('voyagepersonalise_index');
     }
 
+    public function SupprAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vol=$em->getRepository("GoVoyageBundle:Voyagepersonalise")->find($id);
+        $em->remove($vol);
+        $em->flush();
+        return $this->redirectToRoute('voyagepersonalise_index');
+    }
+
     /**
      * Creates a form to delete a voyagepersonalise entity.
      *
@@ -121,4 +140,65 @@ class VoyagepersonaliseController extends Controller
             ->getForm()
         ;
     }
+    public function AjoutAction(Request $request)
+    {
+        $vo = new Voyagepersonalise();
+        if($request->isMethod('POST')){
+            $vo->setNom($request->get('nomvoyage'));
+            $vo->setVilleDepart($request->get('villed'));
+            $vo->setVilleArrive($request->get('villea'));
+
+            $d1 = new \DateTime($request->get('dated'));
+            $d1->format('Y-m-d');
+            $vo->setDateDepart($d1);
+
+            $d2 = new \DateTime($request->get('datea'));
+            $d2->format('Y-m-d');
+            $vo->setDateArrive($d2);
+
+            $vo->setNbrParticipant($request->get('nbrpar'));
+            $vo->setHotelFk($request->get('hotelfk'));
+            $vo->setEvent1Fk($request->get('eventfk'));
+            $vo->setClientVpFk($user = $this->getUser()->getId());
+            $vo->setIdGuideFk($request->get('guidefk'));
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($vo);
+            $em->flush();
+
+            return $this->redirectToRoute('voyagepersonalise_index');
+        }
+        return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig',array());
+
+    }
+    public function ModifAction(Request $request , $id)
+    {
+
+        $em=$this->getDoctrine()->getManager();
+        $vo=$em->getRepository("GoVoyageBundle:Voyagepersonalise")->find($id);
+        if($request->isMethod('POST')){
+
+            $vo->setNom($request->get('nomvoyage'));
+            $vo->setVilleDepart($request->get('villed'));
+            $vo->setVilleArrive($request->get('villea'));
+
+            $d1 = new \DateTime($request->get('dated'));
+            $d1->format('Y-m-d');
+            $vo->setDateDepart($d1);
+
+            $d2 = new \DateTime($request->get('datea'));
+            $d2->format('Y-m-d');
+            $vo->setDateArrive($d2);
+
+            $vo->setNbrParticipant($request->get('nbrpar'));
+            $vo->setHotelFk($request->get('hotelfk'));
+            $vo->setEvent1Fk($request->get('eventfk'));
+            $vo->setClientVpFk($user = $this->getUser()->getId());
+            $vo->setIdGuideFk($request->get('guidefk'));
+            $em->persist($vo);
+            $em->flush();
+            return $this->redirectToRoute('voyagepersonalise_index');
+        }
+        return $this->render('GoVoyageBundle:voyagepersonalise:edit.html.twig',array("v"=>$vo));
+    }
+
 }

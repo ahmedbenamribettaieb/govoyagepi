@@ -19,6 +19,9 @@ class AppKernel extends Kernel
             new GoVoyageBundle\GoVoyageBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

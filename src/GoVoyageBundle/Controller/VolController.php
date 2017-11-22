@@ -21,11 +21,19 @@ class VolController extends Controller
         return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$vols));
     }
 
-    public function List2Action()
+    public function List2Action( Request $request)
     {
         $em=$this->getDoctrine()->getManager();
         $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
-        return $this->render('GoVoyageBundle:Vol:ListVol_Compagnie.html.twig',array("vols"=>$vols));
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator =$this->get('knp_paginator');
+        $res=$paginator->paginate($vols,
+        $request->query->getInt('page',1),
+        $request->query->getInt('Limit',10)
+        );
+        return $this->render('GoVoyageBundle:Vol:ListVol_Compagnie.html.twig',array("vols"=>$res));
     }
 
     public function SupprAction($id)
@@ -48,6 +56,15 @@ class VolController extends Controller
             $vol->setArrivee($request->get('arrivee'));
             $vol->setNomCompagnie($request->get('nomc'));
             $vol->setPrixVol($request->get('prix'));
+
+            $d1 = new \DateTime($request->get('dated'));
+            $d1->format('Y-m-d');
+            $vol->setDateDepart($d1);
+
+            $d2 = new \DateTime($request->get('datea'));
+            $d2->format('Y-m-d');
+            $vol->setDateArrivee($d2);
+
             $em->persist($vol);
             $em->flush();
             return $this->redirectToRoute('List');
@@ -64,9 +81,19 @@ class VolController extends Controller
             $vol->setArrivee($request->get('arrivee'));
             $vol->setNomCompagnie($request->get('nomc'));
             $vol->setPrixVol($request->get('prix'));
+
+            $d1 = new \DateTime($request->get('dated'));
+            $d1->format('Y-m-d');
+            $vol->setDateDepart($d1);
+
+            $d2 = new \DateTime($request->get('datea'));
+            $d2->format('Y-m-d');
+            $vol->setDateArrivee($d2);
+
             $em=$this->getDoctrine()->getManager();
             $em->persist($vol);
             $em->flush();
+            return $this->redirectToRoute('List');
         }
         return $this->render('GoVoyageBundle:Vol:AjoutVol.html.twig',array());
     }

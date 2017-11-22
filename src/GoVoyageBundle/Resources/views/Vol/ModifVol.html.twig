@@ -20,39 +20,39 @@
                                             <div class="booking-form">
                                                 <div class="booking-form-i">
                                                     <label>Nom du Vol:</label>
-                                                    <div class="input"><input name="nomv" type="text" value="{{ v.nomVol }}" /></div>
+                                                    <div class="input"><input name="nomv" type="text" value="{{ v.nomVol }}"  /></div>
                                                 </div>
                                                 <div class="clear"></div>
                                                 <div class="bookin-three-coll">
                                                     <div class="booking-form-i">
                                                         <label>Nom du Compagnie:</label>
-                                                        <div class="input"><input name="nomc" type="text" value="" /></div>
+                                                        <div class="input"><input name="nomc" type="text" value="{{ v.nomCompagnie }}" /></div>
                                                     </div>
                                                     <div class="booking-form-i">
                                                         <label>Depart:</label>
-                                                        <div class="input"><input name="depart" type="text" value="" /></div>
+                                                        <div class="input"><input name="depart" type="text" value="{{ v.depart }}" /></div>
                                                     </div>
                                                     <div class="booking-form-i">
                                                         <label>Arrivée:</label>
-                                                        <div class="input"><input name="arrivee" type="text" value="" /></div>
+                                                        <div class="input"><input name="arrivee" type="text" value="{{ v.arrivee }}" /></div>
                                                     </div>
                                                     <div class="clear"></div>
                                                 </div>
                                                 <div class="clear"></div>
                                                 <div class="booking-form-i">
                                                     <label>Prix:</label>
-                                                    <div class="input"><input name="prix" type="text" value="" /></div>
+                                                    <div class="input"><input name="prix" type="text" value="{{ v.prixVol }}" /></div>
                                                     <div class="clear"></div>
                                                 </div>
                                                 <div class="clear"></div>
                                                 <div class="srch-tab-line">
                                                     <div class="srch-tab-left">
                                                         <label>Date Depart</label>
-                                                        <div class="input-a"><input name="dated" type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                        <div class="input-a"><input name="dated" type="text" value="{{ v.dateDepart | date("y-m-d")}}" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
                                                     </div>
                                                     <div class="srch-tab-right">
                                                         <label>Date d'arrivée</label>
-                                                        <div class="input-a"><input name="datea" type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
+                                                        <div class="input-a"><input name="datea" type="text" value="{{ v.dateArrivee |date("y-m-d") }}" class="date-inpt" placeholder="mm/dd/yy"> <span class="date-icon"></span></div>
                                                     </div>
                                                     <div class="clear"></div>
                                                 </div>
@@ -76,6 +76,5 @@
             </div>
 
         </div>
-    </div>
     </div>
 {% endblock %}

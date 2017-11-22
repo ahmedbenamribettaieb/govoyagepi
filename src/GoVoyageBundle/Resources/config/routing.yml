@@ -14,9 +14,20 @@ go_voyage_vol:
     resource: "@GoVoyageBundle/Resources/config/routing/vol.yml"
     prefix:   /vol
 
+go_voyage_backend:
+    resource: "@GoVoyageBundle/Resources/config/routing/backend.yml"
+    prefix:   /back
+
+go_voyage_guide:
+    resource: "@GoVoyageBundle/Resources/config/routing/guide.yml"
+    prefix:   /guide
+
 go_voyage_homepage:
     path:     /
     defaults: { _controller: GoVoyageBundle:Default:index }
+go_voyage_chambre1:
+    path:     /ch
+    defaults: { _controller: GoVoyageBundle:Default:ch }
 
 go_voyage_affichevoitureforClient:
     path:     /listVoiture
@@ -47,9 +58,25 @@ go_voyage_updatevoitureforAgence2:
     path:     /listVoitureFA1/{id}
     defaults: { _controller: GoVoyageBundle:Voiture:updateForAgence2 }
 
+go_voyage_RentCarForClient:
+    path:     /RentCar/{id}
+    defaults: { _controller: GoVoyageBundle:Voiture:RentCarForClient }
+
+go_voyage_searchCarForClient:
+    path:     /search
+    defaults: { _controller: GoVoyageBundle:Voiture:searchForClient }
 
 
 
 
 
 
+ext:
+    path:     /ext
+    defaults: { _controller: GoVoyageBundle:Default:ext }
+ghassen:
+    path:     /ghassen
+    defaults: { _controller: GoVoyageBundle:Default:ghassen }
+admintempl:
+    path:     /admin_template
+    defaults: { _controller: GoVoyageBundle:Default:admintempl }

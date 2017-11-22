@@ -1,0 +1,27 @@
+Backend_show:
+    path:     /
+    defaults: { _controller: "GoVoyageBundle:Backend:test" }
+Backend_list_vol:
+    path:     /listvoladmin
+    defaults: { _controller: "GoVoyageBundle:Backend:listVolAdmin" }
+Backend_suppr_vol:
+    path:     /supprvol/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:SupprVolAdmin" }
+Backend_vp:
+    path:     /vp
+    defaults: { _controller: "GoVoyageBundle:Backend:vp" }
+Backend_client:
+    path:     /client
+    defaults: { _controller: "GoVoyageBundle:Backend:Client" }
+Backend_vp_supp:
+    path:     /supprvp/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:vpSuppr" }
+Backend_client_supp:
+    path:     /supprclient/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:clientSuppr" }
+Backend_voiture_supp:
+    path:     /supprVoiture/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:clientSuppr" }
+Backend_voiture_list:
+    path:     /voiture_list
+    defaults: { _controller: "GoVoyageBundle:Backend:listvoitureAdmin" }

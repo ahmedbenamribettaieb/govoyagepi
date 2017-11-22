@@ -1,0 +1,3 @@
+AfficherGuideCompte:
+    path:     /
+    defaults: { _controller: "GoVoyageBundle:Guide:Aff" }
