@@ -18,8 +18,10 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new GoVoyageBundle\GoVoyageBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
             new Mgilet\NotificationBundle\MgiletNotificationBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
