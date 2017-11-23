@@ -102,8 +102,6 @@ knp_snappy:
     image:
         enabled:    true
         binary:      "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
-vich_uploader:
-    db_driver: orm
 
 nomaya_social:
     buttons:
