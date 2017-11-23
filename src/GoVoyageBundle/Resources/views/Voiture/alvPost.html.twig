@@ -7,7 +7,6 @@
     <title>{% block title %}GoVoyage{% endblock %}</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <!-- <meta charset="utf-8" /><link rel="icon" href="{{asset('favicon.png')}}" />-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="{{asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('css/idangerous.swiper.css')}}">
@@ -22,19 +21,23 @@
     {% endblock %}
 </head>
 <header id="top">
+
     <div class="header-a">
         <div class="wrapper-padding">
             <div class="header-phone"><span>1 - 555 - 555 - 555</span></div>
+
             <div class="header-account">
                 <a href="#">My account</a>
             </div>
-            <div class="header-social">
+
+            {#<div class="header-social">
+
                 <a href="#" class="social-twitter"></a>
                 <a href="#" class="social-facebook"></a>
                 <a href="#" class="social-vimeo"></a>
                 <a href="#" class="social-pinterest"></a>
                 <a href="#" class="social-instagram"></a>
-            </div>
+            </div>#}
             <div class="header-viewed">
                 <a href="#" class="header-viewed-btn">recently viewed</a>
                 <!-- // viewed drop // -->
@@ -92,6 +95,7 @@
                     <div><a href="#" class="langs-item it">italiano</a></div>
                 </div>
             </div>
+
             <div class="header-curency">
                 <a href="#">USD</a>
                 <div class="curency-drop">
@@ -100,6 +104,7 @@
                     <div><a href="#">GBR</a></div>
                 </div>
             </div>
+
             <div class="clear"></div>
         </div>
     </div>
@@ -175,7 +180,7 @@
                             <li><a href="#">shortcodes</a></li>
                             <li><a href="#">interactive elements</a></li>
                             <li><a href="#">cover galleries</a></li>
-                            <li><a href=""#">columns</a></li>
+                            <li><a href="#">columns</a></li>
                         </ul>
                     </li>
                     <li><a href="#">CONTACS</a></li>
@@ -221,7 +226,7 @@
                         </li>
                         <li><a href="#">Flights</a>
                             <ul>
-                                <li><a href="#">Flights round trip</a></li>
+                                <li><a href="{{ path('ListVol') }}">Flights round trip</a></li>
                                 <li><a href="#">flights one way trip</a></li>
                                 <li><a href="#">flights alternative style</a></li>
                                 <li><a href="#">Flights detail page</a></li>
@@ -238,11 +243,11 @@
                                 <li><a href="#">booking complete</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Pages</a>
+                        <li><a href="#">Voitures</a>
                             <ul>
-                                <li><a href="#">about us style one</a></li>
+                                <li><a href="{{ path('go_voyage_affichevoitureforAgence') }}">Listes De Voitures</a></li>
 
-                                <li><a href="#">services</a></li>
+                                <li><a href="{{ path('go_voyage_ajoutvoiture') }}">Ajout Voiture</a></li>
                                 <li><a href="#">contact us</a></li>
                             </ul>
                         </li>
@@ -314,9 +319,6 @@
     </section>
 </div>
 <!-- \\ authorize \\-->
-
-
-
 
 
 
@@ -398,18 +400,21 @@
 <footer class="footer-b">
     <div class="wrapper-padding">
         <div class="footer-left">© Copyright 2015 by weblionmedia. All rights reserved.</div>
-        <div class="footer-social">
-            <a href="#" class="footer-twitter"></a>
+        <div class="footer-social" style="width:500px;">
+            {{ socialButtons() }}
+          {# <a href="#" class="footer-twitter"></a>
             <a href="#" class="footer-facebook"></a>
             <a href="#" class="footer-vimeo"></a>
             <a href="#" class="footer-pinterest"></a>
-            <a href="#" class="footer-instagram"></a>
+            <a href="#" class="footer-instagram"></a>#}
         </div>
         <div class="clear"></div>
     </div>
 </footer>
+
 <!-- // scripts // -->
 {% block script %}
+
 <script src="{{asset('js/jquery.1.7.1.js')}}"></script>
 <script src="{{asset('js/idangerous.swiper.js')}}"></script>
 <script src="{{asset('js/slideInit.js')}}"></script>

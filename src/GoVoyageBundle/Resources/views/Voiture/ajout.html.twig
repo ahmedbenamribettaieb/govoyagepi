@@ -1,16 +1,34 @@
-{% extends 'base.html.twig' %}
 
-{% block body %}
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ path('go_voyage_affichevoitureforAgence') }}">Twig CRUD</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{ form_start(form) }}
+            <p>{{ form_widget(form.regno) }}</p>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
     <h1>Formulaire de voiture</h1>
-
-    {{ form_start(form) }}
+</div>
+   {# {{ form_start(form) }}
     {{ form_widget(form) }}
     <input type="submit" value="Create" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('go_voyage_affichevoiture') }}">Back to the list</a>
+            <a href="#">Back to the list</a>
         </li>
     </ul>
-{% endblock %}
+
+#}

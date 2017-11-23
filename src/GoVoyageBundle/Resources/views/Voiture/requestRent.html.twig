@@ -1,0 +1,182 @@
+{% extends"GoVoyageBundle:Voiture:alvPost.html.twig" %}
+
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{{asset('css/jquery.formstyler.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="body-wrapper">
+        <div class="wrapper-padding">
+            <div class="page-head">
+                <div class="page-title">Voiture - <span>Ajout</span></div>
+                <div class="breadcrumbs">
+                    <a href="#">Home</a> / <a href="{{path('go_voyage_affichevoitureforAgence')}}">Liste De Voiture</a> / <span>hotel booking</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="sp-page">
+                <div class="sp-page-a">
+                    <div class="sp-page-l">
+                        <div class="sp-page-lb">
+                            <div class="sp-page-p">
+                                <form method="POST">
+                                    <div class="booking-left">
+                                        <h2>Passenger Information</h2>
+                                        <div class="booking-form">
+                                            <div class="booking-form-i" hidden>
+                                                <label>numero de la matricule:</label>
+                                                <div class="input" ><input type="text" value="{{ voiture1.regno }}" name="regNo"/></div>
+                                            </div>
+                                            <div class="booking-form-i" hidden>
+                                                <label>Modele:</label>
+                                                <div class="input"><input type="text" value="{{ voiture1.model }}" name="model"></div>
+                                            </div>
+                                            <div class="booking-form-i" hidden>
+                                                <label>duration:</label>
+                                                <div class="input" ><input type="number" value="{{ voiture1.duration }}" name="duration"/></div>
+                                            </div>
+
+                                            <div class="booking-form-i"  >
+                                                <label>Date de Recuperation:</label>
+                                                <div class="input"><input type="datetime-local" value="" name="arrivee"  placeholder="mm/dd/yy" /></div>
+                                            </div>
+                                            <div class="booking-form-i"  >
+                                                <label>Date de Pris:</label>
+                                                <div class="input"><input type="datetime-local" value="" name="depart"  placeholder="mm/dd/yy" /></div>
+                                            </div>
+                                            <div class="booking-form-i">
+                                                <label>ClientId:</label>
+                                                <div class="input"><input type="number" value="" name="	client_vo_fk"/></div>
+                                            </div>
+                                            <div class="booking-form-i"  hidden>
+                                                <label>AgencieId:</label>
+                                                <div class="input"><input type="number" value="" name=""/></div>
+                                            </div>
+                                            <div class="booking-form-i"  hidden>
+                                                <label>ImageVoiture:</label>
+                                                <div class="input"><input type="text" value="{{ voiture1.imgVoiture }}" name="img_voiture"/></div>
+                                            </div>
+                                            <div class="booking-form-i"  hidden>
+                                                <label>rate:</label>
+                                                <div class="input"><input type="number" value="{{ voiture1.rate }}" name="rate"/></div>
+                                            </div>
+
+                                            <div class="clear"></div>
+
+                                            <div class="bookin-three-coll">
+                                                <div class="booking-form-i" hidden>
+                                                    <label>type:</label>
+                                                    <div class="input"><input type="number" value="{{ voiture1.type }}" name="type"/></div>
+                                                </div>
+
+
+                                                <div class="clear"></div>
+                                            </div>
+
+                                            <a href="#" class="add-passanger">Add Passenger</a>
+                                            <div class="checkbox" hidden>
+
+                                                <label>
+                                                    Voiture:<br><br>
+                                                    <input type="checkbox" value="0" name=""/>
+                                                    non disponible
+
+                                                </label>
+                                            </div>
+                                            <div class="booking-devider"></div>
+                                        </div>
+
+                                        <div class="booking-devider no-margin"></div>
+
+
+                                        <div class="booking-complete">
+                                            <input class="booking-complete-btn" value="Comfirmer ajout" type="submit"/>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="sp-page-r">
+
+
+
+                    <div class="h-help">
+                        <div class="h-help-lbl">Need Sparrow Help?</div>
+                        <div class="h-help-lbl-a">We would be happy to help you!</div>
+                        <div class="h-help-phone">2-800-256-124 23</div>
+                        <div class="h-help-email">sparrow@mail.com</div>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+
+            </div>
+
+        </div>
+    </div>
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            margin: 0;
+        }
+        input{
+            border: 0;
+        }
+    </style>
+
+{% endblock %}
+
+
+
+{% block script %}
+    <script src="{{asset('js/jquery.1.7.1.js')}}"></script>
+    <script src="{{asset('js/DateCompare.js')}}"></script>
+    <script src="{{ asset('js/jqeury.appear.js') }}"></script>
+    <script src="{{ asset('js/jquery.ui.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/jquery.formstyler.js') }}"></script>
+    <script src="{{ asset('js/custom.select.js') }}"></script>
+    <script type="text/javascript" src="{{asset('js/twitterfeed.js')}}"></script>
+    <script>
+
+        $(document).ready(function(){
+            $('.custom-select').customSelect();
+
+            (function($) {
+                $(function() {
+                    $('.checkbox input').styler({
+                        selectSearch: true
+                    });
+                });
+            })(jQuery);
+
+            $(function() {
+                $(document.body).on('appear', '.fly-in', function(e, $affected) {
+                    $(this).addClass("appeared");
+                });
+                $('.fly-in').appear({force_process: true});
+            });
+        });
+    </script>
+{% endblock %}

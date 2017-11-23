@@ -61,11 +61,13 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport:  "%mailer_transport%"
+    encryption: "%mailer_encryption%"
+    host:       "%mailer_host%"
+    username:   "%mailer_user%"
+    password:   "%mailer_password%"
+    spool:      { type: memory }
+# fosuser
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
@@ -91,3 +93,34 @@ knp_paginator:
         pagination: '@KnpPaginator/Pagination/sliding.html.twig' # sliding pagination controls template
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+
+
+nomaya_social:
+    buttons:
+       facebook:
+             url: "www.facebook.com/Esprit"
+             locale: "fr_FR"
+             send: false
+             width: 300
+             showFaces: false
+             layout: "button_count"
+       twitter:
+             url: null
+             locale: "fr"
+             message: "Je veux partager ça avec vous"
+             text: "Tweet"
+             via: "Esprit Test"
+             tag: "Esprit"
+       googleplus:
+             url: null
+             locale: "fr"
+             size: "medium"
+             annotation: "bubble"
+             width: 300
+       linkedin:
+             url: null
+             locale: "fr_FR"
+             counter: "right"
+       pinterest:
+             url: null
+    theme: 'default' # optional

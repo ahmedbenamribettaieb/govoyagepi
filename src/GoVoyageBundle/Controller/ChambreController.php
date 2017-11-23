@@ -6,6 +6,7 @@ use GoVoyageBundle\Entity\Chambre;
 use GoVoyageBundle\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken;
 
 /**
  * Chambre controller.
@@ -18,7 +19,7 @@ class ChambreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $chambres = $em->getRepository('GoVoyageBundle:Chambre')->findBy(["hotelChFk"=>$this->getUser()->getId()]);
+        $chambres = $em->getRepository('GoVoyageBundle:Chambre')->findBy(["hotelChFk" => $this->getUser()->getId()]);
 
         return $this->render('GoVoyageBundle:chambre:index.html.twig', array(
             'chambres' => $chambres,
@@ -42,6 +43,7 @@ class ChambreController extends Controller
         }
         return $this->render("GoVoyageBundle:chambre:new.html.twig", array());
     }
+
     public function showAction(Chambre $chambre)
     {
 
@@ -74,8 +76,8 @@ class ChambreController extends Controller
 
     public function deleteAction(Chambre $chambre)
     {
-        $em=$this->getDoctrine()->getManager();
-        $chambre=$em->getRepository("GoVoyageBundle:Chambre")->find($chambre->getId());
+        $em = $this->getDoctrine()->getManager();
+        $chambre = $em->getRepository("GoVoyageBundle:Chambre")->find($chambre->getId());
         $em->remove($chambre);
         $em->flush();
         return $this->redirectToRoute("chambre_index");
@@ -84,31 +86,29 @@ class ChambreController extends Controller
     public function listAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $chambre = $em->getRepository('GoVoyageBundle:Chambre')->findBy(['hotelChFk'=>$id]);
+        $chambre = $em->getRepository('GoVoyageBundle:Chambre')->findBy(['hotelChFk' => $id]);
         $hotel = $em->getRepository('GoVoyageBundle:Users')->find($id);
         return $this->render('GoVoyageBundle:chambre:chambre_list.html.twig', array(
             'chambre' => $chambre,
-            'hotel'=>$hotel,
+            'hotel' => $hotel,
         ));
     }
+
     public function reserverAction(Request $request, $id)
     {
 
         $em = $this->getDoctrine()->getManager();
         $chambre = $em->getRepository('GoVoyageBundle:Chambre')->find($id);
-        $chambre->setClientChFk($user=$this->getUser()->getId());
-
+        $user = $em->getRepository('GoVoyageBundle:Users')->findby($user = $this->getUser()->getId());
+        $chambre->setClientChFk($user = $this->getUser()->getId());
         $em->flush();
-
-
 
         $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll();
 
         return $this->render('GoVoyageBundle:Hotel:index.html.twig', array(
-            'hotel' => $hotel)) ;
+            'hotel' => $hotel, 'user' => $user));
 
     }
-
 
 
 }

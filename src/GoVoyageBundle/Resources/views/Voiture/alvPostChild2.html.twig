@@ -15,15 +15,15 @@
 {% block title %}
 {% endblock %}
 
-
 {% block body %}
+
 
     <div class="body-wrapper">
         <div class="wrapper-padding">
             <div class="page-head">
-                <div class="page-title">Air Ticket - <span>booking</span></div>
+                <div class="page-title">Voiture - <span>Ajout</span></div>
                 <div class="breadcrumbs">
-                    <a href="#">Home</a> / <a href="#">Hotel</a> / <span>hotel booking</span>
+                    <a href="#">Home</a> / <a href="{{path('go_voyage_affichevoitureforAgence')}}">Liste De Voiture</a> / <span>hotel booking</span>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -54,7 +54,10 @@
                                             <label>rate:</label>
                                             <div class="input"><input type="number" value="" name="rate"/></div>
                                         </div>
-
+                                        <div class="booking-form-i">
+                                            <label>Image:</label>
+                                            <div class="input"><input type="file" value="" name="img_voiture"/></div>
+                                        </div>
                                         <div class="clear"></div>
 
                                         <div class="bookin-three-coll">
@@ -113,6 +116,17 @@
 
         </div>
     </div>
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            margin: 0;
+        }
+        input{
+            border: 0;
+        }
+    </style>
 
 {% endblock %}
 

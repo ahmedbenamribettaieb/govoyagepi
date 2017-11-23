@@ -2,3 +2,7 @@ services:
     redirect.after.login:
             class: GoVoyageBundle\Redirection\AfterLoginRedirection
             arguments: ['@router','@security.authorization_checker']
+    hote_pie: # renamed because this is your chat service, not your database connection
+             class: GoVoyageBundle\Users
+             calls:
+                 - [setContainer, ["@service_container"]]

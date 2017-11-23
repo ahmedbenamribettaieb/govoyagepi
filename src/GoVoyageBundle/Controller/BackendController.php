@@ -91,4 +91,37 @@ class BackendController extends Controller
         $em->flush();
         return $this->redirectToRoute('Backend_client');
     }
+    public function voitureSupprAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vo=$em->getRepository("GoVoyageBundle:Voiture")->find($id);
+        $em->remove($vo);
+        $em->flush();
+        return $this->redirectToRoute('Backend_voiture_list');
+    }
+
+    public function listvoitureAdminAction()
+    {
+        $user = $this->getUser()->getPrenom();
+        $em=$this->getDoctrine()->getManager();
+        $vols=$em->getRepository("GoVoyageBundle:Voiture")->findAll();
+        return $this->render('GoVoyageBundle:Admin:Voiture_Admin.html.twig',array('vols'=>$vols , 'u' => $user));
+    }
+    public function hotelAction()
+    {
+        $user = $this->getUser()->getPrenom();
+        $em = $this->getDoctrine()->getManager();
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll();
+        return $this->render('GoVoyageBundle:Admin:hoteladmin.html.twig', array(
+            'hotel' => $hotel,'u' => $user
+        ));
+    }
+    public function hotelSupprAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $hotel=$em->getRepository("GoVoyageBundle:Users")->find($id);
+        $em->remove($hotel);
+        $em->flush();
+        return $this->redirectToRoute('Backend_hotel');
+    }
 }
