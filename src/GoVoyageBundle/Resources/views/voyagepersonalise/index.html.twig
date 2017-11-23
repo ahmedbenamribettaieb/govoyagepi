@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
     <div class="main-cont">
         <div class="body-wrapper">
             <div class="wrapper-padding">
@@ -10,205 +11,129 @@
 
                     <div class="clear"></div>
                 </div>
-                <div class="two-colls">
-                    <div class="two-colls-left">
+                <div class="two-colls-right-b">
+                    <div class="padding">
 
-                        <div class="srch-results-lbl fly-in">
-                            <span>Chercher un Voyage Organisé.</span>
+                        <div class="catalog-head fly-in">
+                            <label style="color: darkorange">Afficher les resultats de recherche triées par:</label>
+                            <label>{{ knp_pagination_sortable(voyagepersonalises,'Nom du Voyage','nom') }}</label>
+                            <label>{{ knp_pagination_sortable(voyagepersonalises,'Nombre des Participants','nbrParticipant') }}</label>
+                            <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Départ','dateDepart') }}</label>
+                            <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Arrivée','dateArrive') }}</label>
+                            <div class="clear"></div>
                         </div>
 
-                        <div class="side-block fly-in">
-                            <div class="side-block-search">
-                                <div class="page-search-p" align="center">
-                                    <!-- // -->
-                                    <div class="srch-tab-line">
-                                        <div class="srch-tab-left">
-                                            <label>Ville de depart </label>
-                                            <div class="input-a"><input type="text" value="" placeholder="Vienna"></div>
-                                        </div>
-                                        <div class="srch-tab-right">
-                                            <label>Ville destination </label>
-                                            <div class="input-a"><input type="text" value="" placeholder="London"></div>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!-- \\ -->
-                                    <!-- // -->
-                                    <div class="srch-tab-line">
-                                        <div class="srch-tab-left">
-                                            <label>Date de Depart</label>
-                                            <div class="input-a"><input type="text" value="" class="date-inpt"
-                                                                        placeholder="mm/dd/yy"> <span
-                                                        class="date-icon"></span></div>
-                                        </div>
-                                        <div class="srch-tab-right">
-                                            <label>date du fin </label>
-                                            <div class="input-a"><input type="text" value="" class="date-inpt"
-                                                                        placeholder="mm/dd/yy"> <span
-                                                        class="date-icon"></span></div>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!-- \\ -->
-                                    <div class="srch-tab-line no-margin-bottom">
-                                        <div class="srch-tab-left transformed">
-                                            <label>Participent</label>
-                                            <div class="select-wrapper">
-                                                <select class="custom-select">
-                                                    <option>--</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="srch-tab-right transformed">
-                                            <label>Class</label>
-                                            <div class="select-wrapper">
-                                                <select class="custom-select">
-                                                    <option>--</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!-- \\ -->
+                        <div class="catalog-row">
+                            {% for v in voyagepersonalises %}
+                                {% if v.clientVpFk == u %}
+                                    <!-- // flight-item // -->
+                                    <div class="flight-item fly-in">
+                                        <div class="flt-i-a">
+                                            <div class="flt-i-b">
+                                                <div class="flt-i-bb">
+                                                    <div class="flt-l-a">
+                                                        <div class="flt-l-b">
+                                                            <div class="way-lbl">intitulé du voyage :</div>
+                                                            <div class="company"><img alt=""
+                                                                                      src="{{ asset('img/partner-01.png') }}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flt-l-c">
+                                                            <div class="flt-l-cb">
+                                                                <div class="flt-l-c-padding">
+                                                                    <div class="flyght-info-head">{{ v.nom }}</div>
+                                                                    <!-- // -->
+                                                                    <div class="flight-line">
 
-                                    <button class="srch-btn">Chercher</button>
-                                    <br>
-
-                                    <a href="{{ path('voyagepersonalise_new') }}" class="srch-btn">Creer votre
-                                        voyage</a>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="two-colls-right">
-                        <div class="two-colls-right-b">
-                            <div class="padding">
-
-                                <div class="catalog-head fly-in">
-                                    <label style="color: darkorange">Afficher les resultats de recherche triées par:</label>
-                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Nom du Voyage','nom') }}</label>
-                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Nombre des Participants','nbrParticipant')}}</label>
-                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Départ','dateDepart') }}</label>
-                                    <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Arrivée','dateArrive') }}</label>
-                                    <div class="clear"></div>
-                                </div>
-
-                                <div class="catalog-row">
-                                    {% for v in voyagepersonalises %}
-                                        {% if v.clientVpFk == u %}
-                                            <!-- // flight-item // -->
-                                            <div class="flight-item fly-in">
-                                                <div class="flt-i-a">
-                                                    <div class="flt-i-b">
-                                                        <div class="flt-i-bb">
-                                                            <div class="flt-l-a">
-                                                                <div class="flt-l-b">
-                                                                    <div class="way-lbl">intitulé du voyage :</div>
-                                                                    <div class="company"><img alt="" src="{{ asset('img/partner-01.png') }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="flt-l-c">
-                                                                    <div class="flt-l-cb">
-                                                                        <div class="flt-l-c-padding">
-                                                                            <div class="flyght-info-head">{{ v.nom }}</div>
-                                                                            <!-- // -->
-                                                                            <div class="flight-line">
-
-                                                                                <div class="flight-line-a">
-                                                                                    <b>Ville de depart</b>
-                                                                                    <span>{{ v.villeDepart }}</span>
+                                                                        <div class="flight-line-a">
+                                                                            <b>Ville de depart</b>
+                                                                            <span>{{ v.villeDepart }}</span>
+                                                                        </div>
+                                                                        <div class="flight-line-d"></div>
+                                                                        <div class="flight-line-a">
+                                                                            <b>Ville destination </b>
+                                                                            <span>{{ v.villeArrive }}</span>
+                                                                        </div>
+                                                                        {% if v.IdGuideFk != null %}
+                                                                            <div class="flight-line-d"></div>
+                                                                            <div class="flight-line-a">
+                                                                                <b>Nouvelle notification </b>
+                                                                                <span style="color: red">Verifier dans les details</span>
+                                                                            </div>
+                                                                        {% endif %}
+                                                                        <div class="flight-line-d"></div>
+                                                                        <div class="flight-line-b">
+                                                                            <b>Plus de detail</b>
+                                                                        </div>
+                                                                        <div class="clear"></div>
+                                                                        <!-- // details // -->
+                                                                        <div class="flight-details">
+                                                                            <div class="flight-details-l">
+                                                                                <div class="flight-details-a">
+                                                                                    Nom de l'organisateur :
                                                                                 </div>
-                                                                                <div class="flight-line-d"></div>
-                                                                                <div class="flight-line-a">
-                                                                                    <b>Ville destination </b>
-                                                                                    <span>{{ v.villeArrive }}</span>
-                                                                                </div>
+                                                                                <div class="flight-details-a">{{ v.dateDepart | date("d/m/y") }}</div>
+                                                                                <div class="flight-details-c">{{ v.villeDepart }}</div>
                                                                                 {% if v.IdGuideFk != null %}
-                                                                                    <div class="flight-line-d"></div>
-                                                                                    <div class="flight-line-a">
-                                                                                        <b>Nouvelle notification </b>
-                                                                                        <span style="color: red">Verifier dans les details</span>
+                                                                                    <div class="flight-details-a">Un
+                                                                                        guide a postuler pour votre
+                                                                                        voyage
                                                                                     </div>
                                                                                 {% endif %}
-                                                                                <div class="flight-line-d"></div>
-                                                                                <div class="flight-line-b">
-                                                                                    <b>Plus de detail</b>
-                                                                                </div>
-                                                                                <div class="clear"></div>
-                                                                                <!-- // details // -->
-                                                                                <div class="flight-details">
-                                                                                    <div class="flight-details-l">
-                                                                                        <div class="flight-details-a">
-                                                                                            Nom de l'organisateur :
-                                                                                        </div>
-                                                                                        <div class="flight-details-a">{{ v.dateDepart | date("d/m/y") }}</div>
-                                                                                        <div class="flight-details-c">{{ v.villeDepart }}</div>
-                                                                                           {% if v.IdGuideFk != null %}
-                                                                                            <div class="flight-details-a">Un guide a postuler pour votre voyage </div>
-                                                                                        {% endif %}
-                                                                                    </div>
-                                                                                    <div class="flight-details-r">
-                                                                                        <div class="flight-details-c">{{ v.villeDepart }}</div>
-                                                                                        <div class="flight-details-a">{{ v.dateArrive | date("d/m/y") }}</div>
-                                                                                        <div class="flight-details-c">{{ v.villeArrive }}</div>
-                                                                                    </div>
-                                                                                    <div class="clear"></div>
-                                                                                </div>
-                                                                                <!-- \\ details \\ -->
                                                                             </div>
-                                                                            <!-- \\ -->
+                                                                            <div class="flight-details-r">
+                                                                                <div class="flight-details-c">{{ v.villeDepart }}</div>
+                                                                                <div class="flight-details-a">{{ v.dateArrive | date("d/m/y") }}</div>
+                                                                                <div class="flight-details-c">{{ v.villeArrive }}</div>
+                                                                            </div>
+                                                                            <div class="clear"></div>
                                                                         </div>
+                                                                        <!-- \\ details \\ -->
                                                                     </div>
-                                                                    <br class="clear"/>
+                                                                    <!-- \\ -->
                                                                 </div>
                                                             </div>
-                                                            <div class="clear"></div>
+                                                            <br class="clear"/>
                                                         </div>
-                                                        <br class="clear"/>
                                                     </div>
+                                                    <div class="clear"></div>
                                                 </div>
-                                                <div class="flt-i-c">
-                                                    <div class="flt-i-padding">
-                                                        <div class="flt-i-price-i">
-                                                            <div class="flt-i-price"> nbr de place {{ v.nbrParticipant }}</div>
-                                                        </div>
-                                                        <a href="{{ path('voyagepersonalise_supp',{'id':v.IdVp}) }}" class="cat-list-btn">Supprimer</a>
-                                                        <a href="{{ path('voyagepersonalise_modif',{'id':v.IdVp}) }}" class="cat-list-btn">   Modifierr </a>
-                                                    </div>
-                                                </div>
-                                                <div class="clear"></div>
+                                                <br class="clear"/>
                                             </div>
-                                            <!-- \\ flight-item \\ -->
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div  class="navigation" align="center">
-                                {{ knp_pagination_render(voyagepersonalises) }}
-                            </div>
+                                        </div>
+                                        <div class="flt-i-c">
+                                            <div class="flt-i-padding">
+                                                <div class="flt-i-price-i">
+                                                    <div class="flt-i-price"> nbr de place {{ v.nbrParticipant }}</div>
+                                                </div>
+                                                <a href="{{ path('voyagepersonalise_supp',{'id':v.IdVp}) }}"
+                                                   class="cat-list-btn">Supprimer</a>
+                                                <a href="{{ path('voyagepersonalise_modif',{'id':v.IdVp}) }}"
+                                                   class="cat-list-btn"> Modifierr </a>
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!-- \\ flight-item \\ -->
+                                {% endif %}
+                            {% endfor %}
                         </div>
-                        <br class="clear"/>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="navigation" align="center">
+                        {{ knp_pagination_render(voyagepersonalises) }}
+                    </div>
+                    <div align="center">
+                        <a href="{{ path('voyagepersonalise_new') }}" class="srch-btn" style="float: none">Creer votre
+                            voyage</a>
                     </div>
                 </div>
-                <div class="clear"></div>
-
+                <br class="clear"/>
             </div>
         </div>
+        <div class="clear"></div>
+
     </div>
-    <div>
-        {{ 4|rating }}
-    </div>
+
 
 {% endblock %}

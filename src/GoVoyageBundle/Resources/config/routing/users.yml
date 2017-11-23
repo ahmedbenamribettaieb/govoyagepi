@@ -31,3 +31,6 @@ users_delete:
     path:     /{id}/delete
     defaults: { _controller: "GoVoyageBundle:Users:delete" }
     methods:  DELETE
+users_pdf:
+    path:     /pdfclient
+    defaults: { _controller: "GoVoyageBundle:Users:pdfclient" }

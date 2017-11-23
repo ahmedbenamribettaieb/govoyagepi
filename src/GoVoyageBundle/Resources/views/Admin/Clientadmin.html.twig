@@ -2,6 +2,40 @@
 {% block username %}
     {{ u }}
 {% endblock %}
+
+{% block notification %}
+    <li role="presentation" class="dropdown">
+        <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-envelope-o"></i>
+            <span class="badge bg-green">6</span>
+        </a>
+        <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+            {% for i in notif %}
+
+                <li>
+                    <a>
+                        <span class="image"><img src="{{ asset('img/comment-01.png') }}" alt="Profile Image"/></span>
+                        <span>
+                          <span>{{ i.Subject }}</span>
+                          <span class="time">{{ i.date | date("d/m/y") }}</span>
+                        </span>
+                        <span class="message">
+                          {{ i.message }}
+                        </span>
+                    </a>
+                </li>
+            {% endfor %}
+            <li>
+                <div class="text-center">
+                    <a>
+                        <strong>See All Alerts</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </li>
+{% endblock notification %}
 {% block content %}
     <div class="right_col" role="main">
         <div class="">
@@ -28,27 +62,27 @@
                                 <p>Client List</p>
                                 {% for v in users %}
                                     {% if v.get_the_role() == 'ROLE_CLIENT' %}
-                                    <div class="col-md-55">
-                                        <div class="thumbnail">
-                                            <div class="image view view-first">
-                                                <img style="width: 100%; display: block;"
-                                                     src="{{ asset('img/about-03.jpg') }}" alt="image"/>
-                                                <div class="mask">
-                                                    <p>{{ v.username }}</p>
-                                                    <div class="tools tools-bottom">
-                                                        <a href="{{ path('Backend_client_supp',{'id':v.id}) }}"><i
-                                                                    class="fa fa-times"></i></a>
+                                        <div class="col-md-55">
+                                            <div class="thumbnail">
+                                                <div class="image view view-first">
+                                                    <img style="width: 100%; display: block;"
+                                                         src="{{ asset('img/about-03.jpg') }}" alt="image"/>
+                                                    <div class="mask">
+                                                        <p>{{ v.username }}</p>
+                                                        <div class="tools tools-bottom">
+                                                            <a href="{{ path('Backend_client_supp',{'id':v.id}) }}"><i
+                                                                        class="fa fa-times"></i></a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="caption">
-                                                <center>
-                                                    <p>{{ v.Prenom }}</p>
-                                                </center>
+                                                <div class="caption">
+                                                    <center>
+                                                        <p>{{ v.Prenom }}</p>
+                                                    </center>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                        {% endif %}
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
