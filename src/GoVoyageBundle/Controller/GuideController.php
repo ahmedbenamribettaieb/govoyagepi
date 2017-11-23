@@ -77,7 +77,6 @@ class GuideController extends Controller
             $vo->setDatenaissence($d1);
 
             $vo->setEmail($request->get('mail'));
-            $vo->setPassword($request->get('pass'));
             $vo->setNumtel($request->get('numtel'));
             $vo->setAdresse($request->get('adresse'));
             $vo->setCin($request->get('cin'));

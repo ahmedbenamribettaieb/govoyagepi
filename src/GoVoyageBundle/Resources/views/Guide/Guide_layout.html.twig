@@ -5,7 +5,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title> Espace Etudiant </title>
+    <title> GoVoyage </title>
 
     <link rel="stylesheet" href="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css')}}">
@@ -21,6 +21,51 @@
 
 </head>
 <body class="index-page">
+<!-- // authorize // -->
+<div class="overlay"></div>
+<div class="autorize-popup">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <div align="center">
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+        </div>
+        <div class="clear"></div>
+        <br>
+        <br>
+        <br>
+        <div align="center" >
+
+            <a class="authorize-btn" style="float: none" href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+        </div>
+
+    {% else %}
+        <div class="autorize-tabs">
+            <a href="#" class="autorize-tab-a current">Connection</a>
+            <a href="#" class="autorize-tab-b">S'inscrire</a>
+            <a href="#" class="autorize-close"></a>
+            <div class="clear"></div>
+        </div>
+        {% block fos_user_content %}
+            <section class="autorize-tab-content">
+                <div class="autorize-padding">
+                    {{ render(controller('FOSUserBundle:Security:login')) }}
+                </div>
+            </section>
+            <section class="autorize-tab-content">
+                <div class="autorize-padding">
+                    {{ render(controller('FOSUserBundle:Registration:register')) }}
+                </div>
+            </section>
+        {% endblock fos_user_content %}
+    {% endif %}
+
+</div>
+<!-- \\ authorize \\-->
 <header id="top">
     <div class="header-a">
         <div class="wrapper-padding">
@@ -39,66 +84,9 @@
         <div class="mobile-menu">
             <nav>
                 <ul>
-                    <li><a class="has-child" href="#">HOME</a>
-                        <ul>
-                            <li><a href="index-2.html">Home style one</a></li>
-                            <li><a href="index_02.html">Home style two</a></li>
-                            <li><a href="index_03.html">Home style three</a></li>
-                            <li><a href="index_04.html">Home style four</a></li>
-                        </ul>
+                    <li><a class="has-child" href="{{ path('AfficherGuideCompte') }}">Acceuil</a>
                     </li>
-                    <li><a class="has-child" href="#">Hotels</a>
-                        <ul>
-                            <li><a href="hotel_list.html">Hotels standard list</a></li>
-                            <li><a href="hotel_simple_style.html">Hotels simple style</a></li>
-                            <li><a href="hotel_detail_style.html">Hotels detail style</a></li>
-                            <li><a href="hotel_detail.html">Hotel item page</a></li>
-                            <li><a href="hotel_booking.html">Hotel booking page</a></li>
-                            <li><a href="#">booking complete page</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-child" href="#">Flights</a>
-                        <ul>
-                            <li><a href="flight_round_trip.html">Flights round trip</a></li>
-                            <li><a href="flight_one_way.html">flights one way trip</a></li>
-                            <li><a href="flight_alternative.html">flights alternative style</a></li>
-                            <li><a href="flight_detail.html">Flights detail page</a></li>
-                            <li><a href="flight_booking.html">Flights booking page</a></li>
-                            <li><a href="booking_complete.html">booking complete</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-child" href="#">Tours</a>
-                        <ul>
-                            <li><a href="tour_alternative.html">Tours list style</a></li>
-                            <li><a href="tour_grid.html">tours grid style</a></li>
-                            <li><a href="tour_simple.html">Tours simple style</a></li>
-                            <li><a href="tour_detail.html">Tour detail page</a></li>
-                            <li><a href="tour_booking.html">tour booking page</a></li>
-                            <li><a href="booking_complete.html">booking complete</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-child" href="#">Pages</a>
-                        <ul>
-                            <li><a href="about_us.html">about us style one</a></li>
-
-                            <li><a href="services.html">services</a></li>
-                            <li><a href="contacts.html">contact us</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-child" href="#">Portfolio</a>
-                        <ul>
-                            <li><a href="portfolio_three_collumns.html">Portfolio three columns</a></li>
-                            <li><a href="portfolio_four_collumns.html">portfolio four columns</a></li>
-                            <li><a href="item_page.html">item page</a></li>
-                            <li><a href="item_page_full_width.html">Item page full width style</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-child" href="#">Blog</a>
-                        <ul>
-                            <li><a href="blog_with_sidebar.html">Blog with sidebar</a></li>
-                            <li><a href="blog_masonry.html">blog masonry style</a></li>
-                            <li><a href="standart_blog_post.html">Blog post example</a></li>
-                        </ul>
+                    <li><a class="has-child" href="{{ path('AfficherGuideVpList') }}">Voyages Personnalisés</a>
                     </li>
                     <li><a class="has-child" href="{{ path('AfficherGuideCompte') }}">Mon Compte</a>
                         <ul>
@@ -106,7 +94,6 @@
                             <li><a href="{{ path('GuideDataEdit') }}">Modifier mes informations</a></li>
                         </ul>
                     </li>
-                    <li><a href="contacts.html">CONTACS</a></li>
                 </ul>
             </nav>
         </div>
@@ -128,66 +115,9 @@
                 <a href="#" class="menu-btn"></a>
                 <nav class="header-nav">
                     <ul>
-                        <li><a href="#">Home</a>
-                            <ul>
-                                <li><a href="index-2.html">Home style one</a></li>
-                                <li><a href="index_02.html">Home style two</a></li>
-                                <li><a href="index_03.html">Home style three</a></li>
-                                <li><a href="index_04.html">Home style four</a></li>
-                            </ul>
+                        <li><a href="{{ path('AfficherGuideCompte') }}">Acceuil</a>
                         </li>
-                        <li><a href="#">Hotels</a>
-                            <ul>
-                                <li><a href="hotel_list.html">Hotels standard list</a></li>
-                                <li><a href="hotel_simple_style.html">Hotels simple style</a></li>
-                                <li><a href="hotel_detail_style.html">Hotels detail style</a></li>
-                                <li><a href="hotel_detail.html">Hotel item page</a></li>
-                                <li><a href="hotel_booking.html">Hotel booking page</a></li>
-                                <li><a href="booking_complete.html">booking complete page</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Flights</a>
-                            <ul>
-                                <li><a href="flight_round_trip.html">Flights round trip</a></li>
-                                <li><a href="flight_one_way.html">flights one way trip</a></li>
-                                <li><a href="flight_alternative.html">flights alternative style</a></li>
-                                <li><a href="flight_detail.html">Flights detail page</a></li>
-                                <li><a href="flight_booking.html">Flights booking page</a></li>
-                                <li><a href="booking_complete.html">booking complete</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Tours</a>
-                            <ul>
-                                <li><a href="tour_alternative.html">Tours list style</a></li>
-                                <li><a href="tour_grid.html">tours grid style</a></li>
-                                <li><a href="tour_simple.html">Tours simple style</a></li>
-                                <li><a href="tour_detail.html">Tour detail page</a></li>
-                                <li><a href="tour_booking.html">tour booking page</a></li>
-                                <li><a href="booking_complete.html">booking complete</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Pages</a>
-                            <ul>
-                                <li><a href="about_us.html">about us style one</a></li>
-
-                                <li><a href="services.html">services</a></li>
-                                <li><a href="contacts.html">contact us</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Portfolio</a>
-                            <ul>
-                                <li><a href="portfolio_three_collumns.html">Portfolio three columns</a></li>
-                                <li><a href="portfolio_four_collumns.html">portfolio four columns</a></li>
-                                <li><a href="item_page.html">item page</a></li>
-                                <li><a href="item_page_full_width.html">Item page full width style</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="blog_with_sidebar.html">Blog with sidebar</a></li>
-                                <li><a href="blog_masonry.html">blog masonry style</a></li>
-                                <li><a href="standart_blog_post.html">Blog post example</a></li>
-                            </ul>
+                        <li><a href="{{ path('AfficherGuideVpList') }}">Voyages Personnalisés</a>
                         </li>
                         <li><a href="{{ path('AfficherGuideCompte') }}">Mon Compte</a>
                             <ul>
@@ -195,7 +125,6 @@
                                 <li><a href="{{ path('GuideDataEdit') }}">Modifier mes informations</a></li>
                             </ul>
                         </li>
-                        <li><a href="contacts.html">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
@@ -206,6 +135,7 @@
 {% block content %}
 {% endblock %}
 <!-- /footer -->
+<div class="clear"></div>
 <footer class="footer-a">
     <div class="wrapper-padding">
         <div class="section">
@@ -220,7 +150,7 @@
             <div class="footer-tours">
                 <!-- // -->
                 <div class="footer-tour">
-                    <div class="footer-tour-l"><a href="#"><img alt="" src="{{ asset('img/f-tour-01.jpg') }}"/></a>
+                    <div class="footer-tour-l"><a href="#"><img alt="" src="{{ asset('img/f-tour-02.jpg') }}"/></a>
                     </div>
                     <div class="footer-tour-r">
                         <div class="footer-tour-a">amsterdam tour</div>

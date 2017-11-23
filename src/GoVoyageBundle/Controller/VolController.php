@@ -17,12 +17,31 @@ class VolController extends Controller
     public function ListAction(Request $request)
     {
         $em=$this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository('GoVoyageBundle:Vol')->createQueryBuilder('bp');
         $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
-        $paginator =$this->get('knp_paginator');
-        $res=$paginator->paginate($vols,
-            $request->query->getInt('page',1),
-            $request->query->getInt('Limit',10)
-        );
+        $x = true;
+
+        if ($request->query->getAlnum('filter_nom')) {
+            $queryBuilder->where('bp.nomVol LIKE :nomVol')
+                ->setParameter('nomVol', '%' . $request->query->getAlnum('filter_nom') . '%');
+            $x = false;
+        }
+        $query = $queryBuilder->getQuery();
+        if($x){
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($vols,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+            );
+        }else{
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($query,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+
+            );
+            $x = true;
+        }
         return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$res));
     }
 
@@ -43,13 +62,14 @@ class VolController extends Controller
             $paginator =$this->get('knp_paginator');
             $res=$paginator->paginate($vols,
                 $request->query->getInt('page',1),
-                $request->query->getInt('Limit',2)
+                $request->query->getInt('Limit',10)
             );
         }else{
             $paginator =$this->get('knp_paginator');
             $res=$paginator->paginate($query,
                 $request->query->getInt('page',1),
-                $request->query->getInt('Limit',2)
+                $request->query->getInt('Limit',10)
+
             );
             $x = true;
         }

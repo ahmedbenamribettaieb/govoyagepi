@@ -1,5 +1,4 @@
-{% extends 'GoVoyageBundle::layout_template.html.twig' %}
-
+{% extends "GoVoyageBundle:Guide:Guide_layout.html.twig" %}
 {% block content %}
     {{ 4|rating }}
     <div class="main-cont">
@@ -7,94 +6,24 @@
             <div class="wrapper-padding">
                 <div class="page-head">
                     <div class="page-title">Nos Voyages organisés :</div>
-
                     <div class="clear"></div>
                 </div>
                 <div class="two-colls">
                     <div class="two-colls-left">
-
                         <div class="srch-results-lbl fly-in">
                             <span>Chercher un Voyage Organisé.</span>
                         </div>
-
                         <div class="side-block fly-in">
                             <div class="side-block-search">
                                 <div class="page-search-p" align="center">
-                                    <!-- // -->
-                                    <div class="srch-tab-line">
-                                        <div class="srch-tab-left">
-                                            <label>Ville de depart </label>
-                                            <div class="input-a"><input type="text" value="" placeholder="Vienna"></div>
-                                        </div>
-                                        <div class="srch-tab-right">
-                                            <label>Ville destination </label>
-                                            <div class="input-a"><input type="text" value="" placeholder="London"></div>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!-- \\ -->
-                                    <!-- // -->
-                                    <div class="srch-tab-line">
-                                        <div class="srch-tab-left">
-                                            <label>Date de Depart</label>
-                                            <div class="input-a"><input type="text" value="" class="date-inpt"
-                                                                        placeholder="mm/dd/yy"> <span
-                                                        class="date-icon"></span></div>
-                                        </div>
-                                        <div class="srch-tab-right">
-                                            <label>date du fin </label>
-                                            <div class="input-a"><input type="text" value="" class="date-inpt"
-                                                                        placeholder="mm/dd/yy"> <span
-                                                        class="date-icon"></span></div>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!-- \\ -->
-                                    <div class="srch-tab-line no-margin-bottom">
-                                        <div class="srch-tab-left transformed">
-                                            <label>Participent</label>
-                                            <div class="select-wrapper">
-                                                <select class="custom-select">
-                                                    <option>--</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="srch-tab-right transformed">
-                                            <label>Class</label>
-                                            <div class="select-wrapper">
-                                                <select class="custom-select">
-                                                    <option>--</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <!-- \\ -->
-
                                     <button class="srch-btn">Chercher</button>
-                                    <br>
-
-                                    <a href="{{ path('voyagepersonalise_new') }}" class="srch-btn">Creer votre
-                                        voyage</a>
-
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                     <div class="two-colls-right">
                         <div class="two-colls-right-b">
                             <div class="padding">
-
                                 <div class="catalog-head fly-in">
                                     <label style="color: darkorange">Afficher les resultats de recherche triées par:</label>
                                     <label>{{ knp_pagination_sortable(voyagepersonalises,'Nom du Voyage','nom') }}</label>
@@ -103,7 +32,6 @@
                                     <label>{{ knp_pagination_sortable(voyagepersonalises,'Date Arrivée','dateArrive') }}</label>
                                     <div class="clear"></div>
                                 </div>
-
                                 <div class="catalog-row">
                                     {% for v in voyagepersonalises %}
                                         {% if v.idGuideFk == null %}
@@ -124,7 +52,6 @@
                                                                             <div class="flyght-info-head">{{ v.nom }}</div>
                                                                             <!-- // -->
                                                                             <div class="flight-line">
-
                                                                                 <div class="flight-line-a">
                                                                                     <b>Ville de depart</b>
                                                                                     <span>{{ v.villeDepart }}</span>
@@ -135,7 +62,6 @@
                                                                                     <span>{{ v.villeArrive }}</span>
                                                                                 </div>
                                                                                 <div class="flight-line-d"></div>
-
                                                                                 <div class="flight-line-b">
                                                                                     <b>Plus de detail</b>
                                                                                 </div>
