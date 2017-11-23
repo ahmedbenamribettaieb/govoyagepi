@@ -51,8 +51,23 @@
         </div>
 
     {% else %}
+        <div class="autorize-tabs">
+            <a href="#" class="autorize-tab-a current">Connection</a>
+            <a href="#" class="autorize-tab-b">S'inscrire</a>
+            <a href="#" class="autorize-close"></a>
+            <div class="clear"></div>
+        </div>
         {% block fos_user_content %}
+    <section class="autorize-tab-content">
+        <div class="autorize-padding">
             {{ render(controller('FOSUserBundle:Security:login')) }}
+        </div>
+    </section>
+            <section class="autorize-tab-content">
+                <div class="autorize-padding">
+            {{ render(controller('FOSUserBundle:Registration:register')) }}
+                </div>
+            </section>
         {% endblock fos_user_content %}
     {% endif %}
 

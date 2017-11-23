@@ -9,6 +9,7 @@
 namespace GoVoyageBundle\Controller;
 
 
+use DateTime;
 use GoVoyageBundle\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +20,7 @@ class GuideController extends Controller
         $user = $this->getUser()->getId();
         $em=$this->getDoctrine()->getManager();
         $guide=$em->getRepository("GoVoyageBundle:Users")->find($user);
+        $date = new DateTime("now");
         return $this->render('GoVoyageBundle:Guide:GuideShow.html.twig',array("g"=>$guide));
     }
 
@@ -49,6 +51,14 @@ class GuideController extends Controller
         $em->persist($vo);
         $em->flush();
         }
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Validation')
+            ->setFrom('jemaighass@gmail.com')
+            ->setTo('gmistah0@gmail.com')
+            ->setContentType('text/html')
+            ->setBody('Vous avez Postuler dans un voyage personnalisé');
+        $this->get('mailer')->send($message);
+
         return $this->redirectToRoute('AfficherGuideVpList');
     }
 
