@@ -54,7 +54,7 @@ class GuideController extends Controller
         $message = \Swift_Message::newInstance()
             ->setSubject('Validation')
             ->setFrom('jemaighass@gmail.com')
-            ->setTo('gmistah0@gmail.com')
+            ->setTo('ghassen.jemai@esprit.tn')
             ->setContentType('text/html')
             ->setBody('Vous avez Postuler dans un voyage personnalisé');
         $this->get('mailer')->send($message);

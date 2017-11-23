@@ -14,11 +14,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class VolController extends Controller
 {
-    public function ListAction()
+    public function ListAction(Request $request)
     {
         $em=$this->getDoctrine()->getManager();
         $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
-        return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$vols));
+        $paginator =$this->get('knp_paginator');
+        $res=$paginator->paginate($vols,
+            $request->query->getInt('page',1),
+            $request->query->getInt('Limit',10)
+        );
+        return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$res));
     }
 
     public function List2Action( Request $request)

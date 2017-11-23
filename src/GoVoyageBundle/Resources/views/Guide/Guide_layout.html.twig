@@ -203,8 +203,6 @@
         </div>
     </div>
 </header>
-
-
 {% block content %}
 {% endblock %}
 <!-- /footer -->
@@ -212,7 +210,7 @@
     <div class="wrapper-padding">
         <div class="section">
             <div class="footer-lbl">Get In Touch</div>
-            <div class="footer-adress">Address: 58911 Lepzig Hore,<br />85000 Vienna, Austria</div>
+            <div class="footer-adress">Address: 58911 Lepzig Hore,<br/>85000 Vienna, Austria</div>
             <div class="footer-phones">Telephones: +1 777 55-32-21</div>
             <div class="footer-email">E-mail: contacts@miracle.com</div>
             <div class="footer-skype">Skype: angelotours</div>
@@ -222,7 +220,8 @@
             <div class="footer-tours">
                 <!-- // -->
                 <div class="footer-tour">
-                    <div class="footer-tour-l"><a href="#"><img alt="" src="{{ asset('img/f-tour-01.jpg')}}" /></a></div>
+                    <div class="footer-tour-l"><a href="#"><img alt="" src="{{ asset('img/f-tour-01.jpg') }}"/></a>
+                    </div>
                     <div class="footer-tour-r">
                         <div class="footer-tour-a">amsterdam tour</div>
                         <div class="footer-tour-b">location: netherlands</div>
@@ -243,7 +242,7 @@
             <div class="footer-lbl">newsletter sign up</div>
             <div class="footer-subscribe">
                 <div class="footer-subscribe-a">
-                    <input type="text" placeholder="you email" value="" />
+                    <input type="text" placeholder="you email" value=""/>
                 </div>
             </div>
             <button class="footer-subscribe-btn">Sign up</button>
