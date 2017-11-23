@@ -7,6 +7,7 @@ use GoVoyageBundle\Entity\Users;
 use GoVoyageBundle\Entity\Evenement;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Voyagepersonalise controller.
@@ -229,6 +230,21 @@ class VoyagepersonaliseController extends Controller
             return $this->redirectToRoute('voyagepersonalise_index');
         }
         return $this->render('GoVoyageBundle:voyagepersonalise:edit.html.twig',array("v"=>$vo,'users'=>$users,'event'=>$event));
+    }
+    public function pdfAction()
+    {
+        $snappy = $this->get("knp_snappy.pdf");
+        $filename = "example_voyage_organise";
+        $websiteUrl = "http://www.dossierfamilial.com/consommation/loisirs/voyage-organise-partez-bien-informe-56541";
+
+        return new Response(
+            $snappy->getOutput($websiteUrl),
+            200,
+            array(
+                'Content-Type'=>'application/pdf',
+                'Content-Disposition'=>'inline; filename="'.$filename.'.pdf"'
+            )
+        );
     }
 
 }
