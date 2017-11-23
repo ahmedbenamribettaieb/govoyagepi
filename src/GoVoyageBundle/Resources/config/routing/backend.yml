@@ -22,6 +22,12 @@ Backend_vp_supp:
 Backend_client_supp:
     path:     /supprclient/{id}
     defaults: { _controller: "GoVoyageBundle:Backend:clientSuppr" }
+Backend_voiture_supp:
+    path:     /supprVoiture/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:clientSuppr" }
+Backend_voiture_list:
+    path:     /voiture_list
+    defaults: { _controller: "GoVoyageBundle:Backend:listvoitureAdmin" }
 Backend_guide_supp:
     path:     /supprguide/{id}
     defaults: { _controller: "GoVoyageBundle:Backend:guideSuppr" }
