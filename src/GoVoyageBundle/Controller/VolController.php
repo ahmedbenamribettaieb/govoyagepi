@@ -11,14 +11,39 @@ namespace GoVoyageBundle\Controller;
 use GoVoyageBundle\Entity\Vol;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class VolController extends Controller
 {
-    public function ListAction()
+    public function ListAction(Request $request)
     {
         $em=$this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository('GoVoyageBundle:Vol')->createQueryBuilder('bp');
         $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
-        return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$vols));
+        $x = true;
+
+        if ($request->query->getAlnum('filter_nom')) {
+            $queryBuilder->where('bp.nomVol LIKE :nomVol')
+                ->setParameter('nomVol', '%' . $request->query->getAlnum('filter_nom') . '%');
+            $x = false;
+        }
+        $query = $queryBuilder->getQuery();
+        if($x){
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($vols,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+            );
+        }else{
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($query,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+
+            );
+            $x = true;
+        }
+        return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$res));
     }
 
     public function List2Action( Request $request)
@@ -38,13 +63,14 @@ class VolController extends Controller
             $paginator =$this->get('knp_paginator');
             $res=$paginator->paginate($vols,
                 $request->query->getInt('page',1),
-                $request->query->getInt('Limit',2)
+                $request->query->getInt('Limit',10)
             );
         }else{
             $paginator =$this->get('knp_paginator');
             $res=$paginator->paginate($query,
                 $request->query->getInt('page',1),
-                $request->query->getInt('Limit',2)
+                $request->query->getInt('Limit',10)
+
             );
             $x = true;
         }
@@ -80,6 +106,11 @@ class VolController extends Controller
             $d2 = new \DateTime($request->get('datea'));
             $d2->format('Y-m-d');
             $vol->setDateArrivee($d2);
+
+            $d3 = new \DateTime("now");
+            if($d1 > $d2 or $d1 < $d3){?><script>alert('you have a problem in one of the date');</script> <?php
+                return $this->render('GoVoyageBundle:Vol:ModifVol.html.twig',array("v"=>$vol));
+            }
 
             $em->persist($vol);
             $em->flush();

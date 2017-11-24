@@ -5,7 +5,7 @@
         <meta name="description" content=""/>
         <meta name="keywords" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>{% block title %} Espace Etudiant {% endblock %}</title>
+        <title>{% block title %} GoVoyage {% endblock %}</title>
         {% block stylesheet %}
             <link rel="stylesheet"
                   href="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css') }}">
@@ -51,8 +51,23 @@
         </div>
 
     {% else %}
+        <div class="autorize-tabs">
+            <a href="#" class="autorize-tab-a current">Connection</a>
+            <a href="#" class="autorize-tab-b">S'inscrire</a>
+            <a href="#" class="autorize-close"></a>
+            <div class="clear"></div>
+        </div>
         {% block fos_user_content %}
+    <section class="autorize-tab-content">
+        <div class="autorize-padding">
             {{ render(controller('FOSUserBundle:Security:login')) }}
+        </div>
+    </section>
+            <section class="autorize-tab-content">
+                <div class="autorize-padding">
+            {{ render(controller('FOSUserBundle:Registration:register')) }}
+                </div>
+            </section>
         {% endblock fos_user_content %}
     {% endif %}
 
@@ -176,13 +191,7 @@
                 <a href="#" class="menu-btn"></a>
                 <nav class="header-nav">
                     <ul>
-                        <li><a href="#">Home</a>
-                            <ul>
-                                <li><a href="index-2.html">Home style one</a></li>
-                                <li><a href="index_02.html">Home style two</a></li>
-                                <li><a href="index_03.html">Home style three</a></li>
-                                <li><a href="index_04.html">Home style four</a></li>
-                            </ul>
+                        <li><a href="{{ path('go_voyage_homepage') }}">Home</a>
                         </li>
                         <li><a href="#">Hotels</a>
                             <ul>
@@ -190,15 +199,7 @@
 
                             </ul>
                         </li>
-                        <li><a href="#">Flights</a>
-                            <ul>
-                                <li><a href="flight_round_trip.html">Flights round trip</a></li>
-                                <li><a href="flight_one_way.html">flights one way trip</a></li>
-                                <li><a href="flight_alternative.html">flights alternative style</a></li>
-                                <li><a href="flight_detail.html">Flights detail page</a></li>
-                                <li><a href="flight_booking.html">Flights booking page</a></li>
-                                <li><a href="booking_complete.html">booking complete</a></li>
-                            </ul>
+                        <li><a href="{{ path('ListVol') }}">Vols</a>
                         </li>
                         <li><a href="#">Voyages</a>
                             <ul>
