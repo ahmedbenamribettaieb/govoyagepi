@@ -27,10 +27,17 @@
 
                                 <div class="catalog-head fly-in">
                                     <label style="color: darkorange">Afficher les resultats de recherche triées par:</label>
+                                    {% if x %}
                                     <label>{{ knp_pagination_sortable(vols,'Nom du vol','nomVol') }}</label>
                                     <label>{{ knp_pagination_sortable(vols,'Prix','prixVol') }}</label>
                                     <label>{{ knp_pagination_sortable(vols,'Date Départ','dateDepart') }}</label>
                                     <label>{{ knp_pagination_sortable(vols,'Date Arrivée','dateArrivee') }}</label>
+                                    {% else %}
+                                        <label>{{ knp_pagination_sortable(vols,'Nom du vol','bp.nomVol') }}</label>
+                                        <label>{{ knp_pagination_sortable(vols,'Prix','bp.prixVol') }}</label>
+                                        <label>{{ knp_pagination_sortable(vols,'Date Départ','bp.dateDepart') }}</label>
+                                        <label>{{ knp_pagination_sortable(vols,'Date Arrivée','bp.dateArrivee') }}</label>
+                                    {% endif %}
                                     <div class="clear"></div>
                                 </div>
 

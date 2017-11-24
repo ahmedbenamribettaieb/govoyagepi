@@ -41,9 +41,8 @@ class VolController extends Controller
                 $request->query->getInt('Limit',10)
 
             );
-            $x = true;
         }
-        return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$res));
+        return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$res , 'x'=>$x));
     }
 
     public function List2Action( Request $request)
@@ -72,10 +71,9 @@ class VolController extends Controller
                 $request->query->getInt('Limit',10)
 
             );
-            $x = true;
         }
 
-        return $this->render('GoVoyageBundle:Vol:ListVol_Compagnie.html.twig',array("vols"=>$res));
+        return $this->render('GoVoyageBundle:Vol:ListVol_Compagnie.html.twig',array("vols"=>$res,'x'=>$x));
     }
 
     public function SupprAction($id)
