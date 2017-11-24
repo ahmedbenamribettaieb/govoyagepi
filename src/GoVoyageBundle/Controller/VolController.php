@@ -11,6 +11,7 @@ namespace GoVoyageBundle\Controller;
 use GoVoyageBundle\Entity\Vol;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class VolController extends Controller
 {
@@ -106,8 +107,9 @@ class VolController extends Controller
             $d2->format('Y-m-d');
             $vol->setDateArrivee($d2);
 
+            $d3 = new \DateTime("now");
             if($d1 > $d2 or $d1 < $d3){?><script>alert('you have a problem in one of the date');</script> <?php
-                return $this->render("GoVoyageBundle:Voiture:requestRent.html.twig",array('voiture1'=>$voiture));
+                return $this->render('GoVoyageBundle:Vol:ModifVol.html.twig',array("v"=>$vol));
             }
 
             $em->persist($vol);
