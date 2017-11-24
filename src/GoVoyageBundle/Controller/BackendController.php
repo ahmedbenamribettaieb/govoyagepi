@@ -20,39 +20,108 @@ class BackendController extends Controller
         return $this->render('GoVoyageBundle:Admin:index_admin.html.twig' );
     }
 
-    public function vpAction()
+    public function vpAction(Request $request)
     {
         $user = $this->getUser()->getPrenom();
         $em = $this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository('GoVoyageBundle:Voyagepersonalise')->createQueryBuilder('v');
         $voyagepersonalises = $em->getRepository('GoVoyageBundle:Voyagepersonalise')->findAll();
         $manager = $this->get('mgilet.notification');
-        $notif = $manager->getAll();
-        return $this->render('GoVoyageBundle:Admin:voyagepersonaliseadmin.html.twig', array(
-            'voyagepersonalises' => $voyagepersonalises,'u' => $user,'notif'=>$notif
-        ));
-    }
-    public function ClientAction()
-    {
-        $user = $this->getUser()->getPrenom();
-        $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
-        $manager = $this->get('mgilet.notification');
-        $notif = $manager->getAll();
+        $x = true;
 
-        return $this->render('GoVoyageBundle:Admin:Clientadmin.html.twig', array(
-            'users' => $users,'u' => $user,'notif'=>$notif
+        if ($request->query->getAlnum('filter')) {
+            $queryBuilder->where('v.nom LIKE :nom')
+                ->setParameter('nom', '%' . $request->query->getAlnum('filter') . '%');
+            $x=false;
+        }
+        $query = $queryBuilder->getQuery();
+        if($x){
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($voyagepersonalises,
+            $request->query->getInt('page',1),
+            $request->query->getInt('Limit',10)
+        );}else{
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($query,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+
+            );
+        }
+        /*$notif = $manager->getAll();*/
+        return $this->render('GoVoyageBundle:Admin:voyagepersonaliseadmin.html.twig', array(
+            'voyagepersonalises' => $res,'u' => $user/*,'notif'=>$notif*/
         ));
     }
-    public function GuideAction()
+    public function ClientAction(Request $request)
     {
         $user = $this->getUser()->getPrenom();
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
+        $queryBuilder = $em->getRepository('GoVoyageBundle:Users')->createQueryBuilder('v');
         $manager = $this->get('mgilet.notification');
         $notif = $manager->getAll();
+        $x = true;
+
+        if ($request->query->getAlnum('filter_nom')) {
+            $queryBuilder->where('v.username LIKE :username')
+                ->setParameter('username', '%' . $request->query->getAlnum('filter_nom') . '%');
+            $x = false;
+        }
+        $query = $queryBuilder->getQuery();
+        if($x){
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($users,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+            );
+        }else{
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($query,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+
+            );
+            $x = true;
+        }
+        return $this->render('GoVoyageBundle:Admin:Clientadmin.html.twig', array(
+            'users' => $res,'u' => $user,'notif'=>$notif
+        ));
+    }
+    public function GuideAction(Request $request)
+    {
+        $user = $this->getUser()->getPrenom();
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
+        $queryBuilder = $em->getRepository('GoVoyageBundle:Users')->createQueryBuilder('v');
+        /*$manager = $this->get('mgilet.notification');
+        $notif = $manager->getAll();*/
+        $x = true;
+
+        if ($request->query->getAlnum('filter_nom')) {
+            $queryBuilder->where('v.username LIKE :username')
+                ->setParameter('username', '%' . $request->query->getAlnum('filter_nom') . '%');
+            $x = false;
+        }
+        $query = $queryBuilder->getQuery();
+        if($x){
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($users,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+            );
+        }else{
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($query,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+
+            );
+            $x = true;
+        }
 
         return $this->render('GoVoyageBundle:Admin:Guidelistadmin.html.twig', array(
-            'users' => $users,'u' => $user,'notif'=>$notif
+            'users' => $res,'u' => $user/*,'notif'=>$notif*/
         ));
     }
     public function vpSupprAction($id)
@@ -69,8 +138,8 @@ class BackendController extends Controller
         $em=$this->getDoctrine()->getManager();
         $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
         $manager = $this->get('mgilet.notification');
-        $notif = $manager->getAll();
-        return $this->render('GoVoyageBundle:Admin:List_vol_admin.html.twig',array('vols'=>$vols , 'u' => $user,'notif'=>$notif));
+        /*$notif = $manager->getAll();*/
+        return $this->render('GoVoyageBundle:Admin:List_vol_admin.html.twig',array('vols'=>$vols , 'u' => $user/*,'notif'=>$notif*/));
     }
 
     public function SupprVolAdminAction($id)

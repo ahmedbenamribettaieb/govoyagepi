@@ -60,6 +60,13 @@
                             <div class="row">
 
                                 <p>Client List</p>
+                                Nom
+                                <form action="{{ path('Backend_guide') }}" method="get">
+                                    <div class="input-a">
+                                        <input name="filter_nom" type="text">
+                                    </div>
+                                    <button type="submit" class="srch-btn">Chercher</button>
+                                </form>
                                 {% for v in users %}
                                     {% if v.get_the_role() == 'ROLE_CLIENT' %}
                                         <div class="col-md-55">

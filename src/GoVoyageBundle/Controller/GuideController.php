@@ -75,7 +75,10 @@ class GuideController extends Controller
             $d1 = new \DateTime($request->get('datenaissance'));
             $d1->format('Y-m-d');
             $vo->setDatenaissence($d1);
-
+            $d3 = date_create('2000-01-01');
+            if($d1 >= $d3 ){?><script>alert('Verifier votre date de naissance');</script> <?php
+                return $this->render('GoVoyageBundle:Guide:GuideModifData.html.twig',array("v"=>$vo));
+            }
             $vo->setEmail($request->get('mail'));
             $vo->setNumtel($request->get('numtel'));
             $vo->setAdresse($request->get('adresse'));
