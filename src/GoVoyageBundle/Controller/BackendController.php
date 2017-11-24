@@ -25,8 +25,10 @@ class BackendController extends Controller
         $user = $this->getUser()->getPrenom();
         $em = $this->getDoctrine()->getManager();
         $voyagepersonalises = $em->getRepository('GoVoyageBundle:Voyagepersonalise')->findAll();
+        $manager = $this->get('mgilet.notification');
+        $notif = $manager->getAll();
         return $this->render('GoVoyageBundle:Admin:voyagepersonaliseadmin.html.twig', array(
-            'voyagepersonalises' => $voyagepersonalises,'u' => $user
+            'voyagepersonalises' => $voyagepersonalises,'u' => $user,'notif'=>$notif
         ));
     }
     public function ClientAction()
@@ -46,9 +48,11 @@ class BackendController extends Controller
         $user = $this->getUser()->getPrenom();
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('GoVoyageBundle:Users')->findAll();
+        $manager = $this->get('mgilet.notification');
+        $notif = $manager->getAll();
 
         return $this->render('GoVoyageBundle:Admin:Guidelistadmin.html.twig', array(
-            'users' => $users,'u' => $user
+            'users' => $users,'u' => $user,'notif'=>$notif
         ));
     }
     public function vpSupprAction($id)
@@ -64,7 +68,9 @@ class BackendController extends Controller
         $user = $this->getUser()->getPrenom();
         $em=$this->getDoctrine()->getManager();
         $vols=$em->getRepository("GoVoyageBundle:Vol")->findAll();
-        return $this->render('GoVoyageBundle:Admin:List_vol_admin.html.twig',array('vols'=>$vols , 'u' => $user));
+        $manager = $this->get('mgilet.notification');
+        $notif = $manager->getAll();
+        return $this->render('GoVoyageBundle:Admin:List_vol_admin.html.twig',array('vols'=>$vols , 'u' => $user,'notif'=>$notif));
     }
 
     public function SupprVolAdminAction($id)
