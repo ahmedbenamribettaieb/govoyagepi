@@ -106,6 +106,10 @@ class VolController extends Controller
             $d2->format('Y-m-d');
             $vol->setDateArrivee($d2);
 
+            if($d1 > $d2 or $d1 < $d3){?><script>alert('you have a problem in one of the date');</script> <?php
+                return $this->render("GoVoyageBundle:Voiture:requestRent.html.twig",array('voiture1'=>$voiture));
+            }
+
             $em->persist($vol);
             $em->flush();
             return $this->redirectToRoute('List');
