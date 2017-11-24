@@ -23,7 +23,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "^2.0",
-        "nomaya/social-bundle": "dev-master"
+        "nomaya/social-bundle": "dev-master",
         "blackknight467/star-rating-bundle": "2.*",
         "knplabs/knp-paginator-bundle": "^2.6",
         "mgilet/notification-bundle": "^2.0"

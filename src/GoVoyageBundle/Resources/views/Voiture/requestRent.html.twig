@@ -21,9 +21,9 @@
     <div class="body-wrapper">
         <div class="wrapper-padding">
             <div class="page-head">
-                <div class="page-title">Voiture - <span>Ajout</span></div>
+                <div class="page-title">Voiture - <span>Location de Voiture</span></div>
                 <div class="breadcrumbs">
-                    <a href="#">Home</a> / <a href="{{path('go_voyage_affichevoitureforAgence')}}">Liste De Voiture</a> / <span>hotel booking</span>
+                    <a href="#">Home</a> / <a href="{{path('go_voyage_affichevoitureforAgence')}}">Liste De Voiture</a> / <span></span>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -51,14 +51,14 @@
                                             </div>
 
                                             <div class="booking-form-i"  >
-                                                <label>Date de Recuperation:</label>
+                                                <label>Date de prise en charge :</label>
                                                 <div class="input"><input type="datetime-local" value="" name="arrivee"  placeholder="mm/dd/yy" /></div>
                                             </div>
                                             <div class="booking-form-i"  >
-                                                <label>Date de Pris:</label>
-                                                <div class="input"><input type="datetime-local" value="" name="depart"  placeholder="mm/dd/yy" /></div>
+                                                <label>Date de retour du véhicule:</label>
+                                                <div class="input"><input type="datetime-local" value="" name="depart"  placeholder="mm/dd/yy" min="2017-11-24T00:00"/></div>
                                             </div>
-                                            <div class="booking-form-i">
+                                            <div class="booking-form-i" hidden>
                                                 <label>ClientId:</label>
                                                 <div class="input"><input type="number" value="" name="	client_vo_fk"/></div>
                                             </div>

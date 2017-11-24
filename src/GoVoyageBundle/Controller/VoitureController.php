@@ -13,14 +13,15 @@ use GoVoyageBundle\Entity\Voiture;
 use GoVoyageBundle\Form\VoitureForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use FOS\UserBundle\Model\UserManager;
-use FOS\UserBundle\Model\UserManagerInterface;
+
 
 class VoitureController extends Controller
 {
     public function indexForAgenceAction(){
+        $user=$this->getUser()->getId();
         $em=$this->getDoctrine()->getManager();
-        $voiture=$em->getRepository("GoVoyageBundle:Voiture")->findAll();
+        //$voiture=$em->getRepository("GoVoyageBundle:Voiture")->findAll()
+        $voiture=$em->getRepository("GoVoyageBundle:Voiture")->findIdParameter($user);
         return $this->render('GoVoyageBundle:Voiture:alvPostChild4.html.twig',array('voitures'=>$voiture));
 
     }
@@ -49,7 +50,7 @@ class VoitureController extends Controller
 
     function ajoutAction(Request $request){
         $voiture=new Voiture();
-
+         $user=$this->getUser();
         if($request->isMethod('POST')) {
             $voiture->setRegno($request->get('regNo'));
             $voiture->setModel($request->get('model'));
@@ -58,7 +59,7 @@ class VoitureController extends Controller
             $voiture->setType($request->get('type'));
             $voiture->setStatus($request->get('status'));
             // $voiture->setClientVoFk($request->get('client_vo_fk'));
-            // $voiture->setAlvVoFk($request->get('	alv_vo_fk'));
+            $voiture->setAlvVoFk($user);
             $voiture->setImgVoiture("images/products/".$request->get('img_voiture'));
             $em = $this->getDoctrine()->getManager();
             $em->persist($voiture);
@@ -110,8 +111,8 @@ class VoitureController extends Controller
             $voiture->setType($request->get('type'));
             $voiture->setStatus($request->get('status'));
             // $voiture->setClientVoFk($request->get('client_vo_fk'));
-            // $voiture->setAlvVoFk($request->get('	alv_vo_fk'));
-            $voiture->setImgVoiture($request->get('img_voiture'));
+             $voiture->setAlvVoFk($voiture->getAlvVoFk());
+            $voiture->setImgVoiture($voiture->getImgVoiture());
             $em = $this->getDoctrine()->getManager();
             $em->persist($voiture);
             $em->flush();
@@ -138,6 +139,7 @@ class VoitureController extends Controller
          $user=$this->getUser();
         $em = $this->getDoctrine()->getManager();
         $voiture=$em->getRepository("GoVoyageBundle:Voiture")->find($id);
+
         if($request->isMethod('POST')) {
 
             $voiture->setRegno($request->get('regNo'));
@@ -155,11 +157,22 @@ class VoitureController extends Controller
             $d2 = new \DateTime($request->get('arrivee'));
             $d2->format('Y-m-d');
             $voiture->setArrivee($d2);
+            $d3=new \DateTime('now');
+            if($d1 >= $d2 or $d1 < $d3){?><script>alert('you have a problem in one of the date');</script> <?php
+                return $this->render("GoVoyageBundle:Voiture:requestRent.html.twig",array('voiture1'=>$voiture));
+            }
+                  $differ=$d1->diff($d2);
+                  $gap=$differ->format('%a');
+                  var_dump($gap);
+            if ($gap>$request->get('duration')){?><script>alert('you have passed the maximum duration');</script> <?php
+                return $this->render("GoVoyageBundle:Voiture:requestRent.html.twig",array('voiture1'=>$voiture));
+            }
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($voiture);
             $em->flush();
             return $this->redirectToRoute('go_voyage_affichevoitureforClient');
+
 
         }
 
@@ -186,3 +199,4 @@ class VoitureController extends Controller
 
 
 }
+?>

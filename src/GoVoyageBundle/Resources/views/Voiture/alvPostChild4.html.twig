@@ -26,14 +26,15 @@
 
 {% block body %}
 
+
     <div class="main-cont">
         <div class="inner-page">
 
             <div class="inner-breadcrumbs">
                 <div class="content-wrapper">
-                    <div class="page-title">portfolio tree columns</div>
+                    <div class="page-title">Listes des Voitures</div>
                     <div class="breadcrumbs">
-                        <a href="#">Home</a> / <span>portfolio tree columns</span>
+                        <a href="#">Home</a> / <span></span>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -89,8 +90,8 @@
                                         <h4 class="modal-title">{{ voiture.model }}{{app.user.id}}</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <b style="font-size: x-large;color: #515e5f;">Model : {{ voiture.model }}</b><br>
-                                        <b style="font-size: x-large;color: #515e5f;">Client : {% if  voiture.clientVoFk!= null%}  {{ voiture.clientVoFk.nom }}{% else %}No Client Yet{% endif %}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">Model : {{ voiture.model}}</b><br>
+                                        <b style="font-size: x-large;color: #515e5f;">Client : 5{% if  voiture.clientVoFk!= null%}  {{ voiture.clientVoFk.nom }}{% else %}No Client Yet{% endif %}</b><br>
                                         <b style="font-size: x-large;color: #515e5f;">NumMatricule : {{ voiture.regno }}</b><br>
                                         <b style="font-size: x-large;color: #515e5f;">status : {{ voiture.status }}</b><br>
                                         <b style="font-size: x-large;color: #515e5f;">alv_vo_fk : {% if  voiture.alvVoFk!= null%}  {{ voiture.alvVoFk.nom }}{% else %}No Client Yet{% endif %}</b><br>
@@ -105,9 +106,9 @@
 
                             </div>
                         </div>
-
-                      {% endfor %}
+                    {% endfor %}
                 </div>
+
 
             </div>
         </div>

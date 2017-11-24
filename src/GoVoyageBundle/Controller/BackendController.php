@@ -94,17 +94,17 @@ class BackendController extends Controller
     public function voitureSupprAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $vo=$em->getRepository("GoVoyageBundle:Voiture")->find($id);
-        $em->remove($vo);
+        $voiture=$em->getRepository("GoVoyageBundle:Voiture")->find($id);
+        $em->remove($voiture);
         $em->flush();
         return $this->redirectToRoute('Backend_voiture_list');
     }
 
     public function listvoitureAdminAction()
     {
-        $user = $this->getUser()->getPrenom();
+
         $em=$this->getDoctrine()->getManager();
         $vols=$em->getRepository("GoVoyageBundle:Voiture")->findAll();
-        return $this->render('GoVoyageBundle:Admin:Voiture_Admin.html.twig',array('vols'=>$vols , 'u' => $user));
+        return $this->render('GoVoyageBundle:Admin:Voiture_Admin.html.twig',array('voitures'=>$vols));
     }
 }
