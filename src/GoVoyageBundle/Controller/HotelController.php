@@ -28,7 +28,38 @@ class HotelController extends Controller
         ));
     }
 
+    public function Listhotel2Action( Request $request)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository('GoVoyageBundle:Users')->createQueryBuilder('bp');
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll();
+        $x=true;
 
+        if ($request->query->getAlnum('filter_nom')) {
+            $queryBuilder->where('bp.nom LIKE :nom')
+                ->setParameter('nom', '%' . $request->query->getAlnum('filter_nom') . '%');
+         $x=false ;
+        }
+        $query = $queryBuilder->getQuery();
+        if($x){
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($hotel,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',2)
+            );
+        }else{
+            $paginator =$this->get('knp_paginator');
+            $res=$paginator->paginate($query,
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',2)
+            );
+            $x = true;
+        }
+
+        return $this->render('GoVoyageBundle:Hotel:listehotel2.html.twig', array(
+            'hotel' => $res,
+        ));
+    }
     public function showAction()
     {
 

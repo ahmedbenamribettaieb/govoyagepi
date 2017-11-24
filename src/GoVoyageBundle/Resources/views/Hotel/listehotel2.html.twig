@@ -1,0 +1,91 @@
+{% extends "GoVoyageBundle::layout_template.html.twig" %}
+
+{% block content %}
+    <div class="side-block fly-in">
+        <div class="side-block-search">
+            <div class="page-search-p">
+                <!-- // -->
+                <div class="srch-tab-line">
+
+                    <form action="{{ path('Listhotel2') }}" method="get">
+                        <label>Place / hotel name</label>
+                        <div >
+                            <input name="filter_nom" type="text">
+                        </div>
+                        <button type="submit" class="srch-btn">Chercher</button>
+                    </form>
+                </div>
+                <!-- // -->
+                <!-- // -->
+
+                <!-- \\ -->
+                <!-- // -->
+
+                <!-- \\ -->
+
+            </div>
+        </div>
+    </div>  {% for hotel in hotel %}
+    {% if hotel.get_the_role() == 'ROLE_HOTEL' %}
+        <div class="catalog-row list-rows">
+            <div class="cat-list-item fly-in">
+                <div class="cat-list-item-l">
+                    <a href="#"><img alt="" src="{{ asset('img/lit-i-01.jpg') }}"></a>
+                </div>
+                <div class="cat-list-item-r">
+                    <div class="cat-list-item-rb">
+                        <div class="cat-list-item-p">
+                            <div class="cat-list-content">
+                                <div class="cat-list-content-a">
+                                    <div class="cat-list-content-l">
+                                        <div class="cat-list-content-lb">
+                                            <div class="cat-list-content-lpadding">
+                                                <div class="offer-slider-link"><a href="#">{{ hotel.nom }}</a></div>
+                                                <div class="offer-slider-location">{{ hotel.adresse }}</div>
+                                                <p>Hotel tres magnifique avec un service super. </p>
+                                                <p>Chambre tres vastes avec un plan magnifique. </p>
+                                                <p>piscine couverte + terrain de tennis + salle de sport. </p>
+
+                                                <div class="cat-icons">
+                                                    <span class="cat-icon-01 active"></span>
+                                                    <span class="cat-icon-02"></span>
+                                                    <span class="cat-icon-03"></span>
+                                                    <span class="cat-icon-04"></span>
+                                                    <span class="cat-icon-05"></span>
+                                                    <span class="cat-icon-06"></span>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br class="clear"/>
+                                    </div>
+                                </div>
+                                <div class="cat-list-content-r">
+                                    <div class="cat-list-content-p">
+                                        {% for i in 1..hotel.note %}
+                                            <img alt="" src="{{ asset('img/chk-star-b.png') }}" />
+                                        {% endfor %}
+                                        {% if hotel.note != 5 %}
+                                            {% for i in hotel.note..4 %}
+                                                <img alt="" src="{{ asset('img/chk-star-a.png') }}" />
+                                            {% endfor %}
+                                        {% endif %}
+                                        <div class="cat-list-review">{{ hotel.note }}/5</div>
+                                        <div class="offer-slider-r">
+                                            <span>rating</span>
+                                        </div>
+                                        <a href="{{ path ('chambre_list' ,{'id':hotel.id})}}" class="cat-list-btn">Select</a>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br class="clear"/>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+{% endblock %}

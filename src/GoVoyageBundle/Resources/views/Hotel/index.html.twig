@@ -1,74 +1,28 @@
 {% extends "GoVoyageBundle::layout_template.html.twig" %}
 
-
 {% block content %}
-
     <div class="side-block fly-in">
         <div class="side-block-search">
             <div class="page-search-p">
                 <!-- // -->
                 <div class="srch-tab-line">
-                    <label>Place / hotel name</label>
-                    <div class="input-a"><input type="text" value=""  placeholder="Example:france"></div>
-                </div>
+
+                <form action="{{ path('Listhotel2') }}" method="get">
+                    <label>hotel name</label>
+                    <div class="input-a">
+                        <input name="filter_nom" type="text">
+                    </div>
+                    <button type="submit" class="srch-btn">Chercher</button>
+                </form>
+            </div>
                 <!-- // -->
                 <!-- // -->
-                <div class="srch-tab-line">
-                    <div class="srch-tab-left">
-                        <label>Check in</label>
-                        <div class="input-a"><input type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span
-                                    class="date-icon"></span></div>
-                    </div>
-                    <div class="srch-tab-right">
-                        <label>Check out</label>
-                        <div class="input-a"><input type="text" value="" class="date-inpt" placeholder="mm/dd/yy"> <span
-                                    class="date-icon"></span></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
+
                 <!-- \\ -->
                 <!-- // -->
-                <div class="srch-tab-line no-margin-bottom">
-                    <div class="srch-tab-3c">
-                        <label>Rooms</label>
-                        <div class="select-wrapper">
-                            <select class="custom-select">
-                                <option>--</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="srch-tab-3c">
-                        <label>adult</label>
-                        <div class="select-wrapper">
-                            <select class="custom-select">
-                                <option>--</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="srch-tab-3c">
-                        <label>Child</label>
-                        <div class="select-wrapper">
-                            <select class="custom-select">
-                                <option>--</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
+
                 <!-- \\ -->
-                <button class="srch-btn">Search</button>
+
             </div>
         </div>
     </div>  {% for hotel in hotel %}
@@ -86,8 +40,8 @@
                                 <div class="cat-list-content-l">
                                     <div class="cat-list-content-lb">
                                         <div class="cat-list-content-lpadding">
-                                            <div class="offer-slider-link"><a href="#">{{ hotel.nom }}</a></div>
-                                            <div class="offer-slider-location">{{ hotel.adresse }}</div>
+                                            <div class="offer-slider-link"><a>{{ hotel.nom }}</a></div>
+                                            <div class="offer-slider-link">{{ hotel.adresse }}</div>
                                             <p>Hotel tres magnifique avec un service super.</p>
                                             <div class="cat-icons">
                                                 <span class="cat-icon-01 active"></span>
@@ -117,7 +71,6 @@
                                     </nav>
                                     <div class="cat-list-review">270 reviews</div>
                                     <div class="offer-slider-r">
-
                                         <span>avg/night</span>
                                     </div>
                                     <a href="{{ path ('chambre_list' ,{'id':hotel.id})}}" class="cat-list-btn">Select</a>

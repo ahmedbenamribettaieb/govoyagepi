@@ -39,6 +39,7 @@ class ChambreController extends Controller
             $em->persist($chambre);
             $em->flush();
 
+            echo "<script> alert(\" votre ajout est effectue avec succes !  \")</script>";
 
         }
         return $this->render("GoVoyageBundle:chambre:new.html.twig", array());
@@ -62,11 +63,11 @@ class ChambreController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            echo "<script> alert(\" votre modification est effectue avec succes !  \")</script>";
             return $this->redirectToRoute('chambre_edit', array('id' => $chambre->getId()));
         }
 
-        return $this->render('GoVoyageBundle:chambre:edit.html.twig', array(
+        return $this->render("GoVoyageBundle:chambre:edit.html.twig", array(
             'chambre' => $chambre,
             'edit_form' => $editForm->createView()
 
@@ -80,6 +81,7 @@ class ChambreController extends Controller
         $chambre = $em->getRepository("GoVoyageBundle:Chambre")->find($chambre->getId());
         $em->remove($chambre);
         $em->flush();
+        echo "<script> alert(\" votre suppression est effectue avec succes !  \")</script>";
         return $this->redirectToRoute("chambre_index");
     }
 
@@ -99,14 +101,17 @@ class ChambreController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $chambre = $em->getRepository('GoVoyageBundle:Chambre')->find($id);
-        $user = $em->getRepository('GoVoyageBundle:Users')->findby($user = $this->getUser()->getId());
+        if($request->isMethod('post')) {
+        $chambre->setDateDebut(new \DateTime($request->get('date_debut')));
+        $chambre->setDateFin(new \DateTime($request->get('date_fin')));
         $chambre->setClientChFk($user = $this->getUser()->getId());
         $em->flush();
-
+            echo "<script> alert(\" votre reservation est effectue avec succes !  \")</script>";
+        }
         $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll();
 
-        return $this->render('GoVoyageBundle:Hotel:index.html.twig', array(
-            'hotel' => $hotel, 'user' => $user));
+        return $this->render('GoVoyageBundle:Hotel:listehotel2.html.twig', array(
+            'hotel' => $hotel));
 
     }
 

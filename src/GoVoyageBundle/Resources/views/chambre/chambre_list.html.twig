@@ -4,6 +4,8 @@
     <div class="main-cont">
         <div class="body-wrapper">
             <div class="wrapper-padding">
+
+
                 <div class="page-head">
                     <div class="page-title">Nos Chambre :</div>
 
@@ -64,77 +66,82 @@
 
                                     {% for chambre in chambre %}
                                         {% if  chambre.clientChFk == NULL %}
-                                            <!--  -->
-                                            <!-- // flight-item // -->
-                                            <div class="flight-item fly-in">
+                                            <form action="{{ path('chambre_reserver',{'id':chambre.id}) }}" method="post">
+                                                <!--  -->
+                                                <!-- // flight-item // -->
+                                                <div class="flight-item fly-in">
 
-                                                <div class="flt-i-a">
-                                                    <div class="flt-i-b">
-                                                        <div class="flt-i-bb">
-                                                            <div class="flt-l-a">
-                                                                <div class="flt-l-b">
-                                                                    <div class="way-lbl">CHAMBRE :</div>
-                                                                    <div class="company"><img alt=""
-                                                                                              src="{{ asset('img/partner-01.png') }}">
+                                                    <div class="flt-i-a">
+                                                        <div class="flt-i-b">
+                                                            <div class="flt-i-bb">
+                                                                <div class="flt-l-a">
+                                                                    <div class="flt-l-b">
+                                                                        <div class="way-lbl">CHAMBRE :</div>
+                                                                        <div class="company"><img alt=""
+                                                                                                  src="{{ asset('img/partner-01.png') }}">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="flt-l-c">
-                                                                    <div class="flt-l-cb">
-                                                                        <div class="flt-l-c-padding">
-                                                                            <div class="flyght-info-head">{{ chambre.id }}</div>
-                                                                            <!-- // -->
-                                                                            <div class="flight-line">
+                                                                    <div class="flt-l-c">
+                                                                        <div class="flt-l-cb">
+                                                                            <div class="flt-l-c-padding">
+                                                                                <div class="flyght-info-head">{{ chambre.id }}</div>
+                                                                                <!-- // -->
+                                                                                <div class="flight-line">
 
-                                                                                <div class="flight-line-a"
-                                                                                     align="center">
-                                                                                    <b>Type de chambre</b>
-                                                                                    <span>{{ chambre.type }}</span>
-
-                                                                                </div>
-
-
-
-
-
-                                                                                <div class="clear"></div>
-                                                                                <!-- // details // -->
-                                                                                <div class="flight-details">
-                                                                                    <div class="flight-details-l">
+                                                                                    <div class="flight-line-a"
+                                                                                         align="center">
+                                                                                        <b>Type de chambre</b>
+                                                                                        <span>{{ chambre.type }}</span>
 
                                                                                     </div>
 
+
+                                                                                    date debut : <input type="date"
+                                                                                                        name="date_debut">
+                                                                                    date fin : <input type="date"
+                                                                                                      name="date_fin">
+
+
                                                                                     <div class="clear"></div>
+                                                                                    <!-- // details // -->
+                                                                                    <div class="flight-details">
+                                                                                        <div class="flight-details-l">
+
+                                                                                        </div>
+
+                                                                                        <div class="clear"></div>
+                                                                                    </div>
+                                                                                    <!-- \\ details \\ -->
                                                                                 </div>
-                                                                                <!-- \\ details \\ -->
+                                                                                <!-- \\ -->
                                                                             </div>
-                                                                            <!-- \\ -->
                                                                         </div>
+                                                                        <br class="clear"/>
                                                                     </div>
-                                                                    <br class="clear"/>
                                                                 </div>
+                                                                <div class="clear"></div>
                                                             </div>
-                                                            <div class="clear"></div>
+                                                            <br class="clear"/>
                                                         </div>
-                                                        <br class="clear"/>
                                                     </div>
-                                                </div>
-                                                <div class="flt-i-c">
-                                                    <div class="flt-i-padding">
-                                                        <div class="flt-i-price-i">
-                                                            <div class="flt-i-price"> cliquez pour reserver</div>
+                                                    <div class="flt-i-c">
+                                                        <div class="flt-i-padding">
+                                                            <div class="flt-i-price-i">
+                                                                <div class="flt-i-price"> cliquez pour reserver</div>
+                                                            </div>
+
+                                                            <button type="submit"
+                                                               href="{{ path('chambre_reserver',{'id':chambre.id}) }}"
+                                                               class="cat-list-btn">reserver
+                                                            </button>
+
                                                         </div>
 
-                                                        <a type="submit"
-                                                                href="{{ path('chambre_reserver',{'id':chambre.id}) }}"
-                                                                class="cat-list-btn">reserver
-                                                        </a>
-
                                                     </div>
 
+                                                    <div class="clear"></div>
                                                 </div>
-
-                                                <div class="clear"></div>
-                                            </div>
+                                            </form>
                                             <!-- \\ flight-item \\ -->
                                         {% endif %}
                                     {% endfor %}
@@ -149,8 +156,9 @@
                         </div>
                         <br class="clear"/>
                     </div>
-                    </form>
+
                 </div>
+
                 <div class="clear"></div>
 
             </div>
