@@ -1,0 +1,16 @@
+hotel_show:
+    path:     /show
+    defaults: { _controller: "GoVoyageBundle:Hotel:show" }
+    methods:  GET
+hotel_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GoVoyageBundle:Hotel:edit" }
+    methods:  [GET, POST]
+hotel_index:
+    path:     /hotel_liste
+    defaults: { _controller: "GoVoyageBundle:Hotel:index" }
+    methods:  GET
+Listhotel2:
+    path:     /list
+    defaults: { _controller: "GoVoyageBundle:Hotel:Listhotel2" }
+    methods:  GET

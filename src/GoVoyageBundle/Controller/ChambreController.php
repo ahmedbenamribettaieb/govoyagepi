@@ -3,8 +3,10 @@
 namespace GoVoyageBundle\Controller;
 
 use GoVoyageBundle\Entity\Chambre;
+use GoVoyageBundle\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken;
 
 /**
  * Chambre controller.
@@ -17,7 +19,7 @@ class ChambreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $chambres = $em->getRepository('GoVoyageBundle:Chambre')->findAll();
+        $chambres = $em->getRepository('GoVoyageBundle:Chambre')->findBy(["hotelChFk" => $this->getUser()->getId()]);
 
         return $this->render('GoVoyageBundle:chambre:index.html.twig', array(
             'chambres' => $chambres,
@@ -37,10 +39,12 @@ class ChambreController extends Controller
             $em->persist($chambre);
             $em->flush();
 
+            echo "<script> alert(\" votre ajout est effectue avec succes !  \")</script>";
 
         }
         return $this->render("GoVoyageBundle:chambre:new.html.twig", array());
     }
+
     public function showAction(Chambre $chambre)
     {
 
@@ -59,11 +63,11 @@ class ChambreController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            echo "<script> alert(\" votre modification est effectue avec succes !  \")</script>";
             return $this->redirectToRoute('chambre_edit', array('id' => $chambre->getId()));
         }
 
-        return $this->render('GoVoyageBundle:chambre:edit.html.twig', array(
+        return $this->render("GoVoyageBundle:chambre:edit.html.twig", array(
             'chambre' => $chambre,
             'edit_form' => $editForm->createView()
 
@@ -73,11 +77,43 @@ class ChambreController extends Controller
 
     public function deleteAction(Chambre $chambre)
     {
-        $em=$this->getDoctrine()->getManager();
-        $chambre=$em->getRepository("GoVoyageBundle:Chambre")->find($chambre->getId());
+        $em = $this->getDoctrine()->getManager();
+        $chambre = $em->getRepository("GoVoyageBundle:Chambre")->find($chambre->getId());
         $em->remove($chambre);
         $em->flush();
+        echo "<script> alert(\" votre suppression est effectue avec succes !  \")</script>";
         return $this->redirectToRoute("chambre_index");
     }
+
+    public function listAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $chambre = $em->getRepository('GoVoyageBundle:Chambre')->findBy(['hotelChFk' => $id]);
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->find($id);
+        return $this->render('GoVoyageBundle:chambre:chambre_list.html.twig', array(
+            'chambre' => $chambre,
+            'hotel' => $hotel,
+        ));
+    }
+
+    public function reserverAction(Request $request, $id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $chambre = $em->getRepository('GoVoyageBundle:Chambre')->find($id);
+        if($request->isMethod('post')) {
+        $chambre->setDateDebut(new \DateTime($request->get('date_debut')));
+        $chambre->setDateFin(new \DateTime($request->get('date_fin')));
+        $chambre->setClientChFk($user = $this->getUser()->getId());
+        $em->flush();
+            echo "<script> alert(\" votre reservation est effectue avec succes !  \")</script>";
+        }
+        $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll();
+
+        return $this->render('GoVoyageBundle:Hotel:listehotel2.html.twig', array(
+            'hotel' => $hotel));
+
+    }
+
 
 }

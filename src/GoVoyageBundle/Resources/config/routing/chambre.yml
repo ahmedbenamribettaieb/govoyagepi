@@ -22,3 +22,12 @@ chambre_delete:
     path:     /{id}/delete
     defaults: { _controller: "GoVoyageBundle:Chambre:delete" }
     methods:  [GET, POST]
+chambre_list:
+    path:     /{id}/chambre_list
+    defaults: { _controller: "GoVoyageBundle:Chambre:list" }
+    methods:  [GET, POST]
+
+chambre_reserver:
+    path:     /{id}
+    defaults: { _controller: "GoVoyageBundle:Chambre:reserver" }
+    methods:  [GET, POST]
