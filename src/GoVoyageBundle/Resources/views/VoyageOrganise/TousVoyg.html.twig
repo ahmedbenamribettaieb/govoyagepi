@@ -2,19 +2,23 @@
 <head>
     {% block head %}
         <meta charset="utf-8"/>
+        <link rel="icon" href="favicon.png"/>
         <meta name="description" content=""/>
         <meta name="keywords" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>{% block title %} Espace Etudiant {% endblock %}</title>
         {% block stylesheet %}
             <link rel="stylesheet"
-                  href="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css') }}">
+                  href="{{ asset('../ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/jquery.formstyler.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/jquery.ui.css') }}">
             <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
             <link rel="stylesheet" href="{{ asset('css/idangerous.swiper.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/rating.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
             <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,700' rel='stylesheet'
+                  type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,800' rel='stylesheet'
                   type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
@@ -24,6 +28,14 @@
                   type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=latin,cyrillic'
                   rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin,cyrillic'
+                  rel='stylesheet' type='text/css'>
+
+            <link rel="stylesheet" id="responsive-css" href="{{ asset('css/responsive.css') }}" type="text/css"
+                  media="all">
+
+            <link rel="stylesheet" id="js_composer_front-css" href="{{ asset('css/js_composer.css') }}" type="text/css"
+                  media="all">
         {% endblock %}
     {% endblock %}
 </head>
@@ -31,31 +43,35 @@
 <!-- // authorize // -->
 <div class="overlay"></div>
 <div class="autorize-popup">
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <br>
-        <br>
-        <br>
-        <br>
-        <div align="center">
-            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-        </div>
+    <div class="autorize-tabs">
+        <a href="#" class="autorize-tab-a current">Sign in</a>
+        <a href="#" class="autorize-tab-b">Register</a>
+        <a href="#" class="autorize-close"></a>
         <div class="clear"></div>
-        <br>
-        <br>
-        <br>
-        <div align="center" >
-
-            <a class="authorize-btn" style="float: none" href="{{ path('fos_user_security_logout') }}">
-                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-            </a>
+    </div>
+    <section class="autorize-tab-content">
+        <div class="autorize-padding">
+            <h6 class="autorize-lbl">Welocome! Login in to Your Accont</h6>
+            <input type="text" value="" placeholder="Name">
+            <input type="text" value="" placeholder="Password">
+            <footer class="autorize-bottom">
+                <button class="authorize-btn">Login</button>
+                <a href="#" class="authorize-forget-pass">Forgot your password?</a>
+                <div class="clear"></div>
+            </footer>
         </div>
-
-    {% else %}
-        {% block fos_user_content %}
-            {{ render(controller('FOSUserBundle:Security:login')) }}
-        {% endblock fos_user_content %}
-    {% endif %}
-
+    </section>
+    <section class="autorize-tab-content">
+        <div class="autorize-padding">
+            <h6 class="autorize-lbl">Register for Your Account</h6>
+            <input type="text" value="" placeholder="Name">
+            <input type="text" value="" placeholder="Password">
+            <footer class="autorize-bottom">
+                <button class="authorize-btn">Registration</button>
+                <div class="clear"></div>
+            </footer>
+        </div>
+    </section>
 </div>
 <!-- \\ authorize \\-->
 <header id="top">
@@ -99,7 +115,12 @@
                     </li>
                     <li><a class="has-child" href="#">Hotels</a>
                         <ul>
-                            <li><a href="{{ path('hotel_index') }}">Hotels standard list</a></li>
+                            <li><a href="hotel_list.html">Hotels standard list</a></li>
+                            <li><a href="hotel_simple_style.html">Hotels simple style</a></li>
+                            <li><a href="hotel_detail_style.html">Hotels detail style</a></li>
+                            <li><a href="hotel_detail.html">Hotel item page</a></li>
+                            <li><a href="hotel_booking.html">Hotel booking page</a></li>
+                            <li><a href="#">booking complete page</a></li>
                         </ul>
                     </li>
                     <li><a class="has-child" href="#">Flights</a>
@@ -186,8 +207,12 @@
                         </li>
                         <li><a href="#">Hotels</a>
                             <ul>
-                                <li><a href="{{ path('hotel_index') }}">Hotels standard list</a></li>
-
+                                <li><a href="hotel_list.html">Hotels standard list</a></li>
+                                <li><a href="hotel_simple_style.html">Hotels simple style</a></li>
+                                <li><a href="hotel_detail_style.html">Hotels detail style</a></li>
+                                <li><a href="hotel_detail.html">Hotel item page</a></li>
+                                <li><a href="hotel_booking.html">Hotel booking page</a></li>
+                                <li><a href="booking_complete.html">booking complete page</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Flights</a>
@@ -200,10 +225,10 @@
                                 <li><a href="booking_complete.html">booking complete</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Voyages</a>
+                        <li><a href="#">Tours</a>
                             <ul>
                                 <li><a href="tour_alternative.html">Tours list style</a></li>
-                                <li><a href="{{ path('voyagepersonalise_index') }}">Mes Voyages Personalisé</a></li>
+                                <li><a href="tour_grid.html">tours grid style</a></li>
                                 <li><a href="tour_simple.html">Tours simple style</a></li>
                                 <li><a href="tour_detail.html">Tour detail page</a></li>
                                 <li><a href="tour_booking.html">tour booking page</a></li>
@@ -233,11 +258,13 @@
                                 <li><a href="standart_blog_post.html">Blog post example</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Profil</a>
+                        <li><a href="#">Features</a>
                             <ul>
-                                <li><a href="{{ path('users_showclient',{ 'id': 7 }) }}">Mon Profil</a></li>
-                                <li><a href="{{ path('users_editclient',{ 'id': 7 }) }}">Editer mon profil</a></li>
-
+                                <li><a href="typography.html">typography</a></li>
+                                <li><a href="shortcodes.html">shortcodes</a></li>
+                                <li><a href="interactive_elements.html">interactive elements</a></li>
+                                <li><a href="cover_galleries.html">cover galleries</a></li>
+                                <li><a href="columns.html">columns</a></li>
                             </ul>
                         </li>
                         <li><a href="contacts.html">Contacts</a></li>
@@ -249,18 +276,126 @@
     </div>
 </header>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 {% block content %}
+
+
+    <div class="main-cont">
+
+        <div class="inner-page">
+            <div class="inner-breadcrumbs">
+                <div class="content-wrapper">
+                    <div class="page-title">Jetez un oeuil sur nos Offres !</div>
+                    <div class="breadcrumbs">
+                        <a href="#">Home</a> / <span>Nos Voyages Organisés</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="blog-page">
+
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <select style="left: 100px" tabindex="-1">
+                    <option></option>
+                    {% for voyage in voyages %}
+                        <option nom="{{ voyage.destination }}">{{ voyage.destination }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="content-wrapper">
+
+
+                <div class="blog-sidebar">
+                    <div class="blog-sidebar-l">
+                        <div class="blog-sidebar-lb">
+                            <div class="blog-sidebar-p">
+
+                                <div class="blog-row">
+                                    <!-- // -->
+                                    {% for voyage in voyages %}
+                                        <div class="blog-post">
+                                            <div class="blog-post-i">
+                                                <div class="blog-post-l">
+                                                    <div class="blog-post-date">
+                                                        <b>{{ voyage.datedebutvoy|date("F jS  ") }}</b>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="blog-post-c">
+                                                    <div class="blog-post-cb">
+
+
+                                                        <div class="blog-post-p">
+
+
+                                                            <div class="blog-post-title"><a name="dest" href="#" style="margin-left: 30px;">{{ voyage.destination }}</a>
+                                                            </div>
+                                                            <div class="blog-post-preview">
+                                                                <div class="blog-post-img">
+
+                                                                    <a href="#"><img alt=""  src="{{ asset(voyage.imagevoyorg) }}"/></a>
+                                                                    <br>
+                                                                    <form method="post"><br>
+                                                                        <a class="footer-subscribe-btn" style="color:white; text-align: center;" href="{{ path('Passer_Voyage_Org',{'idVoyage':voyage.idVoyage}) }}"> read more</a>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- \\ -->
+                                <!-- // -->
+
+                                <!-- \\ -->
+                                <!-- // -->
+
+                                <!-- \\ -->
+                                <!-- // -->
+                                <!-- \\ -->
+                                <!-- // -->
+                                <!-- \\ -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <br class="clear"/>
+                </div>
+            </div>
+            <div class="blog-sidebar-r">
+                <!-- // widget // -->
+
+                <!-- \\ widget \\ -->
+                <!-- // widget // -->
+
+                <!-- \\ widget \\ -->
+                <!-- // widget // -->
+
+                <!-- \\ widget \\ -->
+                <!-- // widget // -->
+
+                <!-- \\ widget \\ -->
+                <!-- // widget // -->
+
+                <!-- \\ widget \\ -->
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+
+    </div>
 
 {% endblock %}
 <!-- /footer -->
@@ -328,53 +463,51 @@
 <script src="{{ asset('js/jquery.1.7.1.js') }}"></script>
 <script src="{{ asset('js/idangerous.swiper.js') }}"></script>
 <script src="{{ asset('js/slideInit.js') }}"></script>
+<script src="{{ asset('js/jquery.ui.js') }}"></script>
 <script src="{{ asset('js/jqeury.appear.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/custom.select.js') }}"></script>
-<script src="{{ asset('ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery_002.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/default.js') }}"></script>
+<script src="{{ asset('../ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/twitterfeed.js') }}"></script>
 
+<!-- \\ scripts \\ -->
 
 <script>
     $(document).ready(function () {
-        $('.date-inpt').datepicker();
-        $('.custom-select').customSelect();
+        $('audio,video').mediaelementplayer();
+        var $slider = $('.blog-post-st').bxSlider({
+            infiniteLoop: true,
+            speed: 600,
+            minSlides: 1,
+            maxSlides: 1,
+            moveSlides: 1,
+            auto: true,
+            slideMargin: 0
+        });
         $(function () {
             $(document.body).on('appear', '.fly-in', function (e, $affected) {
                 $(this).addClass("appeared");
+                $('.about-percent-a').each(function () {
+                    var $value = $(this).attr('data-percentage');
+                    if ($(this).is(':in-viewport')) {
+                        $(this).find('span').animate({
+                            width: $value + '%'
+                        }, 1400);
+                    }
+                });
+
             });
             $('.fly-in').appear({force_process: true});
         });
-
-        $(".owl-slider").owlCarousel({
-            loop: true,
-            margin: 28,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: true
-                },
-                620: {
-                    items: 2,
-                    nav: true
-                },
-                900: {
-                    items: 3,
-                    nav: false
-                },
-                1120: {
-                    items: 4,
-                    nav: true,
-                    loop: false
-                }
-            }
+        $(window).resize(function () {
+            $slider.reloadSlider();
         });
-        $slideHover();
     });
 </script>
-<!-- \\ scripts \\ -->
-
 </body>
+</html>
 </html>

@@ -4,14 +4,17 @@ namespace GoVoyageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser ;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 
 /**
  * Users
  *
  * @ORM\Table(name="users")
  * @ORM\Entity
+ * @Notifiable(name="voyagepersonalise")
  */
-class Users extends BaseUser
+class Users extends BaseUser implements NotifiableInterface
 {
 
     /**

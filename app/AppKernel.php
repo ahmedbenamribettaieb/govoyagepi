@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new blackknight467\StarRatingBundle\StarRatingBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
             new Mgilet\NotificationBundle\MgiletNotificationBundle(),
-            new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

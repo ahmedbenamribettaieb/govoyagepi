@@ -7,6 +7,7 @@ use GoVoyageBundle\Entity\Users;
 use GoVoyageBundle\Entity\Evenement;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Voyagepersonalise controller.
@@ -19,27 +20,7 @@ class VoyagepersonaliseController extends Controller
      *
      */
 
-    /**
-     * @Route("/send-notification", name="send_notification")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function sendNotification(Request $request)
-    {
-        $manager = $this->get('mgilet.notification');
-        $notif = $manager->createNotification('Hello world !');
-        $notif->setMessage('This a notification.');
-        $notif->setLink('http://symfony.com/');
-        // or the one-line method :
-        // $manager->createNotification('Notification subject','Some random text','http://google.fr');
 
-        // you can add a notification to a list of entities
-        // the third parameter ``$flush`` allows you to directly flush the entities
-        $manager->addNotification(array($this->getUser()), $notif, true);
-
-        return $this->redirectToRoute('voyagepersonalise_index');
-
-    }
 
     public function indexAction(Request $request)
     {
@@ -55,6 +36,8 @@ class VoyagepersonaliseController extends Controller
             $request->query->getInt('page',1),
             $request->query->getInt('Limit',20)
         );
+
+
 
         return $this->render('GoVoyageBundle:voyagepersonalise:index.html.twig', array(
             'voyagepersonalises' => $res,'u'=>$user
@@ -146,6 +129,11 @@ class VoyagepersonaliseController extends Controller
         $vol=$em->getRepository("GoVoyageBundle:Voyagepersonalise")->find($id);
         $em->remove($vol);
         $em->flush();
+        $manager = $this->get('mgilet.notification');
+        $notif = $manager->createNotification('Suppression');
+        $notif->setMessage('Suppression d un Voyage personalisé ');
+        $notif->setLink('http://symfony.com/');
+        $manager->addNotification(array($this->getUser()), $notif, true);
         return $this->redirectToRoute('voyagepersonalise_index');
     }
 
@@ -193,6 +181,13 @@ class VoyagepersonaliseController extends Controller
             $em=$this->getDoctrine()->getManager();
             $em->persist($vo);
             $em->flush();
+
+            $manager = $this->get('mgilet.notification');
+            $notif = $manager->createNotification('Ajout');
+            $notif->setMessage('Ajout d un Voyage personalisé ');
+            $notif->setLink('http://symfony.com/');
+            $manager->addNotification(array($this->getUser()), $notif, true);
+
             return $this->redirectToRoute('voyagepersonalise_index');
         }
         return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig',array('users'=>$users,'event'=>$event));
@@ -227,9 +222,29 @@ class VoyagepersonaliseController extends Controller
             $vo->setClientVpFk($user = $this->getUser()->getId());
             $em->persist($vo);
             $em->flush();
+            $manager = $this->get('mgilet.notification');
+            $notif = $manager->createNotification('Modification');
+            $notif->setMessage('Modification d un Voyage personalisé ');
+            $notif->setLink('http://symfony.com/');
+            $manager->addNotification(array($this->getUser()), $notif, true);
             return $this->redirectToRoute('voyagepersonalise_index');
         }
         return $this->render('GoVoyageBundle:voyagepersonalise:edit.html.twig',array("v"=>$vo,'users'=>$users,'event'=>$event));
+    }
+    public function pdfAction()
+    {
+        $snappy = $this->get("knp_snappy.pdf");
+        $filename = "example_voyage_organise";
+        $websiteUrl = "http://www.dossierfamilial.com/consommation/loisirs/voyage-organise-partez-bien-informe-56541";
+
+        return new Response(
+            $snappy->getOutput($websiteUrl),
+            200,
+            array(
+                'Content-Type'=>'application/pdf',
+                'Content-Disposition'=>'inline; filename="'.$filename.'.pdf"'
+            )
+        );
     }
 
 }

@@ -28,12 +28,6 @@ class Voyageorganise
      */
     private $idAgence;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="titreVoyage", type="integer", nullable=true)
-     */
-    private $titrevoyage;
 
     /**
      * @var \DateTime
@@ -84,14 +78,18 @@ class Voyageorganise
      * @ORM\Column(name="nbrePlacesRes", type="integer", nullable=true)
      */
     private $nbreplacesres;
-
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="destination", type="string", nullable=true)
+     */
+    private $destination;
     /**
      * @var string
      *
-     * @ORM\Column(name="image_voyage", type="string", length=255, nullable=false)
+     * @ORM\Column(name="imagevoyorg", type="text", length=65535, nullable=true)
      */
-    private $imageVoyage;
-
+    private $imagevoyorg;
     /**
      * Get idVoyage
      *
@@ -117,6 +115,45 @@ class Voyageorganise
     }
 
     /**
+     * @return int
+     */
+    public function getDestination()
+    {
+        return $this->destination;
+    }
+
+    /**
+     * @param int $destination
+     */
+    public function setDestination($destination)
+    {
+        $this->destination = $destination;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImagevoyorg()
+    {
+        return $this->imagevoyorg;
+    }
+
+    /**
+     * @param int $idVoyage
+     */
+    public function setIdVoyage($idVoyage)
+    {
+        $this->idVoyage = $idVoyage;
+    }
+
+    /**
+     * @param string $imagevoyorg
+     */
+    public function setImagevoyorg($imagevoyorg)
+    {
+        $this->imagevoyorg = $imagevoyorg;
+    }
+    /**
      * Get idAgence
      *
      * @return integer
@@ -126,29 +163,9 @@ class Voyageorganise
         return $this->idAgence;
     }
 
-    /**
-     * Set titrevoyage
-     *
-     * @param integer $titrevoyage
-     *
-     * @return Voyageorganise
-     */
-    public function setTitrevoyage($titrevoyage)
-    {
-        $this->titrevoyage = $titrevoyage;
 
-        return $this;
-    }
 
-    /**
-     * Get titrevoyage
-     *
-     * @return integer
-     */
-    public function getTitrevoyage()
-    {
-        return $this->titrevoyage;
-    }
+    /*
 
     /**
      * Set datedebutvoy
