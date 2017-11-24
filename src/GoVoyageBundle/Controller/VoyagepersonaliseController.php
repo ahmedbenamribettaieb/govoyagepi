@@ -169,7 +169,11 @@ class VoyagepersonaliseController extends Controller
             $d1 = new \DateTime($request->get('dated'));
             $d1->format('Y-m-d');
             $vo->setDateDepart($d1);
-
+            $d3 = new \DateTime('now');
+            $d3->format('Y-m-d');
+            if($d1 >= $d3 ){?><script>alert('you have a problem in one of the date');</script> <?php
+                return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig');
+            }
             $d2 = new \DateTime($request->get('datea'));
             $d2->format('Y-m-d');
             $vo->setDateArrive($d2);
@@ -246,5 +250,4 @@ class VoyagepersonaliseController extends Controller
             )
         );
     }
-
 }
