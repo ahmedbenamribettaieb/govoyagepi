@@ -27,19 +27,5 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jquery" level="application" />
-    <orderEntry type="module-library">
-      <library name="PHP" type="php">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/nomaya/social-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/ob/highcharts-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-json" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/nomaya/social-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/ob/highcharts-bundle" />
-          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-json" />
-        </SOURCES>
-      </library>
-    </orderEntry>
   </component>
 </module>

@@ -172,8 +172,8 @@ input,select,button,textarea {outline:none;}
 .search-footer {border-top:1px solid #f8f1eb;padding:23px 21px 30px 22px;}
 .search-asvanced {display:none;padding-top:17px;}
 
-.overlay {display:none;width:100%;height:100%;background:rgba(20,29,30,0.19);position:fixed;left:0px;top:0px;z-index:9999;}
-.autorize-popup {z-index:9999;width:444px;height:255px;background:#fff;position:fixed;left:50%;top:-300px;margin-top:-128px;margin-left:-222px;}
+.overlay {display:none;width:100%;height:100%;background:rgba(20,29,30,0.19);position:fixed;left:0px;top:0px;z-index:99;}
+.autorize-popup {z-index:99;width:444px;height:590px;background:#fff;position:fixed;left:50%;top:-300px;margin-top:-300px;margin-left:-222px;y-index:}
 .autorize-tab-a {display:block;float:left;width:82px;height:27px;text-align:center;text-decoration:none;font-family: 'Raleway';font-weight:600;font-size:13px;text-transform:uppercase;color:#fff;background:#141d1e;padding-top:12px;}
 .autorize-tab-b {display:block;float:left;width:303px;height:27px;text-decoration:none;font-family: 'Raleway';font-weight:600;font-size:13px;text-transform:uppercase;color:#fff;background:#141d1e;padding-top:12px;padding-left:20px;}
 .autorize-tabs a.current {color:#292828;background:#fff;cursor:default;} 
@@ -206,6 +206,54 @@ input,select,button,textarea {outline:none;}
 	font-weight:600;
 	color:#8a8a8a;	
 	margin-bottom:15px;
+}
+.autorize-tab-content select {
+	background-color: #fff;
+	cursor:pointer;
+	background-image: url(../img/select-bg.gif);
+	background-position: 89% center;
+	background-repeat: no-repeat;
+	border: medium none;
+	border-radius: 0;
+	color: #d3d3d3;
+	font-size:11px;
+	padding:7px 0px 8px 4px;
+	outline: medium none;
+	width: 110%;
+	text-transform:uppercase;
+	font-family:'Raleway';
+	font-weight:600;color:#8a8a8a;
+}
+
+.autorize-tab-content input[type='submit']{
+	display:block;
+	margin-top:24px;
+	width:189px;
+	height:40px;
+	background:#ff7200;
+	color:#fff;
+	text-transform:uppercase;
+	border:0px;
+	cursor:pointer;
+	border-radius:2px;
+	font-size:11px;
+	font-family:'Raleway';
+	font-weight:bold;
+}
+.autorize-tab-content button{
+	display:block;
+	margin-top:24px;
+	width:189px;
+	height:40px;
+	background:#ff7200;
+	color:#fff;
+	text-transform:uppercase;
+	border:0px;
+	cursor:pointer;
+	border-radius:2px;
+	font-size:11px;
+	font-family:'Raleway';
+	font-weight:bold;
 }
 .autorize-tab-content input[type='email'] {
 	border:1px solid #ebebeb;
