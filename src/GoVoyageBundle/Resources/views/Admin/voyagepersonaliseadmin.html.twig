@@ -2,39 +2,6 @@
 {% block username %}
     {{ u }}
 {% endblock %}
-{% block notification %}
-    <li role="presentation" class="dropdown">
-        <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-envelope-o"></i>
-            <span class="badge bg-green">6</span>
-        </a>
-        <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-            {% for i in notif %}
-
-                <li>
-                    <a>
-                        <span class="image"><img src="{{ asset('img/comment-01.png') }}" alt="Profile Image"/></span>
-                        <span>
-                          <span>{{ i.Subject }}</span>
-                          <span class="time">{{ i.date | date("d/m/y") }}</span>
-                        </span>
-                        <span class="message">
-                          {{ i.message }}
-                        </span>
-                    </a>
-                </li>
-            {% endfor %}
-            <li>
-                <div class="text-center">
-                    <a>
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </li>
-{% endblock notification %}
 
 {% block content %}
     <div class="right_col" role="main">
@@ -44,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Voyage Personalié
+                            <h2>Voyage Personalisé
                                 <small> Affichage / Suppression</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
@@ -56,10 +23,17 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-
                             <div class="row">
 
                                 <p>Voyage personalisé List</p>
+
+                                Nom
+                                <form action="{{ path('Backend_vp') }}" method="get">
+                                    <div class="input-a">
+                                        <input name="filter" type="text">
+                                    </div>
+                                    <button type="submit" class="srch-btn">Chercher</button>
+                                </form>
                                 {% for v in voyagepersonalises %}
                                     <div class="col-md-55">
                                         <div class="thumbnail">

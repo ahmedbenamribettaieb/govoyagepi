@@ -57,25 +57,30 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
+
+                            <li><a href="{{ path('_graphePie')}}"><i class="fa fa-bar-chart-o"></i> Statistiques </a>
                             <li>
-                                <a href="{{ path('Backend_vp')}}"><i class="fa fa-home"></i> Voyage personalise</a>
+                                <a href="{{ path('Backend_vp')}}"><i class="fa fa-windows"></i> Voyage personalise</a>
 
                             </li>
-                            <li><a href="{{ path('Backend_client')}}"><i class="fa fa-home"></i> Client</a>
+                            <li><a href="{{ path('Backend_client')}}"><i class="fa fa-windows"></i> Clients</a>
 
                             </li>
-                            <li><a  href="{{ path('Backend_list_vol')}}"><i class="fa fa-desktop"></i> Vol </a>
+                            <li><a href="{{ path('Backend_guide')}}"><i class="fa fa-windows"></i> Guides</a>
+
+                            </li>
+                            <li><a  href="{{ path('Backend_list_vol')}}"><i class="fa fa-windows"></i> Vol </a>
 
                             </li>
                             </li>
-                            <li><a  href="{{ path('Backend_hotel')}}"><i class="fa fa-desktop"></i> Hotel </a>
-
-                            </li>
-                            <li><a  href="{{ path('Backend_voiture_list')}}"><i class="fa fa-desktop"></i> Voiture </a>
+                            <li><a  href="{{ path('Backend_hotel')}}"><i class="fa fa-windows"></i> Hotel </a>
 
                             </li>
                             <li><a href="{{ path('_graphePie')}}"><i class="fa fa-bar-chart-o"></i> Hotels statistiques </a>
                             <li><a href="{{ path('_grapheHistogramme')}}"><i class="fa fa-bar-chart-o"></i> Chambre statistique </a>
+                            <li><a  href="{{ path('Backend_voiture_list')}}"><i class="fa fa-windows"></i> Voiture </a>
+
+                            </li>
 
 
                         </ul>

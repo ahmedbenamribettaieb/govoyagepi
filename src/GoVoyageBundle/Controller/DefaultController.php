@@ -10,6 +10,10 @@ class DefaultController extends Controller
     {
         return $this->render('GoVoyageBundle:Default:index.html.twig');
     }
+    public function homeAction()
+    {
+        return $this->render('GoVoyageBundle:Default:first.html.twig');
+    }
     public function chAction()
     {
         return $this->render('GoVoyageBundle:chambre:layout_template_chambre.html.twig');

@@ -28,6 +28,9 @@ go_voyage_guide:
 go_voyage_homepage:
     path:     /
     defaults: { _controller: GoVoyageBundle:Default:index }
+go_voyage_visitor:
+    path:     /home
+    defaults: { _controller: GoVoyageBundle:Default:home }
 go_voyage_chambre1:
     path:     /ch
     defaults: { _controller: GoVoyageBundle:Default:ch }

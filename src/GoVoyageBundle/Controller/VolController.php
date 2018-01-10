@@ -41,9 +41,8 @@ class VolController extends Controller
                 $request->query->getInt('Limit',10)
 
             );
-            $x = true;
         }
-        return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$res));
+        return $this->render('GoVoyageBundle:Vol:ListVol.html.twig',array("vols"=>$res , 'x'=>$x));
     }
 
     public function List2Action( Request $request)
@@ -72,10 +71,9 @@ class VolController extends Controller
                 $request->query->getInt('Limit',10)
 
             );
-            $x = true;
         }
 
-        return $this->render('GoVoyageBundle:Vol:ListVol_Compagnie.html.twig',array("vols"=>$res));
+        return $this->render('GoVoyageBundle:Vol:ListVol_Compagnie.html.twig',array("vols"=>$res,'x'=>$x));
     }
 
     public function SupprAction($id)
@@ -108,7 +106,7 @@ class VolController extends Controller
             $vol->setDateArrivee($d2);
 
             $d3 = new \DateTime("now");
-            if($d1 > $d2 or $d1 < $d3){?><script>alert('you have a problem in one of the date');</script> <?php
+            if($d1 > $d2 or $d1 < $d3 ){?><script>alert('la date départ doit être supérieure à celle de ce jour et la date arrivée doit être supérieure à celle du départ.');</script> <?php
                 return $this->render('GoVoyageBundle:Vol:ModifVol.html.twig',array("v"=>$vol));
             }
 
@@ -142,15 +140,15 @@ class VolController extends Controller
             $vol->setArrivee($request->get('arrivee'));
             $vol->setNomCompagnie($request->get('nomc'));
             $vol->setPrixVol($request->get('prix'));
-
             $d1 = new \DateTime($request->get('dated'));
             $d1->format('Y-m-d');
             $vol->setDateDepart($d1);
-
             $d2 = new \DateTime($request->get('datea'));
             $d2->format('Y-m-d');
             $vol->setDateArrivee($d2);
-
+            $d3 = new \DateTime("now");
+                if($d1 > $d2 or $d1 < $d3 ){?><script>alert('la date départ doit être supérieure à celle de ce jour et la date arrivée doit être supérieure à celle du départ.');</script> <?php
+                return $this->render('GoVoyageBundle:Vol:AjoutVol.html.twig',array());}
             $em=$this->getDoctrine()->getManager();
             $em->persist($vol);
             $em->flush();
