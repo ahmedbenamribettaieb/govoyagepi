@@ -149,6 +149,7 @@ class VolController extends Controller
             $d3 = new \DateTime("now");
                 if($d1 > $d2 or $d1 < $d3 ){?><script>alert('la date départ doit être supérieure à celle de ce jour et la date arrivée doit être supérieure à celle du départ.');</script> <?php
                 return $this->render('GoVoyageBundle:Vol:AjoutVol.html.twig',array());}
+            $vol->setClientVolFk(0);
             $em=$this->getDoctrine()->getManager();
             $em->persist($vol);
             $em->flush();

@@ -62,10 +62,12 @@
                                                     <label>Hotel associé</label>
                                                     <div class="select-wrapper">
                                                         <select class="custom-select" name="hotelfk" >
-                                                            {% for v in users %}
+                                                            {% for v in user %}
+                                                                {% if v.get_the_role == "ROLE_HOTEL" %}
                                                                 <option value="{{ v.Id }}">
                                                                     {{ v.Nom }}
                                                                 </option>
+                                                            {% endif %}
                                                             {% endfor %}
                                                         </select>
                                                     </div>
@@ -91,6 +93,7 @@
                                             </div>
 
                                         </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>

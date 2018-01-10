@@ -171,7 +171,7 @@ class VoyagepersonaliseController extends Controller
             $vo->setDateDepart($d1);
             $d3 = new \DateTime('now');
             $d3->format('Y-m-d');
-            if($d1 >= $d3 ){?><script>alert('you have a problem in one of the date');</script> <?php
+            if($d1 <= $d3 ){?><script>alert('you have a problem in one of the date');</script> <?php
                 return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig');
             }
             $d2 = new \DateTime($request->get('datea'));
@@ -182,6 +182,7 @@ class VoyagepersonaliseController extends Controller
             $vo->setHotelFk($request->get('hotelfk'));
             $vo->setEvent1Fk($request->get('eventfk'));
             $vo->setClientVpFk($user = $this->getUser()->getId());
+            $vo->setIdGuideFk(0);
             $em=$this->getDoctrine()->getManager();
             $em->persist($vo);
             $em->flush();
@@ -194,7 +195,7 @@ class VoyagepersonaliseController extends Controller
 
             return $this->redirectToRoute('voyagepersonalise_index');
         }
-        return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig',array('users'=>$users,'event'=>$event));
+        return $this->render('GoVoyageBundle:voyagepersonalise:new.html.twig',array('user'=>$users,'event'=>$event));
 
     }
     public function ModifAction(Request $request , $id)
