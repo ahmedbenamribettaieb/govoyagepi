@@ -14,14 +14,12 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
 
     {
-        $builder->add('nom');
-        $builder->add('prenom');
+
         $builder
             ->add('roles', CollectionType::class, array(
                 'entry_type' => ChoiceType::class,
                 'entry_options' => array(
                     'choices' => array(
-
                         'ROLE_HOTEL' => 'ROLE_HOTEL',
                         'ROLE_AGENCE' => 'ROLE_AGENCE',
                         'ROLE_GUIDE' => 'ROLE_GUIDE',

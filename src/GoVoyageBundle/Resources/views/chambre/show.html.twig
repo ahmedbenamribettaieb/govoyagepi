@@ -43,12 +43,11 @@
 
         </tbody>
     </table>
-    </br></br></br>
+    </br></br>
 <div align="center">
-    <a href="{{ path('chambre_edit', { 'id': chambre.id}) }}" class="srch-btn" >Edit</a>
-    <a href="{{ path('chambre_delete', { 'id': chambre.id}) }}" class="srch-btn">delete</a></>
-    <a href="{{ path('chambre_index') }}" class="srch-btn"> Back </a>
+    <a href="{{ path('chambre_edit', { 'id': chambre.id}) }}" class="srch-btn" type="submit" >Modifier</a>
+    <a href="{{ path('chambre_delete', { 'id': chambre.id}) }}" class="srch-btn">Supprimer</a>
+    <a href="{{ path('chambre_index') }}" class="srch-btn"> Retour </a>
 </div>
-
 
 {% endblock %}

@@ -106,7 +106,7 @@ class ChambreController extends Controller
         $chambre->setDateFin(new \DateTime($request->get('date_fin')));
         $chambre->setClientChFk($user = $this->getUser()->getId());
         $em->flush();
-            echo "<script> alert(\" votre reservation est effectue avec succes !  \")</script>";
+            echo "<script> alert(\" le nombre de livre est trop grand !  \")</script>";
         }
         $hotel = $em->getRepository('GoVoyageBundle:Users')->findAll();
 
