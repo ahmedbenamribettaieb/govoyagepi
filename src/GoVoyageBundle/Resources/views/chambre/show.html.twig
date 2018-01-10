@@ -1,6 +1,6 @@
 {% extends 'GoVoyageBundle:chambre:layout_template_chambre.html.twig' %}
 
-{% block ahmed %}
+{% block content %}
     <style>
         table {
 
@@ -28,7 +28,7 @@
     </style>
 
     <c class="side-lbl-a"> your room</c>
-    <table>
+    <table align="center">
         <tbody>
 
         <tr>
@@ -44,9 +44,11 @@
         </tbody>
     </table>
     </br></br></br>
-    <div class="btn-toolbar">
-    <a href="{{ path('chambre_edit', { 'id': chambre.id}) }}" class="srch-btn">Edit</a>
-     <a href="{{ path('chambre_delete', { 'id': chambre.id}) }}" class="srch-btn">delete</a></>
+<div align="center">
+    <a href="{{ path('chambre_edit', { 'id': chambre.id}) }}" class="srch-btn" >Edit</a>
+    <a href="{{ path('chambre_delete', { 'id': chambre.id}) }}" class="srch-btn">delete</a></>
     <a href="{{ path('chambre_index') }}" class="srch-btn"> Back </a>
-    </div>
+</div>
+
+
 {% endblock %}

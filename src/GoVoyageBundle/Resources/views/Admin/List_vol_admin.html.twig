@@ -2,6 +2,7 @@
 {% block username %}
     {{ u }}
     {% endblock %}
+
 {% block content %}
     <div class="right_col" role="main">
         <div class="">
@@ -54,6 +55,9 @@
                                     {% endfor %}
                                 </tbody>
                             </table>
+                        </div>
+                        <div>
+                            Pour ajouter/modifier les vols en tant que Compagnie cliquer <a href="{{ path('List') }}" style="color: deepskyblue">ici</a>
                         </div>
                     </div>
                 </div>

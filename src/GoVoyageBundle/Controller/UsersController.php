@@ -3,8 +3,10 @@
 namespace GoVoyageBundle\Controller;
 
 use GoVoyageBundle\Entity\Users;
+use GoVoyageBundle\GoVoyageBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Users controller.
@@ -152,6 +154,29 @@ class UsersController extends Controller
             ->setAction($this->generateUrl('users_delete', array('id' => $user->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function pdfclientAction()
+    {
+        $user = $this->getUser()->getId();
+        $em=$this->getDoctrine()->getManager();
+        $client=$em->getRepository("GoVoyageBundle:Users")->find($user);
+        $snappy = $this->get("knp_snappy.pdf");
+        $html = $this->renderView('GoVoyageBundle:users:pdf.html.twig',array(
+            "title"=>"Mes Donnees",'user'=>$client
+        ));
+        $filename = "donnes_from_twig";
+        return new Response(
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'=>'application/pdf',
+                'Content-Disposition'=>'inline; filename="'.$filename.'.pdf"'
+            )
+        );
     }
 }

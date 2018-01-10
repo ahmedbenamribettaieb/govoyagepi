@@ -2,6 +2,7 @@
 {% block username %}
     {{ u }}
 {% endblock %}
+
 {% block content %}
     <div class="right_col" role="main">
         <div class="">
@@ -10,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Voyage Personalié
+                            <h2>Voyage Personalisé
                                 <small> Affichage / Suppression</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
@@ -22,10 +23,17 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-
                             <div class="row">
 
                                 <p>Voyage personalisé List</p>
+
+                                Nom
+                                <form action="{{ path('Backend_vp') }}" method="get">
+                                    <div class="input-a">
+                                        <input name="filter" type="text">
+                                    </div>
+                                    <button type="submit" class="srch-btn">Chercher</button>
+                                </form>
                                 {% for v in voyagepersonalises %}
                                     <div class="col-md-55">
                                         <div class="thumbnail">

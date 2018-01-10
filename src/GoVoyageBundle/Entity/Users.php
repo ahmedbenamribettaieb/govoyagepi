@@ -4,14 +4,17 @@ namespace GoVoyageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser ;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 
 /**
  * Users
  *
  * @ORM\Table(name="users")
  * @ORM\Entity
+ * @Notifiable(name="voyagepersonalise")
  */
-class Users extends BaseUser
+class Users extends BaseUser implements NotifiableInterface
 {
 
     /**
@@ -376,7 +379,7 @@ class Users extends BaseUser
      * @return string
      */
     public function get_the_role(){
-            $rolesTab = $this->getRoles();
+        $rolesTab = $this->getRoles();
         if (in_array('ROLE_AGENCE_VOITURE', $rolesTab, true))
             return $redirection="ROLE_AGENCE_VOITURE";
         if (in_array('ROLE_AGENCE', $rolesTab, true))

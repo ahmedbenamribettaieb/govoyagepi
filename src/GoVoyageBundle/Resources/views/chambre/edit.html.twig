@@ -1,61 +1,55 @@
-{% extends 'GoVoyageBundle:chambre:layout_template_chambre.html.twig' %}
+{% extends "GoVoyageBundle:chambre:layout_template_chambre.html.twig" %}
 
-{% block ahmed %}
+{% block content %}
     <h1 align="center">modify your room</h1>
 
     {{ form_start(edit_form) }}
-        <section class="autorize-tab-content" style="display: block;">
-             <div class="autorize-padding">
-                 <div class="page-search-p">
 
-                     <div class="srch-tab-line">
-         <table >
-        <tr >
+    <table align="center">
+        <tr>
             <td class="autorize-lbl">
                 <h4> {{ form_label(edit_form.type) }} </h4>
             </td>
-            <td >
-                {{ form_widget(edit_form.type) }}
+            <td>
+                <div class="input-a">
+                    {{ form_widget(edit_form.type) }}
+                </div>
+
             </td>
         </tr>
-        <tr >
+
+        <tr>
             <td class="autorize-lbl">
                 <h4>{{ form_label(edit_form.prix) }} </h4>
             </td>
-            <td  >
+
+            <td>
+                <div class="input-a">
                 {{ form_widget(edit_form.prix) }}
-            </td>
-        </tr>
-        <tr >
-            <td class="autorize-lbl">
-                <h4>{{ form_label(edit_form.clientChFk) }} </h4>
-            </td >
-            <td >
-                {{ form_widget(edit_form.clientChFk) }}
+                </div>
             </td>
         </tr>
 
 
-        <tr ><td><input type="submit" value="Edit" class="authorize-btn" /></td></tr>
+
         <tr>
+            <td>
+                <input type="submit" value="Edit" class="authorize-btn"/>
+            </td>
 
 
-                <a href="{{ path('chambre_index') }}" class="srch-btn">Back</a>
 
-
+            <td>
+            <a href="{{ path('chambre_index') }}" class="srch-btn">Back</a>
+            </td>
         </tr>
 
     </table>
-        </div>
-                 </div>
-             </div>
 
 
-        </section>
+
+
 
     {{ form_end(edit_form) }}
-
-
-
 
 {% endblock %}

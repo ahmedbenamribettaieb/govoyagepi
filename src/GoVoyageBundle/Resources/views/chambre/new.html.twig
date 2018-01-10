@@ -1,19 +1,22 @@
 {% extends 'GoVoyageBundle:chambre:layout_template_chambre.html.twig' %}
 
-{% block ahmed %}
+{% block content %}
     <form method="POST">
-        <table>
+        <table align="center">
             <tr>
-                <td> type</td>
-                <td><input type="text" name="type"></td>
+                <td class="autorize-lbl"> type</td>
+                <td class="input-a"><input type="text" name="type"></td>
             </tr>
             <tr>
-                <td> prix</td> </br>
-                <td><input type="text" name="prix"></td>
+                <td class="autorize-lbl"> prix</td> </br>
+
+                    <td class="input-a"><input type="text" name="prix"></td>
+
+
             </tr>
 
             <tr>
-                <td><input type="submit" VALUE="submit"></td>
+                <td><input type="submit" VALUE="submit" class="authorize-btn"></td>
             </tr>
         </table>
     </form>

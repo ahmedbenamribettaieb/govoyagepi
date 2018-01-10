@@ -7,9 +7,6 @@ AfficherGuideVpList:
 GuideVpListPostuler:
     path:     /postuler/{id}
     defaults: { _controller: "GoVoyageBundle:Guide:Postuler" }
-GuideVpListPostuler:
-    path:     /postuler/{id}
-    defaults: { _controller: "GoVoyageBundle:Guide:Postuler" }
 GuideDataEdit:
     path:     /DataEdit
     defaults: { _controller: "GoVoyageBundle:Guide:EditData" }

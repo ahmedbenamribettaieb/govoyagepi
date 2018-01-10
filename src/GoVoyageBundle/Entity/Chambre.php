@@ -36,9 +36,10 @@ class Chambre
     private $prix;
 
     /**
+     *
      * @var integer
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumn(name="client_ch_fk", referencedColumnName="id_user")
+     *
+     * @ORM\Column(name="client_ch_fk", type="integer", nullable=false)
      */
     private $clientChFk;
 
@@ -56,6 +57,18 @@ class Chambre
     {
         return $this->id;
     }
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_debut", type="date")
+     */
+    private $date_debut;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_fin", type="date")
+     */
+    private $date_fin;
 
     /**
      * @param int $id
@@ -63,6 +76,38 @@ class Chambre
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateDebut()
+    {
+        return $this->date_debut;
+    }
+
+    /**
+     * @param \DateTime $date_debut
+     */
+    public function setDateDebut($date_debut)
+    {
+        $this->date_debut = $date_debut;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateFin()
+    {
+        return $this->date_fin;
+    }
+
+    /**
+     * @param \DateTime $date_fin
+     */
+    public function setDateFin($date_fin)
+    {
+        $this->date_fin = $date_fin;
     }
 
     /**

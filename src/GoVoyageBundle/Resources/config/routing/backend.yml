@@ -31,3 +31,9 @@ Backend_voiture_list:
 Backend_guide_supp:
     path:     /supprguide/{id}
     defaults: { _controller: "GoVoyageBundle:Backend:guideSuppr" }
+Backend_hotel:
+    path:     /hotel
+    defaults: { _controller: "GoVoyageBundle:Backend:hotel" }
+Backend_hotel_supp:
+    path:     /supprhotel/{id}
+    defaults: { _controller: "GoVoyageBundle:Backend:hotelSuppr" }
