@@ -1,4 +1,4 @@
-{% extends"GoVoyageBundle:Voiture:alvPost.html.twig" %}
+{% extends 'GoVoyageBundle::layout_template.html.twig' %}
 
 
 {% block head %}
@@ -24,7 +24,7 @@
 {% endblock %}
 
 
-{% block body %}
+{% block content %}
 
     <div class="main-cont">
 
@@ -203,6 +203,7 @@
 
 {% block script %}
     <script src="{{asset('js/jquery.1.7.1.js')}}"></script>
+
     <script src="{{asset('js/jqeury.appear.js')}}"></script>
     <script src="{{asset('js/jquery.ui.js')}}"></script>
     <script src="{{asset('js/script.js')}}"></script>

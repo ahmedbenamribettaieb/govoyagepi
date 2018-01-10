@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="chambre", indexes={@ORM\Index(name="client_ch_fk", columns={"client_ch_fk"}), @ORM\Index(name="hotel_ch_fk", columns={"hotel_ch_fk"})})
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="GoVoyageBundle\Repository\ChambreRepository")
  */
 class Chambre
 {

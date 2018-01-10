@@ -93,3 +93,7 @@ mgilet_notifications:
 _graphePie:
     path:     /pie
     defaults: { _controller: GoVoyageBundle:Graphe:chartPie}
+_grapheHistogramme:
+    path:     /histogramme
+    defaults: { _controller:GoVoyageBundle:Graphe:chartHistogramme}
+

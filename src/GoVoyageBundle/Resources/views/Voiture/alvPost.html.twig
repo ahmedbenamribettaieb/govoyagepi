@@ -207,45 +207,10 @@
                 <a href="#" class="menu-btn"></a>
                 <nav class="header-nav">
                     <ul>
-                        <li><a href="#">Home</a>
-                            <ul>
-                                <li><a href="#">Home style one</a></li>
-                                <li><a href="#">Home style two</a></li>
-                                <li><a href="#">Home style three</a></li>
-                                <li><a href="#">Home style four</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="has-child" href="#">Hotels</a>
-                            <ul>
-                                <li><a {% if is_granted('ROLE_CLIENT') %} href="{{ path('chambre_index')}}" {% endif %}>chambres </a> </li>
-                                {# <li><a href="hotel_simple_style.html">Hotels simple style</a></li>
-                                 <li><a href="hotel_detail_style.html">Hotels detail style</a></li>
-                                 <li><a href="hotel_detail.html">Hotel item page</a></li>
-                                 <li><a href="hotel_booking.html">Hotel booking page</a></li>
-                                 <li><a href="#">booking complete page</a></li>#}
-                            </ul>
-                        </li>
-                        <li><a class="has-child" href="#">Flights</a>
-                            <ul>
-                                <li><a href="{{path('ListVol')}}">ListVol</a></li>
 
 
-                                {#<li><a href="flight_one_way.html">flights one way trip</a></li>
-                                <li><a href="flight_alternative.html">flights alternative style</a></li>
-                                <li><a href="flight_detail.html">Flights detail page</a></li>
-                                <li><a href="flight_booking.html">Flights booking page</a></li>
-                                <li><a href="booking_complete.html">booking complete</a></li>#}
-                            </ul>
-                        </li>
-                        <li><a href="#">Tours</a>
-                            <ul>
-                                <li><a {% if is_granted('ROLE_CLIENT') %} href="{{ path('voyagepersonalise_index')}}" {% endif %}>Voyage personnalisé </a> </li>
-                               {# <li><a href="#">Tours simple style</a></li>
-                                <li><a href="#">Tour detail page</a></li>
-                                <li><a href="#">tour booking page</a></li>
-                                <li><a href="#">booking complete</a></li>#}
-                            </ul>
-                        </li>
+
+
                         <li><a href="#">Car Rent</a>
                             <ul>
                                 <li><a {% if is_granted('ROLE_AGENCE_VOITURE') %} href="{{ path('go_voyage_affichevoitureforAgence')}}" {% elseif is_granted('ROLE_CLIENT') %}href="{{ path('go_voyage_affichevoitureforClient')}}"{% endif %}>Cars List </a> </li>
@@ -254,30 +219,9 @@
                                 <li><a href="#">contact us</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Portfolio</a>
-                            <ul>
-                                <li><a href="#">Portfolio three columns</a></li>
-                                <li><a href="#">portfolio four columns</a></li>
-                                <li><a href="#">item page</a></li>
-                                <li><a href="#">Item page full width style</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="#">Blog with sidebar</a></li>
-                                <li><a href="#">blog masonry style</a></li>
-                                <li><a href="#">Blog post example</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Features</a>
-                            <ul>
-                                <li><a href="#">typography</a></li>
-                                <li><a href="#">shortcodes</a></li>
-                                <li><a href="#">interactive elements</a></li>
-                                <li><a href="#">cover galleries</a></li>
-                                <li><a href="#">columns</a></li>
-                            </ul>
-                        </li>
+
+
+
                         <li><a href="#">Contacts</a></li>
                     </ul>
                 </nav>

@@ -9,7 +9,6 @@ imports:
 parameters:
     locale: en
 
-
 framework:
     #esi:             ~
     translator: ~
@@ -95,6 +94,14 @@ knp_paginator:
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
 
+#knp_snappy:
+    #pdf:
+        #enabled:    true
+        #binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        #options:    []
+    #image:
+        #enabled:    true
+        #binary:      "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
 
 nomaya_social:
     buttons:
