@@ -1,6 +1,6 @@
 function dateCompare()
 {
-alert("no");
+
     var startDt = document.getElementsByName("depart").value;
     var endDt = document.getElementsByName("arrivee").value;
     alert("its wrong"+startDt.toString());

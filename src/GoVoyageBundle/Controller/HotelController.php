@@ -38,7 +38,7 @@ class HotelController extends Controller
         if ($request->query->getAlnum('filter_nom')) {
             $queryBuilder->where('bp.nom LIKE :nom')
                 ->setParameter('nom', '%' . $request->query->getAlnum('filter_nom') . '%');
-         $x=false ;
+            $x=false ;
         }
         $query = $queryBuilder->getQuery();
         if($x){

@@ -1,4 +1,4 @@
-{% extends"GoVoyageBundle:Voiture:alvPost.html.twig" %}
+{% extends 'GoVoyageBundle::layout_template.html.twig' %}
 
 
 {% block head %}
@@ -24,15 +24,18 @@
 {% endblock %}
 
 
-{% block body %}
+{% block content %}
+
     <div class="main-cont">
+
         <div class="inner-page">
 
             <div class="inner-breadcrumbs">
                 <div class="content-wrapper">
-                    <div class="page-title">portfolio tree columns</div>
+                    <div class="page-title">Location de Voitures</div>
                     <div class="breadcrumbs">
-                        <a href="{{ path('go_voyage_searchCarForClient') }}">search for Car</a> / <span>portfolio tree columns</span>
+
+                        <a href="{{ path('go_voyage_searchCarForClient') }}">search for Car</a> / <span></span>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -167,12 +170,40 @@
             </div>
         </div>
     </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="theme-teaser">
+        <div class="theme-teaser-padding">
+            <div class="wrapper-padding fly-in">
+                <div class="theme-teaser-l">
+                    <div class="theme-teaser-a">Nous Sommes a vos Services &amp;<br>GoVoyage</div>
+                    <div class="theme-teaser-b">Des Voyages de reve  </div>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/P54wqXYHkYQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="theme-teaser-r"><img alt="" src="{{asset('img/theme.png')}}"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 {% endblock %}
 
 
 {% block script %}
     <script src="{{asset('js/jquery.1.7.1.js')}}"></script>
+
     <script src="{{asset('js/jqeury.appear.js')}}"></script>
     <script src="{{asset('js/jquery.ui.js')}}"></script>
     <script src="{{asset('js/script.js')}}"></script>

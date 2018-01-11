@@ -47,9 +47,9 @@ class GuideController extends Controller
         $userid = $this->getUser()->getId();
         if($user = $this->getUser()->get_the_role() == "ROLE_GUIDE")
         {
-        $vo->setIdGuideFk($userid);
-        $em->persist($vo);
-        $em->flush();
+            $vo->setIdGuideFk($userid);
+            $em->persist($vo);
+            $em->flush();
         }
         $message = \Swift_Message::newInstance()
             ->setSubject('Validation')

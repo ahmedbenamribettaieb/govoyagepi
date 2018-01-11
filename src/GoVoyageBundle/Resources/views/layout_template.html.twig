@@ -106,35 +106,41 @@
                 <ul>
                     <li><a class="has-child" href="#">HOME</a>
                         <ul>
-                            <li><a href="index-2.html">Home style one</a></li>
+                            {#<li><a href="index-2.html">Home style one</a></li>
                             <li><a href="index_02.html">Home style two</a></li>
                             <li><a href="index_03.html">Home style three</a></li>
-                            <li><a href="index_04.html">Home style four</a></li>
+                            <li><a href="index_04.html">Home style four</a></li>#}
                         </ul>
                     </li>
                     <li><a class="has-child" href="#">Hotels</a>
                         <ul>
+                            <li><a {% if is_granted('ROLE_CLIENT') %} href="{{ path('chambre_index')}}" {% endif %}>chambres </a> </li>
+                           {# <li><a href="hotel_simple_style.html">Hotels simple style</a></li>
+                            <li><a href="hotel_detail_style.html">Hotels detail style</a></li>
+                            <li><a href="hotel_detail.html">Hotel item page</a></li>
+                            <li><a href="hotel_booking.html">Hotel booking page</a></li>
+                            <li><a href="#">booking complete page</a></li>#}
                             <li><a href="{{ path('hotel_index') }}">Hotels standard list</a></li>
                         </ul>
                     </li>
                     <li><a class="has-child" href="#">Flights</a>
                         <ul>
-                            <li><a href="flight_round_trip.html">Flights round trip</a></li>
-                            <li><a href="flight_one_way.html">flights one way trip</a></li>
+                            <li><a href="{{path('ListVol')}}">ListVol</a></li>
+                            {#<li><a href="flight_one_way.html">flights one way trip</a></li>
                             <li><a href="flight_alternative.html">flights alternative style</a></li>
                             <li><a href="flight_detail.html">Flights detail page</a></li>
                             <li><a href="flight_booking.html">Flights booking page</a></li>
-                            <li><a href="booking_complete.html">booking complete</a></li>
+                            <li><a href="booking_complete.html">booking complete</a></li>#}
                         </ul>
                     </li>
                     <li><a class="has-child" href="#">Tours</a>
                         <ul>
-                            <li><a href="tour_alternative.html">Tours list style</a></li>
-                            <li><a href="tour_grid.html">tours grid style</a></li>
+                            <li><a {% if is_granted('ROLE_CLIENT') %} href="{{ path('voyagepersonalise_index')}}" {% endif %}>Voyage personnalisé </a> </li>
+                           {# <li><a href="tour_grid.html">tours grid style</a></li>
                             <li><a href="tour_simple.html">Tours simple style</a></li>
                             <li><a href="tour_detail.html">Tour detail page</a></li>
                             <li><a href="tour_booking.html">tour booking page</a></li>
-                            <li><a href="booking_complete.html">booking complete</a></li>
+                            <li><a href="booking_complete.html">booking complete</a></li>#}
                         </ul>
                     </li>
                     <li><a class="has-child" href="#">Pages</a>
@@ -193,7 +199,7 @@
                     <ul>
                         <li><a href="{{ path('go_voyage_visitor') }}">Home</a>
                         </li>
-                        <li><a href="#">Hotels</a>
+                        <li><a href="{{ path('hotel_index') }}">Hotels</a>
                             <ul>
                                 <li><a href="{{ path('hotel_index') }}">Hotels standard list</a></li>
 
@@ -201,47 +207,26 @@
                         </li>
                         <li><a href="{{ path('ListVol') }}">Vols</a>
                         </li>
-                        <li><a href="#">Voyages</a>
+                        <li><a href="{{ path('voyagepersonalise_index') }}">Voyages</a>
                             <ul>
-                                <li><a href="tour_alternative.html">Tours list style</a></li>
                                 <li><a href="{{ path('voyagepersonalise_index') }}">Mes Voyages Personalisé</a></li>
-                                <li><a href="tour_simple.html">Tours simple style</a></li>
-                                <li><a href="tour_detail.html">Tour detail page</a></li>
-                                <li><a href="tour_booking.html">tour booking page</a></li>
-                                <li><a href="booking_complete.html">booking complete</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Pages</a>
-                            <ul>
-                                <li><a href="about_us.html">about us style one</a></li>
 
-                                <li><a href="services.html">services</a></li>
-                                <li><a href="contacts.html">contact us</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Portfolio</a>
+                        <li><a href="#">Voitures</a>
                             <ul>
-                                <li><a href="portfolio_three_collumns.html">Portfolio three columns</a></li>
-                                <li><a href="portfolio_four_collumns.html">portfolio four columns</a></li>
-                                <li><a href="item_page.html">item page</a></li>
-                                <li><a href="item_page_full_width.html">Item page full width style</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="blog_with_sidebar.html">Blog with sidebar</a></li>
-                                <li><a href="blog_masonry.html">blog masonry style</a></li>
-                                <li><a href="standart_blog_post.html">Blog post example</a></li>
+                                <li><a {% if is_granted('ROLE_AGENCE_VOITURE') %} href="{{ path('go_voyage_affichevoitureforAgence')}}" {% elseif is_granted('ROLE_CLIENT') %}href="{{ path('go_voyage_affichevoitureforClient')}}"{% endif %}>Listes De Voitures </a> </li>
+
+                                {% if is_granted('ROLE_AGENCE_VOITURE') %} <li><a href="{{path('go_voyage_ajoutvoiture')}}">Ajout Voiture</a></li>{% endif %}
+
                             </ul>
                         </li>
                         <li><a href="">Profil</a>
                             <ul>
                                 <li><a href="{{ path('users_showclient',{ 'id': 7 }) }}">Mon Profil</a></li>
                                 <li><a href="{{ path('users_editclient',{ 'id': 7 }) }}">Editer mon profil</a></li>
-
                             </ul>
                         </li>
-                        <li><a href="contacts.html">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
@@ -249,6 +234,7 @@
         </div>
     </div>
 </header>
+
 
 <br>
 <br>
@@ -264,6 +250,10 @@
 {% block content %}
 
 {% endblock %}
+
+
+
+<div></div>
 <!-- /footer -->
 <footer class="footer-a">
     <div class="wrapper-padding">
@@ -322,6 +312,7 @@
         </div>
         <div class="clear"></div>
     </div>
+
 </footer>
 <!-- /footer -->
 
@@ -376,6 +367,8 @@
     });
 </script>
 <!-- \\ scripts \\ -->
+{% block script %}
 
+{% endblock %}
 </body>
 </html>

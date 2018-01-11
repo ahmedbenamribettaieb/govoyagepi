@@ -15,7 +15,7 @@ class ChambreType extends AbstractType
     {
         $builder->add('type')->add('prix')    ;
     }
-    
+
     /**
      * {@inheritdoc}
      */

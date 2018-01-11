@@ -150,7 +150,7 @@ class VoyagepersonaliseController extends Controller
             ->setAction($this->generateUrl('voyagepersonalise_delete', array('idVp' => $voyagepersonalise->getIdvp())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
     public function AjoutAction(Request $request)
     {

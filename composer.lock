@@ -1199,16 +1199,16 @@
         },
         {
             "name": "mgilet/notification-bundle",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximilienGilet/notification-bundle.git",
-                "reference": "9dd5b73d0aeca6f4cd6a55d884e32e915e1fbb39"
+                "reference": "7cbc4d5b6b04d978111afc14d867749af965d3e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximilienGilet/notification-bundle/zipball/9dd5b73d0aeca6f4cd6a55d884e32e915e1fbb39",
-                "reference": "9dd5b73d0aeca6f4cd6a55d884e32e915e1fbb39",
+                "url": "https://api.github.com/repos/maximilienGilet/notification-bundle/zipball/7cbc4d5b6b04d978111afc14d867749af965d3e0",
+                "reference": "7cbc4d5b6b04d978111afc14d867749af965d3e0",
                 "shasum": ""
             },
             "require": {
@@ -1241,7 +1241,7 @@
             "keywords": [
                 "symfony notification bundle simple"
             ],
-            "time": "2017-11-15T14:33:20+00:00"
+            "time": "2017-11-24T08:47:45+00:00"
         },
         {
             "name": "monolog/monolog",

@@ -1,4 +1,4 @@
-{% extends"GoVoyageBundle:Voiture:alvPost.html.twig" %}
+{% extends 'GoVoyageBundle::layout_template.html.twig' %}
 
 
 {% block head %}
@@ -24,14 +24,14 @@
 {% endblock %}
 
 
-{% block body %}
+{% block content %}
 
     <div class="body-wrapper">
         <div class="wrapper-padding">
             <div class="page-head">
-                <div class="page-title">Voiture - <span>Ajout</span></div>
+                <div class="page-title">Car - <span>Search For Car</span></div>
                 <div class="breadcrumbs">
-                    <a href="#">Home</a> / <a href="{{path('go_voyage_affichevoitureforAgence')}}">Liste De Voiture</a> / <span>hotel booking</span>
+                    <a href="#">Home</a> / <a href="{{path('go_voyage_affichevoitureforAgence')}}">Cars List</a> / <span></span>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -43,19 +43,14 @@
 
 
 
-                    <div class="h-help">
-                        <div class="h-help-lbl">Need Sparrow Help?</div>
-                        <div class="h-help-lbl-a">We would be happy to help you!</div>
-                        <div class="h-help-phone">2-800-256-124 23</div>
-                        <div class="h-help-email">sparrow@mail.com</div>
-                    </div>
+
 
                 </div>
                 <div class="clear"></div>
                 <form method="GET">
                     <div class="bookin-three-coll">
                         <div class="booking-form-i">
-                            <label>Model Search:</label>
+                            <label>Car Search:</label>
                             <div class="input"><input type="text" value="" name="model"/></div>
                         </div>
 

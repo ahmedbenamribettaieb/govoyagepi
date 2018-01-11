@@ -379,7 +379,7 @@ class Users extends BaseUser implements NotifiableInterface
      * @return string
      */
     public function get_the_role(){
-            $rolesTab = $this->getRoles();
+        $rolesTab = $this->getRoles();
         if (in_array('ROLE_AGENCE_VOITURE', $rolesTab, true))
             return $redirection="ROLE_AGENCE_VOITURE";
         if (in_array('ROLE_AGENCE', $rolesTab, true))

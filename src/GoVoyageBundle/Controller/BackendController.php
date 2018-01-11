@@ -38,9 +38,9 @@ class BackendController extends Controller
         if($x){
             $paginator =$this->get('knp_paginator');
             $res=$paginator->paginate($voyagepersonalises,
-            $request->query->getInt('page',1),
-            $request->query->getInt('Limit',10)
-        );}else{
+                $request->query->getInt('page',1),
+                $request->query->getInt('Limit',10)
+            );}else{
             $paginator =$this->get('knp_paginator');
             $res=$paginator->paginate($query,
                 $request->query->getInt('page',1),
@@ -171,18 +171,18 @@ class BackendController extends Controller
     public function voitureSupprAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $vo=$em->getRepository("GoVoyageBundle:Voiture")->find($id);
-        $em->remove($vo);
+        $voiture=$em->getRepository("GoVoyageBundle:Voiture")->find($id);
+        $em->remove($voiture);
         $em->flush();
         return $this->redirectToRoute('Backend_voiture_list');
     }
 
     public function listvoitureAdminAction()
     {
-        $user = $this->getUser()->getPrenom();
+
         $em=$this->getDoctrine()->getManager();
         $vols=$em->getRepository("GoVoyageBundle:Voiture")->findAll();
-        return $this->render('GoVoyageBundle:Admin:Voiture_Admin.html.twig',array('vols'=>$vols , 'u' => $user));
+        return $this->render('GoVoyageBundle:Admin:Voiture_Admin.html.twig',array('voitures'=>$vols));
     }
     public function hotelAction()
     {

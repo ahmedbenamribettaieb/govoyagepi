@@ -1,20 +1,20 @@
 {% extends "GoVoyageBundle::layout_admin.html.twig" %}
 {% block username %}
-    {{ u }}
+
 {% endblock %}
 {% block content %}
     <div class="right_col" role="main">
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Liste des vols :</h3>
+                    <h3>Liste des voitures :</h3>
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Vous pouvez consulter les vols ici :</h2>
+                        <h2>Vous pouvez consulter les volitures ici :</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -45,9 +45,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for v in vols %}
+                                {% for v in voitures %}
                                     <tr class="even pointer">
-                                        <td class=" ">{{ v.model }}</td>
+                                        <td class=" ">{{ v.model }}{{ v.id_voiture }}</td>
                                         <td class=" ">{{ v.regno }} </td>
                                         <td class=" ">{{ v.type }} <i class="success fa fa-long-arrow-up"></i></td>
                                         <td class=" ">{{ v.duration }}</td>
@@ -56,7 +56,7 @@
                                         <td class=" ">{{ v.arrivee |date("d-m-y") }}</td>
                                         <td class=" ">{{ v.clientVoFk }}</td>
                                         <td class="a-right a-right ">{{ v.rate }}</td>
-                                        <td class=" last"><a href="{{ path('Backend_voiture_supp',{'id':v.id_Voiture}) }}">Supprimer ce vol</a>
+                                        <td class=" last"><a href="{{ path('Backend_voiture_supp',{'id':v.id_voiture}) }}">Supprimer ce voiture</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
